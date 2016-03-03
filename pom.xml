@@ -24,6 +24,7 @@
 	<modules>
 		<module>app-starters-dependencies</module>
 		<module>time</module>
+		<module>log</module>
 	</modules>
 	<build>
 		<pluginManagement>
