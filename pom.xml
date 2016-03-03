@@ -22,7 +22,8 @@
 	</properties>
 
 	<modules>
-		<module>spring-cloud-stream-app-dependencies-parent</module>
+		<module>app-starters-dependencies</module>
+		<module>time</module>
 	</modules>
 	<build>
 		<pluginManagement>
