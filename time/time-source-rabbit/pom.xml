@@ -34,7 +34,7 @@
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud.stream.app</groupId>
-                <artifactId>app-starters-dependencies</artifactId>
+                <artifactId>spring-cloud-stream-app-dependencies</artifactId>
                 <version>1.0.0.BUILD-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>

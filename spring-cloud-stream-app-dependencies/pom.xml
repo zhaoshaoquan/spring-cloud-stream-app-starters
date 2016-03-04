@@ -11,10 +11,10 @@
 	</parent>
 
 	<groupId>org.springframework.cloud.stream.app</groupId>
-	<artifactId>app-starters-dependencies</artifactId>
+	<artifactId>spring-cloud-stream-app-dependencies</artifactId>
 	<version>1.0.0.BUILD-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>app-starters-dependencies</name>
+	<name>spring-cloud-stream-app-dependencies</name>
 	<description>Spring Cloud Stream App Starters Dependencies</description>
 
 	<dependencyManagement>

@@ -13,20 +13,34 @@
 
     <modules>
         <module>spring-cloud-starter-stream-source-time</module>
-        <module>time-dependencies</module>
         <module>time-source-kafka</module>
         <module>time-source-rabbit</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+
+            <!-- This dependency will be moved to spring cloud streams soon.
+            Change accordingly when that happens -->
             <dependency>
-                <groupId>org.springframework.cloud.stream.app</groupId>
-                <artifactId>time-dependencies</artifactId>
+                <groupId>org.springframework.cloud.stream.module</groupId>
+                <artifactId>spring-cloud-stream-modules-common-configuration</artifactId>
                 <version>1.0.0.BUILD-SNAPSHOT</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.cloud</groupId>
+                        <artifactId>spring-cloud-stream-binder-redis</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-stream-test-support</artifactId>
+                <version>${spring-cloud-stream.version}</version>
+                <scope>test</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
