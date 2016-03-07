@@ -20,10 +20,10 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.app.annotation.PollableSource;
+import org.springframework.cloud.stream.app.trigger.TriggerConfiguration;
+import org.springframework.cloud.stream.app.trigger.TriggerProperties;
 import org.springframework.cloud.stream.messaging.Source;
-import org.springframework.cloud.stream.module.annotation.PollableSource;
-import org.springframework.cloud.stream.module.trigger.TriggerConfiguration;
-import org.springframework.cloud.stream.module.trigger.TriggerProperties;
 import org.springframework.context.annotation.Import;
 
 /**

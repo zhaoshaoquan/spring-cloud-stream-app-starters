@@ -15,8 +15,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.cloud.stream.module</groupId>
-			<artifactId>spring-cloud-stream-modules-common-configuration</artifactId>
+			<groupId>org.springframework.cloud.stream.app</groupId>
+			<artifactId>app-starters-common</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

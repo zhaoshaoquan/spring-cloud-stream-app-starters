@@ -26,8 +26,10 @@
 
 	<modules>
 		<module>spring-cloud-stream-app-dependencies</module>
+		<module>app-starters-common</module>
 		<module>time</module>
 		<module>log</module>
+		<module>file</module>
 	</modules>
 	<build>
 		<pluginManagement>
@@ -46,6 +48,7 @@
 						<redirectTestOutputToFile>true</redirectTestOutputToFile>
 					</configuration>
 				</plugin>
+
 			</plugins>
 		</pluginManagement>
 	</build>
