@@ -13,9 +13,8 @@
 
     <modules>
         <module>spring-cloud-starter-stream-source-http</module>
-        <!--<module>spring-cloud-starter-stream-sink-file</module>-->
-        <!--<module>log-sink-kafka</module>-->
-        <!--<module>log-sink-rabbit</module>-->
+        <module>http-source-kafka</module>
+        <module>http-source-rabbit</module>
     </modules>
 
     <dependencyManagement>
