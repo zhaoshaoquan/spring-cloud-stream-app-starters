@@ -30,6 +30,7 @@
 		<module>time</module>
 		<module>log</module>
 		<module>file</module>
+		<module>http</module>
 	</modules>
 	<build>
 		<pluginManagement>
