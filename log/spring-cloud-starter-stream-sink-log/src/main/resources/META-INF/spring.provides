@@ -1,1 +1,1 @@
-provides: log-sink-spring-boot-starter
+provides: spring-cloud-starter-stream-sink-log

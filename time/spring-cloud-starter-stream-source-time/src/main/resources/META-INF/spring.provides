@@ -1,1 +1,1 @@
-provides: time-source-spring-boot-starter
+provides: spring-cloud-starter-stream-source-time
