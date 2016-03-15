@@ -8,9 +8,9 @@
     <description>Spring Cloud Stream log-sink rabbit app</description>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.3.3.RELEASE</version>
+        <groupId>org.springframework.cloud.stream.app</groupId>
+        <artifactId>spring-cloud-stream-app-parent</artifactId>
+        <version>1.0.0.BUILD-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
