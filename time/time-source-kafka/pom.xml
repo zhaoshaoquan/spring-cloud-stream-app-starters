@@ -8,8 +8,8 @@
     <description>Spring Cloud Stream time-source kafka app</description>
 
     <parent>
-        <groupId>org.springframework.cloud.stream.app</groupId>
-        <artifactId>spring-cloud-stream-app-parent</artifactId>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-stream-parent</artifactId>
         <version>1.0.0.BUILD-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
