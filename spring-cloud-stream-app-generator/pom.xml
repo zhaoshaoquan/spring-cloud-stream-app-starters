@@ -18,14 +18,55 @@
                 <artifactId>spring-cloud-stream-app-maven-plugin</artifactId>
                 <version>1.0-SNAPSHOT</version>
                 <configuration>
-                    <baseDirectory>binder-apps</baseDirectory>
+                    <javaVersion>1.7</javaVersion>
+                    <generatedProjectHome>${session.executionRootDirectory}/apps</generatedProjectHome>
+                    <bom>
+                        <name>scs-bom</name>
+                        <groupId>org.springframework.cloud.stream.app</groupId>
+                        <artifactId>spring-cloud-stream-app-dependencies</artifactId>
+                        <version>1.0.0.BUILD-SNAPSHOT</version>
+                    </bom>
+                    <generatedApps>
+                        <time-source-kafka>
+                            <groupId>org.springframework.cloud.stream</groupId>
+                            <description>Spring Cloud Stream Time Source With Kafka Binder</description>
+                            <packageName>org.springframework.cloud.stream.app.time</packageName>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>org.springframework.cloud.stream.app</groupId>
+                                    <artifactId>spring-cloud-starter-stream-source-time</artifactId>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.springframework.cloud</groupId>
+                                    <artifactId>spring-cloud-stream-binder-kafka</artifactId>
+                                </dependency>
+                            </dependencies>
+                        </time-source-kafka>
+                        <time-source-rabbit>
+                            <groupId>org.springframework.cloud.stream</groupId>
+                            <description>Spring Cloud Stream Time Source With Rabbit Binder</description>
+                            <packageName>org.springframework.cloud.stream.app.time</packageName>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>org.springframework.cloud.stream.app</groupId>
+                                    <artifactId>spring-cloud-starter-stream-source-time</artifactId>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.springframework.cloud</groupId>
+                                    <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+                                </dependency>
+                            </dependencies>
+                        </time-source-rabbit>
+                    </generatedApps>
+
+
                 </configuration>
                 <executions>
                     <execution>
                         <phase>package</phase>
-                        <goals>
-                        <goal>generate-binder-app</goal>
-                        </goals>
+                        <!--<goals>-->
+                        <!--<goal>generate-binder-app</goal>-->
+                        <!--</goals>-->
                     </execution>
                 </executions>
             </plugin>
