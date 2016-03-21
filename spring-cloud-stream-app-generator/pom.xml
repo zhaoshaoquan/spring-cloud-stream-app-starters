@@ -19,7 +19,6 @@
                 <version>1.0-SNAPSHOT</version>
                 <configuration>
                     <javaVersion>1.7</javaVersion>
-                    <generatedProjectHome>${session.executionRootDirectory}/apps</generatedProjectHome>
                     <bom>
                         <name>scs-bom</name>
                         <groupId>org.springframework.cloud.stream.app</groupId>
@@ -28,6 +27,7 @@
                     </bom>
                     <generatedApps>
                         <time-source-kafka>
+                            <generatedProjectHome>${session.executionRootDirectory}/time/apps</generatedProjectHome>
                             <groupId>org.springframework.cloud.stream</groupId>
                             <description>Spring Cloud Stream Time Source With Kafka Binder</description>
                             <packageName>org.springframework.cloud.stream.app.time</packageName>
@@ -43,6 +43,7 @@
                             </dependencies>
                         </time-source-kafka>
                         <time-source-rabbit>
+                            <generatedProjectHome>${session.executionRootDirectory}/time/apps</generatedProjectHome>
                             <groupId>org.springframework.cloud.stream</groupId>
                             <description>Spring Cloud Stream Time Source With Rabbit Binder</description>
                             <packageName>org.springframework.cloud.stream.app.time</packageName>
