@@ -58,6 +58,140 @@
                                 </dependency>
                             </dependencies>
                         </time-source-rabbit>
+
+
+                        <http-source-kafka>
+                            <generatedProjectHome>${session.executionRootDirectory}/http/apps</generatedProjectHome>
+                            <groupId>org.springframework.cloud.stream</groupId>
+                            <description>Spring Cloud Stream HTTP Source With Kafka Binder</description>
+                            <packageName>org.springframework.cloud.stream.app.http</packageName>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>org.springframework.cloud.stream.app</groupId>
+                                    <artifactId>spring-cloud-starter-stream-source-http</artifactId>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.springframework.cloud</groupId>
+                                    <artifactId>spring-cloud-stream-binder-kafka</artifactId>
+                                </dependency>
+                            </dependencies>
+                        </http-source-kafka>
+                        <http-source-rabbit>
+                            <generatedProjectHome>${session.executionRootDirectory}/http/apps</generatedProjectHome>
+                            <groupId>org.springframework.cloud.stream</groupId>
+                            <description>Spring Cloud Stream HTTP Source With Rabbit Binder</description>
+                            <packageName>org.springframework.cloud.stream.app.http</packageName>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>org.springframework.cloud.stream.app</groupId>
+                                    <artifactId>spring-cloud-starter-stream-source-http</artifactId>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.springframework.cloud</groupId>
+                                    <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+                                </dependency>
+                            </dependencies>
+                        </http-source-rabbit>
+
+                        <file-source-kafka>
+                            <generatedProjectHome>${session.executionRootDirectory}/file/apps</generatedProjectHome>
+                            <groupId>org.springframework.cloud.stream</groupId>
+                            <description>Spring Cloud Stream File Source With Kafka Binder</description>
+                            <packageName>org.springframework.cloud.stream.app.file</packageName>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>org.springframework.cloud.stream.app</groupId>
+                                    <artifactId>spring-cloud-starter-stream-source-file</artifactId>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.springframework.cloud</groupId>
+                                    <artifactId>spring-cloud-stream-binder-kafka</artifactId>
+                                </dependency>
+                            </dependencies>
+                        </file-source-kafka>
+                        <file-source-rabbit>
+                            <generatedProjectHome>${session.executionRootDirectory}/file/apps</generatedProjectHome>
+                            <groupId>org.springframework.cloud.stream</groupId>
+                            <description>Spring Cloud Stream File Source With Rabbit Binder</description>
+                            <packageName>org.springframework.cloud.stream.app.file</packageName>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>org.springframework.cloud.stream.app</groupId>
+                                    <artifactId>spring-cloud-starter-stream-source-file</artifactId>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.springframework.cloud</groupId>
+                                    <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+                                </dependency>
+                            </dependencies>
+                        </file-source-rabbit>
+
+
+                        <file-sink-kafka>
+                            <generatedProjectHome>${session.executionRootDirectory}/file/apps</generatedProjectHome>
+                            <groupId>org.springframework.cloud.stream</groupId>
+                            <description>Spring Cloud Stream File Sink With Kafka Binder</description>
+                            <packageName>org.springframework.cloud.stream.app.file</packageName>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>org.springframework.cloud.stream.app</groupId>
+                                    <artifactId>spring-cloud-starter-stream-sink-file</artifactId>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.springframework.cloud</groupId>
+                                    <artifactId>spring-cloud-stream-binder-kafka</artifactId>
+                                </dependency>
+                            </dependencies>
+                        </file-sink-kafka>
+                        <file-sink-rabbit>
+                            <generatedProjectHome>${session.executionRootDirectory}/file/apps</generatedProjectHome>
+                            <groupId>org.springframework.cloud.stream</groupId>
+                            <description>Spring Cloud Stream File Sink With Rabbit Binder</description>
+                            <packageName>org.springframework.cloud.stream.app.file</packageName>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>org.springframework.cloud.stream.app</groupId>
+                                    <artifactId>spring-cloud-starter-stream-sink-file</artifactId>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.springframework.cloud</groupId>
+                                    <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+                                </dependency>
+                            </dependencies>
+                        </file-sink-rabbit>
+
+                        <log-sink-kafka>
+                            <generatedProjectHome>${session.executionRootDirectory}/log/apps</generatedProjectHome>
+                            <groupId>org.springframework.cloud.stream</groupId>
+                            <description>Spring Cloud Stream Log Sink With Kafka Binder</description>
+                            <packageName>org.springframework.cloud.stream.app.log</packageName>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>org.springframework.cloud.stream.app</groupId>
+                                    <artifactId>spring-cloud-starter-stream-sink-log</artifactId>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.springframework.cloud</groupId>
+                                    <artifactId>spring-cloud-stream-binder-kafka</artifactId>
+                                </dependency>
+                            </dependencies>
+                        </log-sink-kafka>
+                        <log-sink-rabbit>
+                            <generatedProjectHome>${session.executionRootDirectory}/log/apps</generatedProjectHome>
+                            <groupId>org.springframework.cloud.stream</groupId>
+                            <description>Spring Cloud Stream Log Sink With Rabbit Binder</description>
+                            <packageName>org.springframework.cloud.stream.app.log</packageName>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>org.springframework.cloud.stream.app</groupId>
+                                    <artifactId>spring-cloud-starter-stream-sink-log</artifactId>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.springframework.cloud</groupId>
+                                    <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+                                </dependency>
+                            </dependencies>
+                        </log-sink-rabbit>
                     </generatedApps>
 
 
