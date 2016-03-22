@@ -13,8 +13,6 @@
 
     <modules>
         <module>spring-cloud-starter-stream-source-http</module>
-        <module>http-source-kafka</module>
-        <module>http-source-rabbit</module>
     </modules>
 
     <dependencyManagement>

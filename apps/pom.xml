@@ -2,11 +2,19 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.springframework.cloud.stream.app</groupId>
-  <artifactId>/Users/schacko/spring/spring-cloud-stream-app-starters/apps</artifactId>
+  <groupId>org.springframework.cloud.stream</groupId>
+  <artifactId>file-sink-kafka</artifactId>
   <version>1.0.0.BUILD-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
+    <module>file-sink-kafka</module>
+    <module>file-sink-rabbit</module>
+    <module>file-source-kafka</module>
+    <module>file-source-rabbit</module>
+    <module>http-source-kafka</module>
+    <module>http-source-rabbit</module>
+    <module>log-sink-kafka</module>
+    <module>log-sink-rabbit</module>
     <module>time-source-kafka</module>
     <module>time-source-rabbit</module>
   </modules>

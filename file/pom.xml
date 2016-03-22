@@ -14,10 +14,6 @@
     <modules>
         <module>spring-cloud-starter-stream-source-file</module>
         <module>spring-cloud-starter-stream-sink-file</module>
-        <module>file-source-kafka</module>
-        <module>file-source-rabbit</module>
-        <module>file-sink-kafka</module>
-        <module>file-sink-rabbit</module>
     </modules>
 
     <dependencyManagement>

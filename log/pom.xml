@@ -13,8 +13,6 @@
 
     <modules>
         <module>spring-cloud-starter-stream-sink-log</module>
-        <module>log-sink-kafka</module>
-        <module>log-sink-rabbit</module>
     </modules>
 
     <dependencyManagement>

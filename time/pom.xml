@@ -13,8 +13,6 @@
 
     <modules>
         <module>spring-cloud-starter-stream-source-time</module>
-        <module>time-source-kafka</module>
-        <module>time-source-rabbit</module>
     </modules>
 
     <dependencyManagement>
