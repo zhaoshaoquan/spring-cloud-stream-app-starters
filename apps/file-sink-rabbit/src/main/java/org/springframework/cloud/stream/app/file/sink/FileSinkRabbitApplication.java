@@ -1,12 +1,12 @@
-package org.springframework.cloud.stream.app.http;
+package org.springframework.cloud.stream.app.file.sink;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HttpSourceRabbitApplication {
+public class FileSinkRabbitApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HttpSourceRabbitApplication.class, args);
+		SpringApplication.run(FileSinkRabbitApplication.class, args);
 	}
 }

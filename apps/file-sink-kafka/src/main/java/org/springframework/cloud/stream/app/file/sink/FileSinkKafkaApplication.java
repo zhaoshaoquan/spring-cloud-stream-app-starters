@@ -1,12 +1,12 @@
-package org.springframework.cloud.stream.app.file;
+package org.springframework.cloud.stream.app.file.sink;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FileSinkRabbitApplication {
+public class FileSinkKafkaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FileSinkRabbitApplication.class, args);
+		SpringApplication.run(FileSinkKafkaApplication.class, args);
 	}
 }

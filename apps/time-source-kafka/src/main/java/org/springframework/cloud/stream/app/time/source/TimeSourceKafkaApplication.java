@@ -1,12 +1,12 @@
-package org.springframework.cloud.stream.app.log;
+package org.springframework.cloud.stream.app.time.source;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LogSinkKafkaApplication {
+public class TimeSourceKafkaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LogSinkKafkaApplication.class, args);
+		SpringApplication.run(TimeSourceKafkaApplication.class, args);
 	}
 }

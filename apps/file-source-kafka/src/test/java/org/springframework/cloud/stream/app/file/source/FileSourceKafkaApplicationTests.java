@@ -1,4 +1,4 @@
-package org.springframework.cloud.stream.app.http;
+package org.springframework.cloud.stream.app.file.source;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -8,8 +8,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = HttpSourceKafkaApplication.class)
-public class HttpSourceKafkaApplicationTests {
+@SpringApplicationConfiguration(classes = FileSourceKafkaApplication.class)
+public class FileSourceKafkaApplicationTests {
 
 	@Test
 	public void contextLoads() {

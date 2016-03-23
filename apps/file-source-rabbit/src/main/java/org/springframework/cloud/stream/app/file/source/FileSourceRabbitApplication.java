@@ -1,12 +1,12 @@
-package org.springframework.cloud.stream.app.http;
+package org.springframework.cloud.stream.app.file.source;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HttpSourceKafkaApplication {
+public class FileSourceRabbitApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HttpSourceKafkaApplication.class, args);
+		SpringApplication.run(FileSourceRabbitApplication.class, args);
 	}
 }

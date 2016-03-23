@@ -1,4 +1,4 @@
-package org.springframework.cloud.stream.app.log;
+package org.springframework.cloud.stream.app.http.source;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -8,8 +8,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = LogSinkKafkaApplication.class)
-public class LogSinkKafkaApplicationTests {
+@SpringApplicationConfiguration(classes = HttpSourceRabbitApplication.class)
+public class HttpSourceRabbitApplicationTests {
 
 	@Test
 	public void contextLoads() {

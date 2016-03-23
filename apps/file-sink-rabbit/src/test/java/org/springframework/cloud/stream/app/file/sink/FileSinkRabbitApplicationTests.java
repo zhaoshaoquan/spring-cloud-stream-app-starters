@@ -1,4 +1,4 @@
-package org.springframework.cloud.stream.app.file;
+package org.springframework.cloud.stream.app.file.sink;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -8,8 +8,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = FileSourceKafkaApplication.class)
-public class FileSourceKafkaApplicationTests {
+@SpringApplicationConfiguration(classes = FileSinkRabbitApplication.class)
+public class FileSinkRabbitApplicationTests {
 
 	@Test
 	public void contextLoads() {

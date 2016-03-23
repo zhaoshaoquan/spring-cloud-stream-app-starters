@@ -8,11 +8,11 @@
     <version>1.3.3.RELEASE</version>
     <relativePath></relativePath>
   </parent>
-  <groupId>org.springframework.cloud.stream</groupId>
+  <groupId>org.springframework.cloud.stream.app</groupId>
   <artifactId>time-source-rabbit</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>time-source-rabbit</name>
-  <description>Spring Cloud Stream Time Source With Rabbit Binder</description>
+  <description>Spring Cloud Stream Time Source Rabbit Binder Application</description>
   <properties>
     <java.version>1.7</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
