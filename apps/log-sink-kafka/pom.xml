@@ -10,7 +10,7 @@
   </parent>
   <groupId>org.springframework.cloud.stream.app</groupId>
   <artifactId>log-sink-kafka</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0.BUILD-SNAPSHOT</version>
   <name>log-sink-kafka</name>
   <description>Spring Cloud Stream Log Sink Kafka Binder Application</description>
   <properties>

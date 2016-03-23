@@ -10,7 +10,7 @@
   </parent>
   <groupId>org.springframework.cloud.stream.app</groupId>
   <artifactId>time-source-kafka</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0.BUILD-SNAPSHOT</version>
   <name>time-source-kafka</name>
   <description>Spring Cloud Stream Time Source Kafka Binder Application</description>
   <properties>

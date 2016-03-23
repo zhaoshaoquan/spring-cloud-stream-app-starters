@@ -10,7 +10,7 @@
   </parent>
   <groupId>org.springframework.cloud.stream.app</groupId>
   <artifactId>log-sink-rabbit</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0.BUILD-SNAPSHOT</version>
   <name>log-sink-rabbit</name>
   <description>Spring Cloud Stream Log Sink Rabbit Binder Application</description>
   <properties>
