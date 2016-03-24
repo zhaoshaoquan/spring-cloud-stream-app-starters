@@ -84,7 +84,7 @@
                   <exec>
                     <arg>java</arg>
                     <arg>-jar</arg>
-                    <arg>/maven/demo.jar</arg>
+                    <arg>/maven/http-source-kafka.jar</arg>
                   </exec>
                 </entryPoint>
                 <assembly>

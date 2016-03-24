@@ -21,7 +21,7 @@
                 <configuration>
                     <javaVersion>1.7</javaVersion>
                     <generatedProjectHome>${session.executionRootDirectory}/apps</generatedProjectHome>
-                    <generatedProejctVersion>1.0.0.BUILD-SNAPSHOT</generatedProejctVersion>
+                    <generatedProjectVersion>1.0.0.BUILD-SNAPSHOT</generatedProjectVersion>
                     <bom>
                         <name>scs-bom</name>
                         <groupId>org.springframework.cloud.stream.app</groupId>

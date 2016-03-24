@@ -84,7 +84,7 @@
                   <exec>
                     <arg>java</arg>
                     <arg>-jar</arg>
-                    <arg>/maven/demo.jar</arg>
+                    <arg>/maven/file-sink-kafka.jar</arg>
                   </exec>
                 </entryPoint>
                 <assembly>
