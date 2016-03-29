@@ -6,7 +6,7 @@
     <dependencySets>
         <dependencySet>
             <includes>
-                <include>org.springframework.boot:time-source-kafka</include>
+                <include>org.springframework.cloud.stream.app:time-source-kafka</include>
             </includes>
             <outputDirectory>.</outputDirectory>
             <outputFileNameMapping>time-source-kafka.jar</outputFileNameMapping>

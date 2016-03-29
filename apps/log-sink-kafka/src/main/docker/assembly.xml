@@ -6,7 +6,7 @@
     <dependencySets>
         <dependencySet>
             <includes>
-                <include>org.springframework.boot:log-sink-kafka</include>
+                <include>org.springframework.cloud.stream.app:log-sink-kafka</include>
             </includes>
             <outputDirectory>.</outputDirectory>
             <outputFileNameMapping>log-sink-kafka.jar</outputFileNameMapping>

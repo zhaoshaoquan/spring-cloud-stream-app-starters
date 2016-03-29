@@ -6,7 +6,7 @@
     <dependencySets>
         <dependencySet>
             <includes>
-                <include>org.springframework.boot:http-source-rabbit</include>
+                <include>org.springframework.cloud.stream.app:http-source-rabbit</include>
             </includes>
             <outputDirectory>.</outputDirectory>
             <outputFileNameMapping>http-source-rabbit.jar</outputFileNameMapping>

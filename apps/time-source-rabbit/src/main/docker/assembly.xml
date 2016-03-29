@@ -6,7 +6,7 @@
     <dependencySets>
         <dependencySet>
             <includes>
-                <include>org.springframework.boot:time-source-rabbit</include>
+                <include>org.springframework.cloud.stream.app:time-source-rabbit</include>
             </includes>
             <outputDirectory>.</outputDirectory>
             <outputFileNameMapping>time-source-rabbit.jar</outputFileNameMapping>

@@ -14,6 +14,7 @@
   <name>http-source-rabbit</name>
   <description>Spring Cloud Stream Http Source Rabbit Binder Application</description>
   <properties>
+    <docker.image>http-source-rabbit</docker.image>
     <java.version>1.7</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>

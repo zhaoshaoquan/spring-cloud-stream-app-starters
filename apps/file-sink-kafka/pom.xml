@@ -14,6 +14,7 @@
   <name>file-sink-kafka</name>
   <description>Spring Cloud Stream File Sink Kafka Binder Application</description>
   <properties>
+    <docker.image>file-sink-kafka</docker.image>
     <java.version>1.7</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>

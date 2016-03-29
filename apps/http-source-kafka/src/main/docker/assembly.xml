@@ -6,7 +6,7 @@
     <dependencySets>
         <dependencySet>
             <includes>
-                <include>org.springframework.boot:http-source-kafka</include>
+                <include>org.springframework.cloud.stream.app:http-source-kafka</include>
             </includes>
             <outputDirectory>.</outputDirectory>
             <outputFileNameMapping>http-source-kafka.jar</outputFileNameMapping>

@@ -14,6 +14,7 @@
   <name>file-sink-rabbit</name>
   <description>Spring Cloud Stream File Sink Rabbit Binder Application</description>
   <properties>
+    <docker.image>file-sink-rabbit</docker.image>
     <java.version>1.7</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
