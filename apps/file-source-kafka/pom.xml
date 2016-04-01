@@ -14,7 +14,6 @@
   <name>file-source-kafka</name>
   <description>Spring Cloud Stream File Source Kafka Binder Application</description>
   <properties>
-    <docker.image>file-source-kafka</docker.image>
     <java.version>1.7</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -72,7 +71,7 @@
   </build>
   <profiles>
     <profile>
-      <id>dockerBuild</id>
+      <id>docker</id>
       <build>
         <plugins>
           <plugin>
@@ -90,7 +89,7 @@
             <configuration>
               <images>
                 <image>
-                  <name>${docker.image}</name>
+                  <name>springcloudstream/${project.artifactId}</name>
                   <build>
                     <from>anapsix/alpine-java:8</from>
                     <volumes>
