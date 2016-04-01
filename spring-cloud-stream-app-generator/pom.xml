@@ -22,6 +22,7 @@
                     <javaVersion>1.7</javaVersion>
                     <generatedProjectHome>${session.executionRootDirectory}/apps</generatedProjectHome>
                     <generatedProjectVersion>1.0.0.BUILD-SNAPSHOT</generatedProjectVersion>
+                    <applicationType>stream</applicationType>
                     <bom>
                         <name>scs-bom</name>
                         <groupId>org.springframework.cloud.stream.app</groupId>
@@ -41,11 +42,6 @@
                         <log-sink-rabbit/>
                     </generatedApps>
                 </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
