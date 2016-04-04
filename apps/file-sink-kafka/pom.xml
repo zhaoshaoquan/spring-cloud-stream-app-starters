@@ -90,7 +90,7 @@
             <configuration>
               <images>
                 <image>
-                  <name>registry.hub.docker.com:springcloudstream/${project.artifactId}</name>
+                  <name>registry.hub.docker.com/springcloudstream/${project.artifactId}</name>
                   <build>
                     <from>anapsix/alpine-java:8</from>
                     <volumes>
