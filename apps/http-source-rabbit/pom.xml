@@ -15,6 +15,7 @@
   <description>Spring Cloud Stream Http Source Rabbit Binder Application</description>
   <properties>
     <java.version>1.7</java.version>
+    <default.docker.goal>build</default.docker.goal>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencyManagement>
@@ -82,7 +83,7 @@
               <execution>
                 <phase>package</phase>
                 <goals>
-                  <goal>build</goal>
+                  <goal>${default.docker.goal}</goal>
                 </goals>
               </execution>
             </executions>
