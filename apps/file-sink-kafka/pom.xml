@@ -95,6 +95,9 @@
                 <image>
 		  <name>${docker.repo}/${project.artifactId}</name>
                   <build>
+		    <tags>
+		      <tag>latest</tag>
+		    </tags>
                     <from>anapsix/alpine-java:8</from>
                     <volumes>
                       <volume>/tmp</volume>
