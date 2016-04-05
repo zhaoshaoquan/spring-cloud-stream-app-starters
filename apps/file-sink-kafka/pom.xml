@@ -92,7 +92,7 @@
             <configuration>
               <images>
                 <image>
-                  <name>${project.artifactId}:latest</name>
+		  <name>${docker.registry}/${docker.repo}/${project.artifactId}:latest</name>
                   <build>
                     <from>anapsix/alpine-java:8</from>
                     <volumes>
