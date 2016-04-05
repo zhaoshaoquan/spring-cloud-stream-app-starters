@@ -90,6 +90,7 @@
               </execution>
             </executions>
             <configuration>
+	      <registry>${docker.registry}</registry>
               <images>
                 <image>
 		  <name>${docker.registry}/${docker.repo}/${project.artifactId}:latest</name>
