@@ -83,7 +83,7 @@
             <version>0.14.2</version>
             <executions>
               <execution>
-                <phase>install</phase>
+                <phase>package</phase>
                 <goals>
                   <goal>${default.docker.goal}</goal>
                 </goals>
