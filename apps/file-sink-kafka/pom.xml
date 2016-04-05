@@ -16,6 +16,8 @@
   <properties>
     <java.version>1.7</java.version>
     <default.docker.goal>build</default.docker.goal>
+    <docker.registry>registry.hub.docker.com</docker.registry>
+    <docker.repo>springcloudstream</docker.repo>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencyManagement>
@@ -81,7 +83,7 @@
             <version>0.14.2</version>
             <executions>
               <execution>
-                <phase>package</phase>
+                <phase>install</phase>
                 <goals>
                   <goal>${default.docker.goal}</goal>
                 </goals>
@@ -90,7 +92,7 @@
             <configuration>
               <images>
                 <image>
-                  <name>springcloudstream/${project.artifactId}</name>
+                  <name>${project.artifactId}:latest</name>
                   <build>
                     <from>anapsix/alpine-java:8</from>
                     <volumes>
