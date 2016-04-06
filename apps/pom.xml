@@ -15,6 +15,10 @@
     <module>http-source-rabbit</module>
     <module>log-sink-kafka</module>
     <module>log-sink-rabbit</module>
+    <module>rabbit-sink-kafka</module>
+    <module>rabbit-sink-rabbit</module>
+    <module>rabbit-source-kafka</module>
+    <module>rabbit-source-rabbit</module>
     <module>time-source-kafka</module>
     <module>time-source-rabbit</module>
   </modules>

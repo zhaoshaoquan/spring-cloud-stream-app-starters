@@ -16,11 +16,12 @@
     <module>spring-cloud-stream-app-dependencies</module>
     <module>spring-cloud-stream-app-generator</module>
     <module>app-starters-common</module>
-    <module>time</module>
-    <module>log</module>
+    <module>apps</module>
     <module>file</module>
     <module>http</module>
-    <module>apps</module>
+    <module>log</module>
+    <module>rabbit</module>
+    <module>time</module>
   </modules>
   <scm>
     <connection>scm:git:git://github.com/spring-cloud/spring-cloud-stream-app-starters.git</connection>

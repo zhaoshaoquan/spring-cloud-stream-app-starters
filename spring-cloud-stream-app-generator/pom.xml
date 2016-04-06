@@ -30,16 +30,20 @@
                         <version>1.0.0.BUILD-SNAPSHOT</version>
                     </bom>
                     <generatedApps>
-                        <time-source-kafka/>
-                        <time-source-rabbit/>
-                        <http-source-kafka/>
-                        <http-source-rabbit/>
                         <file-source-kafka/>
                         <file-source-rabbit/>
                         <file-sink-kafka/>
                         <file-sink-rabbit/>
+                        <http-source-kafka/>
+                        <http-source-rabbit/>
                         <log-sink-kafka/>
                         <log-sink-rabbit/>
+                        <rabbit-source-kafka/>
+                        <rabbit-source-rabbit/>
+                        <rabbit-sink-kafka/>
+                        <rabbit-sink-rabbit/>
+                        <time-source-kafka/>
+                        <time-source-rabbit/>
                     </generatedApps>
                 </configuration>
             </plugin>

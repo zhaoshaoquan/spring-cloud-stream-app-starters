@@ -22,23 +22,19 @@
 
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
-				<artifactId>spring-cloud-starter-stream-source-file</artifactId>
-				<version>1.0.0.BUILD-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-file</artifactId>
-				<version>1.0.0.BUILD-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud.stream.app</groupId>
-				<artifactId>spring-cloud-starter-stream-source-http</artifactId>
 				<version>1.0.0.BUILD-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
-				<artifactId>spring-cloud-starter-stream-source-time</artifactId>
+				<artifactId>spring-cloud-starter-stream-source-file</artifactId>
+				<version>1.0.0.BUILD-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud.stream.app</groupId>
+				<artifactId>spring-cloud-starter-stream-source-http</artifactId>
 				<version>1.0.0.BUILD-SNAPSHOT</version>
 			</dependency>
 
@@ -49,10 +45,29 @@
 			</dependency>
 
 			<dependency>
+				<groupId>org.springframework.cloud.stream.app</groupId>
+				<artifactId>spring-cloud-starter-stream-sink-rabbit</artifactId>
+				<version>1.0.0.BUILD-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud.stream.app</groupId>
+				<artifactId>spring-cloud-starter-stream-source-rabbit</artifactId>
+				<version>1.0.0.BUILD-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud.stream.app</groupId>
+				<artifactId>spring-cloud-starter-stream-source-time</artifactId>
+				<version>1.0.0.BUILD-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-stream-binder-kafka</artifactId>
 				<version>1.0.0.BUILD-SNAPSHOT</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-stream-binder-rabbit</artifactId>
