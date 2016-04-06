@@ -22,4 +22,13 @@
     <module>time-source-kafka</module>
     <module>time-source-rabbit</module>
   </modules>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <version>0.14.2</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>
