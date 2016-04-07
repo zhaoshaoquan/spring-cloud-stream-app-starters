@@ -38,8 +38,12 @@
 						<ftp-sink-rabbit />
 						<ftp-source-kafka />
 						<ftp-source-rabbit />
-						<gemfire-sink-kafka />
-						<gemfire-sink-rabbit />
+						<gemfire-sink-kafka> 
+							<extraRepository>gemstone-release-cache</extraRepository> 
+						</gemfire-sink-kafka> 
+						<gemfire-sink-rabbit> 
+							<extraRepository>gemstone-release-cache</extraRepository>
+						</gemfire-sink-rabbit>
 						<http-source-kafka />
 						<http-source-rabbit />
 						<log-sink-kafka />
@@ -60,7 +64,17 @@
 						<tcp-source-rabbit />
 						<time-source-kafka />
 						<time-source-rabbit />
-					</generatedApps>
+
+					 </generatedApps> 
+					<extraRepositories> 
+						<repository> 
+							<id>gemstone-release-cache</id> 
+							<url>http://repo.spring.io/gemstone-release-cache/</url> 
+							<name>Gemfire Release Repository</name> 
+							<snapshotEnabled>false</snapshotEnabled> 
+						</repository> 
+					</extraRepositories>
+
 				</configuration>
 			</plugin>
 		</plugins>
