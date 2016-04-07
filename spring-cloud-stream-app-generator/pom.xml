@@ -48,6 +48,8 @@
 						<rabbit-sink-rabbit />
 						<rabbit-source-kafka />
 						<rabbit-source-rabbit />
+						<router-sink-kafka />
+						<router-sink-rabbit />
 						<sftp-sink-kafka />
 						<sftp-sink-rabbit />
 						<sftp-source-kafka />

@@ -35,6 +35,8 @@
     <module>tcp-sink-rabbit</module>
     <module>tcp-source-kafka</module>
     <module>tcp-source-rabbit</module>
+    <module>router-sink-kafka</module>
+    <module>router-sink-rabbit</module>
   </modules>
   <build>
     <plugins>

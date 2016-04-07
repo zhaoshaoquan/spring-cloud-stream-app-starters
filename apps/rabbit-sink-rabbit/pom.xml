@@ -60,14 +60,6 @@
       <name>Spring Milestones</name>
       <url>https://repo.spring.io/milestone</url>
     </repository>
-    <repository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>spring-libs-release</id>
-      <name>Spring Libs Release</name>
-      <url>http://repo.spring.io/libs-release</url>
-    </repository>
   </repositories>
   <build>
     <plugins>
