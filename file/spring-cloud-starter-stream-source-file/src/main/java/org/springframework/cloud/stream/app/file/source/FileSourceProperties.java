@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
 public class FileSourceProperties {
 
 	private static final String DEFAULT_DIR = System.getProperty("java.io.tmpdir") +
-			File.separator + "dataflow" + File.separator + "intput";
+			File.separator + "dataflow" + File.separator + "input";
 
 	/**
 	 * The directory to poll for new files.
