@@ -1,53 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>spring-cloud-stream-app-starters</artifactId>
-        <groupId>org.springframework.cloud.stream.app</groupId>
-        <version>1.0.0.BUILD-SNAPSHOT</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>spring-cloud-stream-app-starters</artifactId>
+		<groupId>org.springframework.cloud.stream.app</groupId>
+		<version>1.0.0.BUILD-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-stream-app-generator</artifactId>
-    <packaging>pom</packaging>
-    <name>spring-cloud-stream-app-generator</name>
+	<artifactId>spring-cloud-stream-app-generator</artifactId>
+	<packaging>pom</packaging>
+	<name>spring-cloud-stream-app-generator</name>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.cloud.stream.app.plugin</groupId>
-                <artifactId>spring-cloud-stream-app-maven-plugin</artifactId>
-                <version>1.0.0.BUILD-SNAPSHOT</version>
-                <configuration>
-                    <javaVersion>1.7</javaVersion>
-                    <generatedProjectHome>${session.executionRootDirectory}/apps</generatedProjectHome>
-                    <generatedProjectVersion>1.0.0.BUILD-SNAPSHOT</generatedProjectVersion>
-                    <applicationType>stream</applicationType>
-                    <bom>
-                        <name>scs-bom</name>
-                        <groupId>org.springframework.cloud.stream.app</groupId>
-                        <artifactId>spring-cloud-stream-app-dependencies</artifactId>
-                        <version>1.0.0.BUILD-SNAPSHOT</version>
-                    </bom>
-                    <generatedApps>
-                        <file-source-kafka/>
-                        <file-source-rabbit/>
-                        <file-sink-kafka/>
-                        <file-sink-rabbit/>
-                        <http-source-kafka/>
-                        <http-source-rabbit/>
-                        <log-sink-kafka/>
-                        <log-sink-rabbit/>
-                        <rabbit-source-kafka/>
-                        <rabbit-source-rabbit/>
-                        <rabbit-sink-kafka/>
-                        <rabbit-sink-rabbit/>
-                        <time-source-kafka/>
-                        <time-source-rabbit/>
-                    </generatedApps>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.cloud.stream.app.plugin</groupId>
+				<artifactId>spring-cloud-stream-app-maven-plugin</artifactId>
+				<version>1.0.0.BUILD-SNAPSHOT</version>
+				<configuration>
+					<javaVersion>1.7</javaVersion>
+					<generatedProjectHome>${session.executionRootDirectory}/apps</generatedProjectHome>
+					<generatedProjectVersion>1.0.0.BUILD-SNAPSHOT</generatedProjectVersion>
+					<applicationType>stream</applicationType>
+					<bom>
+						<name>scs-bom</name>
+						<groupId>org.springframework.cloud.stream.app</groupId>
+						<artifactId>spring-cloud-stream-app-dependencies</artifactId>
+						<version>1.0.0.BUILD-SNAPSHOT</version>
+					</bom>
+					<generatedApps>
+						<file-source-kafka />
+						<file-source-rabbit />
+						<file-sink-kafka />
+						<file-sink-rabbit />
+						<ftp-sink-kafka />
+						<ftp-sink-rabbit />
+						<http-source-kafka />
+						<http-source-rabbit />
+						<log-sink-kafka />
+						<log-sink-rabbit />
+						<rabbit-source-kafka />
+						<rabbit-source-rabbit />
+						<rabbit-sink-kafka />
+						<rabbit-sink-rabbit />
+						<time-source-kafka />
+						<time-source-rabbit />
+					</generatedApps>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

@@ -16,8 +16,10 @@
     <module>spring-cloud-stream-app-dependencies</module>
     <module>spring-cloud-stream-app-generator</module>
     <module>app-starters-common</module>
+    <module>app-starters-test-support</module>
     <module>apps</module>
     <module>file</module>
+    <module>ftp</module>
     <module>http</module>
     <module>log</module>
     <module>rabbit</module>

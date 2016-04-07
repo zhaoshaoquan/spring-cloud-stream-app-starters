@@ -21,6 +21,8 @@
     <module>rabbit-source-rabbit</module>
     <module>time-source-kafka</module>
     <module>time-source-rabbit</module>
+    <module>ftp-sink-kafka</module>
+    <module>ftp-sink-rabbit</module>
   </modules>
   <build>
     <plugins>

@@ -3,31 +3,42 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>spring-cloud-starter-stream-sink-rabbit</artifactId>
+	<artifactId>spring-cloud-starter-stream-sink-ftp</artifactId>
 	<packaging>jar</packaging>
-	<name>spring-cloud-starter-stream-sink-rabbit</name>
-	<description>Spring Cloud Stream rabbit-sink core</description>
+	<name>spring-cloud-starter-stream-sink-ftp</name>
+	<description>Spring Cloud Stream ftp-sink core</description>
 
 	<parent>
 		<groupId>org.springframework.cloud.stream.app</groupId>
-		<artifactId>spring-cloud-stream-rabbit-parent</artifactId>
+		<artifactId>spring-cloud-stream-ftp-parent</artifactId>
 		<version>1.0.0.BUILD-SNAPSHOT</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-amqp</artifactId>
+			<artifactId>spring-integration-ftp</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-stream</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.cloud.stream.app</groupId>
+			<artifactId>app-starters-common</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-stream-test-support</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud.stream.app</groupId>
+			<artifactId>app-starters-test-support</artifactId>
 			<scope>test</scope>
 		</dependency>
 
@@ -40,6 +51,13 @@
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.ftpserver</groupId>
+			<artifactId>ftpserver-core</artifactId>
+			<version>1.0.6</version>
 			<scope>test</scope>
 		</dependency>
 
