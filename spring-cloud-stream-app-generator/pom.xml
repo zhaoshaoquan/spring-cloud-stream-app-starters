@@ -52,6 +52,10 @@
 						<sftp-sink-rabbit />
 						<sftp-source-kafka />
 						<sftp-source-rabbit />
+						<tcp-sink-kafka />
+						<tcp-sink-rabbit />
+						<tcp-source-kafka />
+						<tcp-source-rabbit />
 						<time-source-kafka />
 						<time-source-rabbit />
 					</generatedApps>

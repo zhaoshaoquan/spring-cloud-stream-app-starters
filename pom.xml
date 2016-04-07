@@ -25,6 +25,7 @@
     <module>log</module>
     <module>rabbit</module>
     <module>sftp</module>
+    <module>tcp</module>
     <module>time</module>
   </modules>
   <scm>

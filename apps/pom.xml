@@ -31,6 +31,10 @@
     <module>sftp-source-rabbit</module>
     <module>sftp-sink-kafka</module>
     <module>sftp-sink-rabbit</module>
+    <module>tcp-sink-kafka</module>
+    <module>tcp-sink-rabbit</module>
+    <module>tcp-source-kafka</module>
+    <module>tcp-source-rabbit</module>
   </modules>
   <build>
     <plugins>
