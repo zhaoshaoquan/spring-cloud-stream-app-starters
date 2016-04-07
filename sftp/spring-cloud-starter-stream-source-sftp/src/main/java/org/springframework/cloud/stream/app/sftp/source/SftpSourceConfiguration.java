@@ -13,9 +13,7 @@
  * limitations under the License.
  */
 
-package org.springframework.cloud.stream.app.ftp.source;
-
-import org.apache.commons.net.ftp.FTPFile;
+package org.springframework.cloud.stream.app.sftp.source;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,7 +21,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.app.file.FileConsumerProperties;
 import org.springframework.cloud.stream.app.file.FileUtils;
-import org.springframework.cloud.stream.app.ftp.FtpSessionFactoryConfiguration;
+import org.springframework.cloud.stream.app.sftp.SftpSessionFactoryConfiguration;
 import org.springframework.cloud.stream.app.trigger.TriggerConfiguration;
 import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.context.annotation.Bean;
@@ -32,24 +30,24 @@ import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.IntegrationFlowBuilder;
 import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.integration.dsl.SourcePollingChannelAdapterSpec;
-import org.springframework.integration.dsl.ftp.Ftp;
-import org.springframework.integration.dsl.ftp.FtpInboundChannelAdapterSpec;
+import org.springframework.integration.dsl.sftp.Sftp;
+import org.springframework.integration.dsl.sftp.SftpInboundChannelAdapterSpec;
 import org.springframework.integration.dsl.support.Consumer;
 import org.springframework.integration.file.remote.session.SessionFactory;
-import org.springframework.integration.ftp.filters.FtpRegexPatternFileListFilter;
-import org.springframework.integration.ftp.filters.FtpSimplePatternFileListFilter;
 import org.springframework.integration.scheduling.PollerMetadata;
+import org.springframework.integration.sftp.filters.SftpRegexPatternFileListFilter;
+import org.springframework.integration.sftp.filters.SftpSimplePatternFileListFilter;
 import org.springframework.util.StringUtils;
 
+import com.jcraft.jsch.ChannelSftp.LsEntry;
+
 /**
- * @author David Turanski
- * @author Marius Bogoevici
  * @author Gary Russell
  */
 @EnableBinding(Source.class)
-@EnableConfigurationProperties({FtpSourceProperties.class, FileConsumerProperties.class})
-@Import({TriggerConfiguration.class, FtpSessionFactoryConfiguration.class})
-public class FtpSourceConfiguration {
+@EnableConfigurationProperties({SftpSourceProperties.class, FileConsumerProperties.class})
+@Import({TriggerConfiguration.class, SftpSessionFactoryConfiguration.class})
+public class SftpSourceConfiguration {
 
 	@Autowired
 	@Qualifier("defaultPoller")
@@ -59,9 +57,9 @@ public class FtpSourceConfiguration {
 	Source source;
 
 	@Bean
-	public IntegrationFlow ftpInboundFlow(SessionFactory<FTPFile> ftpSessionFactory, FtpSourceProperties properties,
+	public IntegrationFlow sftpInboundFlow(SessionFactory<LsEntry> sftpSessionFactory, SftpSourceProperties properties,
 			FileConsumerProperties fileConsumerProperties) {
-		FtpInboundChannelAdapterSpec messageSourceBuilder = Ftp.inboundAdapter(ftpSessionFactory)
+		SftpInboundChannelAdapterSpec messageSourceBuilder = Sftp.inboundAdapter(sftpSessionFactory)
 				.preserveTimestamp(properties.isPreserveTimestamp())
 				.remoteDirectory(properties.getRemoteDir())
 				.remoteFileSeparator(properties.getRemoteFileSeparator())
@@ -71,11 +69,11 @@ public class FtpSourceConfiguration {
 				.deleteRemoteFiles(properties.isDeleteRemoteFiles());
 
 		if (StringUtils.hasText(properties.getFilenamePattern())) {
-			messageSourceBuilder.filter(new FtpSimplePatternFileListFilter(properties.getFilenamePattern()));
+			messageSourceBuilder.filter(new SftpSimplePatternFileListFilter(properties.getFilenamePattern()));
 		}
 		else if (properties.getFilenameRegex() != null) {
 			messageSourceBuilder
-					.filter(new FtpRegexPatternFileListFilter(properties.getFilenameRegex()));
+					.filter(new SftpRegexPatternFileListFilter(properties.getFilenameRegex()));
 		}
 
 		IntegrationFlowBuilder flowBuilder = IntegrationFlows.from(messageSourceBuilder
@@ -84,7 +82,7 @@ public class FtpSourceConfiguration {
 			@Override
 			public void accept(SourcePollingChannelAdapterSpec sourcePollingChannelAdapterSpec) {
 				sourcePollingChannelAdapterSpec
-						.poller(FtpSourceConfiguration.this.defaultPoller);
+						.poller(SftpSourceConfiguration.this.defaultPoller);
 			}
 
 		});

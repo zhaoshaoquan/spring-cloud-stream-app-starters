@@ -48,6 +48,8 @@
 						<rabbit-source-rabbit />
 						<rabbit-sink-kafka />
 						<rabbit-sink-rabbit />
+						<sftp-source-kafka />
+						<sftp-source-rabbit />
 						<time-source-kafka />
 						<time-source-rabbit />
 					</generatedApps>

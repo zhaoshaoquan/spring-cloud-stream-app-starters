@@ -27,6 +27,8 @@
     <module>gemfire-sink-rabbit</module>
     <module>ftp-source-kafka</module>
     <module>ftp-source-rabbit</module>
+    <module>sftp-source-kafka</module>
+    <module>sftp-source-rabbit</module>
   </modules>
   <build>
     <plugins>
