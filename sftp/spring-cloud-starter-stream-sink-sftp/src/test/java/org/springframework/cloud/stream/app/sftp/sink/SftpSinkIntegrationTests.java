@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package org.springframework.cloud.stream.app.ftp.sink;
+package org.springframework.cloud.stream.app.sftp.sink;
 
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.assertFalse;
@@ -31,7 +31,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.cloud.stream.app.test.PropertiesInitializer;
-import org.springframework.cloud.stream.app.test.file.remote.FtpTestSupport;
+import org.springframework.cloud.stream.app.test.file.remote.SftpTestSupport;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.messaging.support.GenericMessage;
 import org.springframework.test.annotation.DirtiesContext;
@@ -44,27 +44,28 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @author Gary Russell
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = FtpSinkIntegrationTests.FtpSinkApplication.class,
+@SpringApplicationConfiguration(classes = SftpSinkIntegrationTests.SftpSinkApplication.class,
 								initializers = PropertiesInitializer.class)
 @DirtiesContext
-public class FtpSinkIntegrationTests extends FtpTestSupport {
+public class SftpSinkIntegrationTests extends SftpTestSupport {
 
 	@BeforeClass
 	public static void configureSink() throws Throwable {
 
 		Properties properties = new Properties();
-		properties.put("remoteDir", "ftpTarget");
+		properties.put("remoteDir", "sftpTarget");
 		properties.put("username", "foo");
 		properties.put("password", "foo");
 		properties.put("filenamePattern", "*");
 		properties.put("port", port);
 		properties.put("mode", "FAIL");
 		properties.put("filenameExpression", "payload.name.toUpperCase()");
+		properties.put("allowUnknownKeys", "true");
 		PropertiesInitializer.PROPERTIES = properties;
 	}
 
 	@Autowired
-	Sink ftpSink;
+	Sink sftpSink;
 
 	@Test
 	public void sendFiles() {
@@ -73,7 +74,7 @@ public class FtpSinkIntegrationTests extends FtpTestSupport {
 			String upperPathname = pathname.toUpperCase();
 			new File(getTargetRemoteDirectory() + upperPathname).delete();
 			assertFalse(new File(getTargetRemoteDirectory() + upperPathname).exists());
-			this.ftpSink.input().send(new GenericMessage<>(new File(getSourceLocalDirectory() + pathname)));
+			this.sftpSink.input().send(new GenericMessage<>(new File(getSourceLocalDirectory() + pathname)));
 			File expected = new File(getTargetRemoteDirectory() + upperPathname);
 			assertTrue(expected.getAbsolutePath() + " does not exist", expected.exists());
 			// verify the upcase on a case-insensitive file system
@@ -92,7 +93,7 @@ public class FtpSinkIntegrationTests extends FtpTestSupport {
 	}
 
 	@SpringBootApplication
-	public static class FtpSinkApplication {
+	public static class SftpSinkApplication {
 
 	}
 

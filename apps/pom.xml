@@ -29,6 +29,8 @@
     <module>ftp-source-rabbit</module>
     <module>sftp-source-kafka</module>
     <module>sftp-source-rabbit</module>
+    <module>sftp-sink-kafka</module>
+    <module>sftp-sink-rabbit</module>
   </modules>
   <build>
     <plugins>

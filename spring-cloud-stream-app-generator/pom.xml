@@ -44,10 +44,12 @@
 						<http-source-rabbit />
 						<log-sink-kafka />
 						<log-sink-rabbit />
-						<rabbit-source-kafka />
-						<rabbit-source-rabbit />
 						<rabbit-sink-kafka />
 						<rabbit-sink-rabbit />
+						<rabbit-source-kafka />
+						<rabbit-source-rabbit />
+						<sftp-sink-kafka />
+						<sftp-sink-rabbit />
 						<sftp-source-kafka />
 						<sftp-source-rabbit />
 						<time-source-kafka />
