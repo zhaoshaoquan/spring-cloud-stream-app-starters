@@ -20,6 +20,7 @@
     <module>apps</module>
     <module>file</module>
     <module>ftp</module>
+    <module>gemfire</module>
     <module>http</module>
     <module>log</module>
     <module>rabbit</module>
@@ -80,6 +81,14 @@
           <id>spring-releases</id>
           <name>Spring Releases</name>
           <url>http://repo.spring.io/release</url>
+        </repository>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>spring-libs-release</id>
+          <name>Spring Libs Release</name>
+          <url>http://repo.spring.io/libs-release</url>
         </repository>
       </repositories>
       <pluginRepositories>

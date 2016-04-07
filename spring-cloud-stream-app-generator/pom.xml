@@ -36,6 +36,8 @@
 						<file-sink-rabbit />
 						<ftp-sink-kafka />
 						<ftp-sink-rabbit />
+						<gemfire-sink-kafka />
+						<gemfire-sink-rabbit />
 						<http-source-kafka />
 						<http-source-rabbit />
 						<log-sink-kafka />

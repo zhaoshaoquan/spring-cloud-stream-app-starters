@@ -23,6 +23,8 @@
     <module>time-source-rabbit</module>
     <module>ftp-sink-kafka</module>
     <module>ftp-sink-rabbit</module>
+    <module>gemfire-sink-kafka</module>
+    <module>gemfire-sink-rabbit</module>
   </modules>
   <build>
     <plugins>
