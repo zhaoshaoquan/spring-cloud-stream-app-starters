@@ -37,6 +37,8 @@
     <module>tcp-source-rabbit</module>
     <module>router-sink-kafka</module>
     <module>router-sink-rabbit</module>
+    <module>splitter-processor-kafka</module>
+    <module>splitter-processor-rabbit</module>
   </modules>
   <build>
     <plugins>

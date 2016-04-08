@@ -58,6 +58,8 @@
 						<sftp-sink-rabbit />
 						<sftp-source-kafka />
 						<sftp-source-rabbit />
+						<splitter-processor-kafka />
+						<splitter-processor-rabbit />
 						<tcp-sink-kafka />
 						<tcp-sink-rabbit />
 						<tcp-source-kafka />

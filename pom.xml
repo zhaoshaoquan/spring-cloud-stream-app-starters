@@ -23,6 +23,7 @@
     <module>gemfire</module>
     <module>http</module>
     <module>log</module>
+    <module>processor</module>
     <module>rabbit</module>
     <module>router</module>
     <module>sftp</module>
