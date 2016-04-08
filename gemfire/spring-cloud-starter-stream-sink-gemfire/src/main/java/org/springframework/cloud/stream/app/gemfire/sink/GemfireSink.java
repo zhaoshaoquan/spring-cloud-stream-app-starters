@@ -19,8 +19,9 @@ import com.gemstone.gemfire.cache.Region;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.app.gemfire.config.GemfireClientRegionConfiguration;
+import org.springframework.cloud.stream.app.gemfire.config.GemfirePoolConfiguration;
 import org.springframework.cloud.stream.messaging.Sink;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.integration.annotation.ServiceActivator;
@@ -33,15 +34,12 @@ import java.util.Collections;
  * @author David Turanski
  */
 @EnableBinding(Sink.class)
-@Import({GemfirePoolConfiguration.class, GemfireClientRegionConfiguration.class})
+@Import({ GemfirePoolConfiguration.class, GemfireClientRegionConfiguration.class })
 @EnableConfigurationProperties(GemfireSinkProperties.class)
 public class GemfireSink {
 
 	@Autowired
 	GemfireSinkProperties config;
-
-	@Autowired
-	ApplicationContext context;
 
 	//NOTE: https://jira.spring.io/browse/SPR-7915 supposedly fixed in SF 4.3. So
 	//should be able to change to @Autowired at that point
@@ -51,8 +49,10 @@ public class GemfireSink {
 	@Bean
 	@ServiceActivator(inputChannel = Sink.INPUT)
 	public CacheWritingMessageHandler messageHandler() {
-		CacheWritingMessageHandler messageHandler = new CacheWritingMessageHandler(this.region);
-		messageHandler.setCacheEntries(Collections.singletonMap(this.config.getKeyExpression(), "payload"));
+		CacheWritingMessageHandler messageHandler = new CacheWritingMessageHandler(
+				this.region);
+		messageHandler.setCacheEntries(
+				Collections.singletonMap(this.config.getKeyExpression(), "payload"));
 		return messageHandler;
 	}
 
