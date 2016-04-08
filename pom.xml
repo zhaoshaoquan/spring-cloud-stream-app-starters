@@ -22,6 +22,7 @@
     <module>ftp</module>
     <module>gemfire</module>
     <module>http</module>
+    <module>jdbc</module>
     <module>log</module>
     <module>processor</module>
     <module>rabbit</module>

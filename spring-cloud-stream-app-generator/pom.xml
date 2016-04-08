@@ -46,6 +46,8 @@
 						</gemfire-sink-rabbit>
 						<http-source-kafka />
 						<http-source-rabbit />
+						<jdbc-source-kafka />
+						<jdbc-source-rabbit />
 						<log-sink-kafka />
 						<log-sink-rabbit />
 						<rabbit-sink-kafka />

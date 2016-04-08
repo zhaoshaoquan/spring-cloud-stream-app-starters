@@ -43,8 +43,13 @@
     <module>syslog-source-rabbit</module>
     <module>transform-processor-kafka</module>
     <module>transform-processor-rabbit</module>
+<<<<<<< HEAD
     <module>trigger-source-kafka</module>
     <module>trigger-source-rabbit</module>
+=======
+    <module>jdbc-source-kafka</module>
+    <module>jdbc-source-rabbit</module>
+>>>>>>> Porting jdbc source
   </modules>
   <build>
     <plugins>
