@@ -12,6 +12,7 @@
 	</parent>
 
 	<modules>
+		<module>spring-cloud-starter-stream-processor-groovy-transform</module>
 		<module>spring-cloud-starter-stream-processor-splitter</module>
 		<module>spring-cloud-starter-stream-processor-transform</module>
 		<module>spring-cloud-starter-stream-processor-scriptable-transform</module>
