@@ -56,8 +56,12 @@
 						<rabbit-source-rabbit />
 						<router-sink-kafka />
 						<router-sink-rabbit />
-						<scriptable-transform-processor-kafka />
-						<scriptable-transform-processor-rabbit />
+						<scriptable-transform-processor-kafka>
+								<starterArtifactSuffix>processor-scriptable-transform</starterArtifactSuffix>
+						</scriptable-transform-processor-kafka>
+						<scriptable-transform-processor-rabbit>
+							<starterArtifactSuffix>processor-scriptable-transform</starterArtifactSuffix>
+						</scriptable-transform-processor-rabbit>
 						<sftp-sink-kafka />
 						<sftp-sink-rabbit />
 						<sftp-source-kafka />
