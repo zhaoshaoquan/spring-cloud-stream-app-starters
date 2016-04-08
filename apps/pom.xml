@@ -51,6 +51,8 @@
     <module>scriptable-transform-processor-rabbit</module>
     <module>groovy-transform-processor-kafka</module>
     <module>groovy-transform-processor-rabbit</module>
+    <module>groovy-filter-processor-kafka</module>
+    <module>groovy-filter-processor-rabbit</module>
   </modules>
   <build>
     <plugins>
