@@ -47,6 +47,8 @@
     <module>trigger-source-rabbit</module>
     <module>jdbc-source-kafka</module>
     <module>jdbc-source-rabbit</module>
+    <module>scriptable-transform-processor-kafka</module>
+    <module>scriptable-transform-processor-rabbit</module>
   </modules>
   <build>
     <plugins>
