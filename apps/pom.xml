@@ -39,6 +39,8 @@
     <module>router-sink-rabbit</module>
     <module>splitter-processor-kafka</module>
     <module>splitter-processor-rabbit</module>
+    <module>syslog-source-kafka</module>
+    <module>syslog-source-rabbit</module>
   </modules>
   <build>
     <plugins>

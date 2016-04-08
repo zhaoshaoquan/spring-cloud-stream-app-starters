@@ -27,6 +27,7 @@
     <module>rabbit</module>
     <module>router</module>
     <module>sftp</module>
+    <module>syslog</module>
     <module>tcp</module>
     <module>time</module>
   </modules>

@@ -60,6 +60,8 @@
 						<sftp-source-rabbit />
 						<splitter-processor-kafka />
 						<splitter-processor-rabbit />
+						<syslog-source-kafka />
+						<syslog-source-rabbit />
 						<tcp-sink-kafka />
 						<tcp-sink-rabbit />
 						<tcp-source-kafka />
