@@ -43,6 +43,8 @@
     <module>syslog-source-rabbit</module>
     <module>transform-processor-kafka</module>
     <module>transform-processor-rabbit</module>
+    <module>trigger-source-kafka</module>
+    <module>trigger-source-rabbit</module>
   </modules>
   <build>
     <plugins>

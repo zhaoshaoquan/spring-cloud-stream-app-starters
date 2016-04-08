@@ -30,6 +30,7 @@
     <module>syslog</module>
     <module>tcp</module>
     <module>time</module>
+    <module>trigger</module>
   </modules>
   <scm>
     <connection>scm:git:git://github.com/spring-cloud/spring-cloud-stream-app-starters.git</connection>

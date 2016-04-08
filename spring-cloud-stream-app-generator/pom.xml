@@ -70,6 +70,8 @@
 						<time-source-rabbit />
 						<transform-processor-kafka />
 						<transform-processor-rabbit />
+						<trigger-source-kafka />
+						<trigger-source-rabbit />
 					</generatedApps>
 					<extraRepositories>
 						<repository>
