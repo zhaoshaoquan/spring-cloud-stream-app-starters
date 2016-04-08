@@ -41,6 +41,8 @@
     <module>splitter-processor-rabbit</module>
     <module>syslog-source-kafka</module>
     <module>syslog-source-rabbit</module>
+    <module>transform-processor-kafka</module>
+    <module>transform-processor-rabbit</module>
   </modules>
   <build>
     <plugins>

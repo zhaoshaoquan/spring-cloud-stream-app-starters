@@ -68,6 +68,8 @@
 						<tcp-source-rabbit />
 						<time-source-kafka />
 						<time-source-rabbit />
+						<transform-processor-kafka />
+						<transform-processor-rabbit />
 					</generatedApps>
 					<extraRepositories>
 						<repository>
