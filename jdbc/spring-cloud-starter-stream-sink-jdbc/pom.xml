@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-starter-stream-source-jdbc</artifactId>
+    <artifactId>spring-cloud-starter-stream-sink-jdbc</artifactId>
     <packaging>jar</packaging>
-    <description>Spring Cloud Stream jdbc-source core</description>
+    <description>Spring Cloud Stream jdbc-sink core</description>
 
     <parent>
         <groupId>org.springframework.cloud.stream.app</groupId>
@@ -13,11 +13,6 @@
     </parent>
 
     <dependencies>
-
-        <dependency>
-            <groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-java-dsl</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-jdbc</artifactId>
@@ -39,10 +34,6 @@
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud.stream.app</groupId>
-            <artifactId>app-starters-common</artifactId>
         </dependency>
     </dependencies>
 </project>
