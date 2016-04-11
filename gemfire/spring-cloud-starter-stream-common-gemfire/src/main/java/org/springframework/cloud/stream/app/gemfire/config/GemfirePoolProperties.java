@@ -33,8 +33,7 @@ public class GemfirePoolProperties {
 	/**
 	 * Specifies one or more Gemfire locator or server addresses formatted as [host]:[port].
 	 */
-	private InetSocketAddress[] hostAddresses = {
-			new InetSocketAddress("localhost", 10334) };
+	private InetSocketAddress[] hostAddresses = { new InetSocketAddress("localhost", 10334) };
 
 	/**
 	 * Specifies connection type: 'server' or 'locator'.

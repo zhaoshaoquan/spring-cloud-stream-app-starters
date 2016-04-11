@@ -30,8 +30,9 @@ import java.util.Arrays;
  * configures the 'hostAddresses', 'connectType' ('server' or 'locator), and
  * 'subscriptionsEnabled' ('true' required for Gemfire Source apps).
  *
- * @author David Turanski
  * @see GemfirePoolProperties
+ *
+ * @author David Turanski
  */
 @Configuration
 @EnableConfigurationProperties(GemfirePoolProperties.class)
@@ -46,16 +47,16 @@ public class GemfirePoolConfiguration {
 		PoolFactoryBean poolFactoryBean = new PoolFactoryBean();
 
 		switch (config.getConnectType()) {
-		case locator:
-			poolFactoryBean.setLocators(Arrays.asList(config.getHostAddresses()));
-			break;
-		case server:
-			poolFactoryBean.setServers(Arrays.asList(config.getHostAddresses()));
-			break;
-		default:
-			throw new IllegalArgumentException(
-					"connectType " + config.getConnectType() + " is not supported.");
-		}
+			case locator:
+				poolFactoryBean.setLocators(Arrays.asList(config.getHostAddresses()));
+				break;
+			case server:
+				poolFactoryBean.setServers(Arrays.asList(config.getHostAddresses()));
+				break;
+			default:
+				throw new IllegalArgumentException(
+						"connectType " + config.getConnectType() + " is not supported.");
+			}
 		poolFactoryBean.setSubscriptionEnabled(config.isSubscriptionEnabled());
 		poolFactoryBean.setName(GemfireConstants.DEFAULT_GEMFIRE_POOL_NAME);
 		return poolFactoryBean;

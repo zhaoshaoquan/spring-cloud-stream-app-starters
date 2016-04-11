@@ -48,14 +48,13 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
 
+
 /**
  * @author David Turanski
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {
-		GemfireSinkIntegrationTests.GemfireSinkApplication.class })
-@IntegrationTest({ "regionName=Stocks", "keyExpression='key'",
-		"hostAddresses=localhost:42424", "connectType=server" })
+@SpringApplicationConfiguration(classes = {GemfireSinkIntegrationTests.GemfireSinkApplication.class})
+@IntegrationTest({"regionName=Stocks", "keyExpression='key'", "hostAddresses=localhost:42424", "connectType=server"})
 @EnableConfigurationProperties(GemfireSinkProperties.class)
 public class GemfireSinkIntegrationTests {
 
@@ -73,36 +72,31 @@ public class GemfireSinkIntegrationTests {
 		System.out.println(System.getProperty("java.home"));
 		String serverName = "GemFireTestServer";
 
-		File serverWorkingDirectory = new File(FileSystemUtils.WORKING_DIRECTORY,
-				serverName.toLowerCase());
+		File serverWorkingDirectory = new File(FileSystemUtils.WORKING_DIRECTORY, serverName.toLowerCase());
 
-		assertTrue(
-				serverWorkingDirectory.isDirectory() || serverWorkingDirectory.mkdirs());
+		assertTrue(serverWorkingDirectory.isDirectory() || serverWorkingDirectory.mkdirs());
 
 		List<String> arguments = new ArrayList<String>();
 
 		arguments.add("-Dgemfire.name=" + serverName);
 		arguments.add("gemfire-server.xml");
 
-		serverProcess = ProcessExecutor
-				.launch(serverWorkingDirectory, ServerProcess.class,
-						arguments.toArray(new String[arguments.size()]));
+		serverProcess = ProcessExecutor.launch(serverWorkingDirectory, ServerProcess.class,
+				arguments.toArray(new String[arguments.size()]));
 
 		waitForServerStart(TimeUnit.SECONDS.toMillis(20));
 	}
 
 	private static void waitForServerStart(final long milliseconds) {
-		ThreadUtils.timedWait(milliseconds, TimeUnit.MILLISECONDS.toMillis(500),
-				new ThreadUtils.WaitCondition() {
-					private File serverPidControlFile = new File(
-							serverProcess.getWorkingDirectory(),
-							ServerProcess.getServerProcessControlFilename());
+		ThreadUtils.timedWait(milliseconds, TimeUnit.MILLISECONDS.toMillis(500), new ThreadUtils.WaitCondition() {
+			private File serverPidControlFile = new File(serverProcess.getWorkingDirectory(),
+					ServerProcess.getServerProcessControlFilename());
 
-					@Override
-					public boolean waiting() {
-						return !serverPidControlFile.isFile();
-					}
-				});
+			@Override
+			public boolean waiting() {
+				return !serverPidControlFile.isFile();
+			}
+		});
 	}
 
 	@Test
@@ -116,10 +110,8 @@ public class GemfireSinkIntegrationTests {
 	public static void tearDown() {
 		serverProcess.shutdown();
 
-		if (Boolean.valueOf(System.getProperty("spring.gemfire.fork.clean",
-				Boolean.TRUE.toString()))) {
-			org.springframework.util.FileSystemUtils
-					.deleteRecursively(serverProcess.getWorkingDirectory());
+		if (Boolean.valueOf(System.getProperty("spring.gemfire.fork.clean", Boolean.TRUE.toString()))) {
+			org.springframework.util.FileSystemUtils.deleteRecursively(serverProcess.getWorkingDirectory());
 		}
 	}
 
