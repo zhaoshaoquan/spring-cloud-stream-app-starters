@@ -34,6 +34,8 @@
 						<file-source-rabbit />
 						<file-sink-kafka />
 						<file-sink-rabbit />
+						<filter-processor-kafka />
+						<filter-processor-rabbit />
 						<ftp-sink-kafka />
 						<ftp-sink-rabbit />
 						<ftp-source-kafka />

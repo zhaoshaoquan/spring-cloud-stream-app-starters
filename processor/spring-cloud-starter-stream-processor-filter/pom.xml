@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>spring-cloud-starter-stream-processor-transform</artifactId>
+	<artifactId>spring-cloud-starter-stream-processor-filter</artifactId>
 	<packaging>jar</packaging>
-	<name>spring-cloud-starter-stream-processor-transform</name>
-	<description>Spring Cloud Stream processor-transform core</description>
+	<name>spring-cloud-starter-stream-processor-filter</name>
+	<description>Spring Cloud Stream processor-filter core</description>
 
 	<parent>
 		<groupId>org.springframework.cloud.stream.app</groupId>

@@ -1,1 +1,1 @@
-provides: spring-cloud-starter-stream-processor-splitter
+provides: spring-cloud-starter-stream-processor-transform
