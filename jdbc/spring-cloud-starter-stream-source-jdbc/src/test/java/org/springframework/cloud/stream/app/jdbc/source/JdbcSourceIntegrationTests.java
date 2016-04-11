@@ -16,19 +16,9 @@
 
 package org.springframework.cloud.stream.app.jdbc.source;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
-
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.EmbeddedDataSourceConfiguration;
@@ -42,139 +32,146 @@ import org.springframework.messaging.Message;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.*;
+
 /**
  * Integration Tests for JdbcSource. Uses hsqldb as a (real) embedded DB.
+ *
  * @author Thomas Risberg
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {JdbcSourceIntegrationTests.JdbcSourceApplication.class,
-        EmbeddedDataSourceConfiguration.class})
+		EmbeddedDataSourceConfiguration.class})
 @DirtiesContext
 public abstract class JdbcSourceIntegrationTests {
 
-    @Autowired
-    @Bindings(JdbcSourceConfiguration.class)
-    protected Source source;
+	@Autowired
+	@Bindings(JdbcSourceConfiguration.class)
+	protected Source source;
 
-    @Autowired
-    protected JdbcOperations jdbcOperations;
+	@Autowired
+	protected JdbcOperations jdbcOperations;
 
-    @Autowired
-    protected MessageCollector messageCollector;
+	@Autowired
+	protected MessageCollector messageCollector;
 
-    @IntegrationTest("query=select id, name from test order by id")
-    public static class DefaultBehaviorTests extends JdbcSourceIntegrationTests {
+	@IntegrationTest("query=select id, name from test order by id")
+	public static class DefaultBehaviorTests extends JdbcSourceIntegrationTests {
 
-        @Test
-        public void testExtraction() throws InterruptedException {
-            Message<?> received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
-            assertNotNull(received);
-            assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
-            assertEquals(1L, ((Map) received.getPayload()).get("ID"));
-            received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
-            assertNotNull(received);
-            assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
-            assertEquals(2L, ((Map) received.getPayload()).get("ID"));
-            received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
-            assertNotNull(received);
-            assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
-            assertEquals(3L, ((Map) received.getPayload()).get("ID"));
-        }
+		@Test
+		public void testExtraction() throws InterruptedException {
+			Message<?> received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
+			assertNotNull(received);
+			assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
+			assertEquals(1L, ((Map) received.getPayload()).get("ID"));
+			received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
+			assertNotNull(received);
+			assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
+			assertEquals(2L, ((Map) received.getPayload()).get("ID"));
+			received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
+			assertNotNull(received);
+			assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
+			assertEquals(3L, ((Map) received.getPayload()).get("ID"));
+		}
 
-    }
+	}
 
-    @IntegrationTest(value = {"query=select id, name, tag from test where tag is NULL order by id", "split=false"})
-    public static class SelectAllNoSplitTests extends JdbcSourceIntegrationTests {
+	@IntegrationTest(value = {"query=select id, name, tag from test where tag is NULL order by id", "split=false"})
+	public static class SelectAllNoSplitTests extends JdbcSourceIntegrationTests {
 
-        @Test
-        public void testExtraction() throws InterruptedException {
-            Message<?> received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
-            assertNotNull(received);
-            assertThat(received.getPayload(), Matchers.instanceOf(List.class));
-            assertEquals(3, ((List) received.getPayload()).size());
-            assertEquals(1L, ((Map) ((List) received.getPayload()).get(0)).get("ID"));
-            assertEquals("John", ((Map) ((List) received.getPayload()).get(2)).get("NAME"));
-        }
+		@Test
+		public void testExtraction() throws InterruptedException {
+			Message<?> received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
+			assertNotNull(received);
+			assertThat(received.getPayload(), Matchers.instanceOf(List.class));
+			assertEquals(3, ((List) received.getPayload()).size());
+			assertEquals(1L, ((Map) ((List) received.getPayload()).get(0)).get("ID"));
+			assertEquals("John", ((Map) ((List) received.getPayload()).get(2)).get("NAME"));
+		}
 
-    }
+	}
 
-    @IntegrationTest(value = {"query=select id, name from test order by id", "fixedDelay=600"})
-    public static class SelectAllWithDelayTests extends JdbcSourceIntegrationTests {
+	@IntegrationTest(value = {"query=select id, name from test order by id", "fixedDelay=600"})
+	public static class SelectAllWithDelayTests extends JdbcSourceIntegrationTests {
 
-        @Test
-        public void testExtraction() throws InterruptedException {
-            Message<?> received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
-            System.out.println(received);
-            assertNotNull(received);
-            assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
-            assertEquals(1L, ((Map) received.getPayload()).get("ID"));
-            received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
-            System.out.println(received);
-            assertNotNull(received);
-            assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
-            assertEquals(2L, ((Map) received.getPayload()).get("ID"));
-            received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
-            System.out.println(received);
-            assertNotNull(received);
-            assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
-            assertEquals(3L, ((Map) received.getPayload()).get("ID"));
-            // should not wrap around to the beginning since delay is 60
-            received = messageCollector.forChannel(source.output()).poll(1, TimeUnit.SECONDS);
-            assertNull(received);
-        }
+		@Test
+		public void testExtraction() throws InterruptedException {
+			Message<?> received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
+			System.out.println(received);
+			assertNotNull(received);
+			assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
+			assertEquals(1L, ((Map) received.getPayload()).get("ID"));
+			received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
+			System.out.println(received);
+			assertNotNull(received);
+			assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
+			assertEquals(2L, ((Map) received.getPayload()).get("ID"));
+			received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
+			System.out.println(received);
+			assertNotNull(received);
+			assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
+			assertEquals(3L, ((Map) received.getPayload()).get("ID"));
+			// should not wrap around to the beginning since delay is 60
+			received = messageCollector.forChannel(source.output()).poll(1, TimeUnit.SECONDS);
+			assertNull(received);
+		}
 
-    }
+	}
 
-    @IntegrationTest(value = {"query=select id, name from test order by id", "fixedDelay=1"})
-    public static class SelectAllWithMinDelayTests extends JdbcSourceIntegrationTests {
+	@IntegrationTest(value = {"query=select id, name from test order by id", "fixedDelay=1"})
+	public static class SelectAllWithMinDelayTests extends JdbcSourceIntegrationTests {
 
-        @Test
-        public void testExtraction() throws InterruptedException {
-            Message<?> received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
-            assertNotNull(received);
-            assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
-            assertEquals(1L, ((Map) received.getPayload()).get("ID"));
-            received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
-            assertNotNull(received);
-            assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
-            assertEquals(2L, ((Map) received.getPayload()).get("ID"));
-            received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
-            assertNotNull(received);
-            assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
-            assertEquals(3L, ((Map) received.getPayload()).get("ID"));
-            // should wrap around to the beginning
-            received = messageCollector.forChannel(source.output()).poll(2, TimeUnit.SECONDS);
-            assertNotNull(received);
-            assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
-            assertEquals(1L, ((Map) received.getPayload()).get("ID"));
-        }
+		@Test
+		public void testExtraction() throws InterruptedException {
+			Message<?> received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
+			assertNotNull(received);
+			assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
+			assertEquals(1L, ((Map) received.getPayload()).get("ID"));
+			received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
+			assertNotNull(received);
+			assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
+			assertEquals(2L, ((Map) received.getPayload()).get("ID"));
+			received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
+			assertNotNull(received);
+			assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
+			assertEquals(3L, ((Map) received.getPayload()).get("ID"));
+			// should wrap around to the beginning
+			received = messageCollector.forChannel(source.output()).poll(2, TimeUnit.SECONDS);
+			assertNotNull(received);
+			assertThat(received.getPayload(), Matchers.instanceOf(Map.class));
+			assertEquals(1L, ((Map) received.getPayload()).get("ID"));
+		}
 
-    }
+	}
 
-    @IntegrationTest(value = {"query=select id, name, tag from test where tag is NULL order by id", "split=false",
-            "maxRowsPerPoll=2", "update=update test set tag='1' where id in (:id)"})
-    public static class Select2PerPollNoSplitWithUpdateTests extends JdbcSourceIntegrationTests {
+	@IntegrationTest(value = {"query=select id, name, tag from test where tag is NULL order by id", "split=false",
+			"maxRowsPerPoll=2", "update=update test set tag='1' where id in (:id)"})
+	public static class Select2PerPollNoSplitWithUpdateTests extends JdbcSourceIntegrationTests {
 
-        @Test
-        public void testExtraction() throws InterruptedException {
-            Message<?> received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
-            assertNotNull(received);
-            assertThat(received.getPayload(), Matchers.instanceOf(List.class));
-            assertEquals(2, ((List) received.getPayload()).size());
-            assertEquals(1L, ((Map) ((List) received.getPayload()).get(0)).get("ID"));
-            assertEquals(2L, ((Map) ((List) received.getPayload()).get(1)).get("ID"));
-            received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
-            assertNotNull(received);
-            assertThat(received.getPayload(), Matchers.instanceOf(List.class));
-            assertEquals(1, ((List) received.getPayload()).size());
-            assertEquals(3L, ((Map) ((List) received.getPayload()).get(0)).get("ID"));
-        }
+		@Test
+		public void testExtraction() throws InterruptedException {
+			Message<?> received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
+			assertNotNull(received);
+			assertThat(received.getPayload(), Matchers.instanceOf(List.class));
+			assertEquals(2, ((List) received.getPayload()).size());
+			assertEquals(1L, ((Map) ((List) received.getPayload()).get(0)).get("ID"));
+			assertEquals(2L, ((Map) ((List) received.getPayload()).get(1)).get("ID"));
+			received = messageCollector.forChannel(source.output()).poll(10, TimeUnit.SECONDS);
+			assertNotNull(received);
+			assertThat(received.getPayload(), Matchers.instanceOf(List.class));
+			assertEquals(1, ((List) received.getPayload()).size());
+			assertEquals(3L, ((Map) ((List) received.getPayload()).get(0)).get("ID"));
+		}
 
-    }
+	}
 
-    @SpringBootApplication
-    public static class JdbcSourceApplication {
+	@SpringBootApplication
+	public static class JdbcSourceApplication {
 
-    }
+	}
 
 }

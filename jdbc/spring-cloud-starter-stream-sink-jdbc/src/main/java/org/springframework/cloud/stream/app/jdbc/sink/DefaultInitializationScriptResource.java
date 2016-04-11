@@ -16,12 +16,11 @@
 
 package org.springframework.cloud.stream.app.jdbc.sink;
 
-import java.nio.charset.Charset;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.core.io.ByteArrayResource;
+
+import java.nio.charset.Charset;
 
 /**
  * An in-memory script crafted for dropping-creating the table we're working with.
@@ -31,26 +30,26 @@ import org.springframework.core.io.ByteArrayResource;
  */
 public class DefaultInitializationScriptResource extends ByteArrayResource {
 
-    private static final Logger logger = LoggerFactory.getLogger(DefaultInitializationScriptResource.class);
+	private static final Logger logger = LoggerFactory.getLogger(DefaultInitializationScriptResource.class);
 
-    public DefaultInitializationScriptResource(JdbcSinkProperties properties) {
-        super(scriptFor(properties).getBytes(Charset.forName("UTF-8")));
-    }
+	public DefaultInitializationScriptResource(JdbcSinkProperties properties) {
+		super(scriptFor(properties).getBytes(Charset.forName("UTF-8")));
+	}
 
-    private static String scriptFor(JdbcSinkProperties properties) {
-        StringBuilder result = new StringBuilder("DROP TABLE ");
-        result.append(properties.getTableName()).append(";\n\n");
+	private static String scriptFor(JdbcSinkProperties properties) {
+		StringBuilder result = new StringBuilder("DROP TABLE ");
+		result.append(properties.getTableName()).append(";\n\n");
 
-        result.append("CREATE TABLE ").append(properties.getTableName()).append('(');
-        int i = 0;
-        for (String column : properties.getColumns().keySet()) {
-            if (i++ > 0) {
-                result.append(", ");
-            }
-            result.append(column).append(" VARCHAR(2000)");
-        }
-        result.append(");\n");
-        logger.debug("Generated the following initializing script for table {}:\n{}", properties.getTableName(), result);
-        return result.toString();
-    }
+		result.append("CREATE TABLE ").append(properties.getTableName()).append('(');
+		int i = 0;
+		for (String column : properties.getColumns().keySet()) {
+			if (i++ > 0) {
+				result.append(", ");
+			}
+			result.append(column).append(" VARCHAR(2000)");
+		}
+		result.append(");\n");
+		logger.debug("Generated the following initializing script for table {}:\n{}", properties.getTableName(), result);
+		return result.toString();
+	}
 }

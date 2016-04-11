@@ -16,9 +16,9 @@
 
 package org.springframework.cloud.stream.app.jdbc.source;
 
-import javax.validation.constraints.NotNull;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * Holds configuration properties for the Jdbc Source module.
@@ -28,56 +28,56 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties
 public class JdbcSourceProperties {
 
-    /**
-     * The query to use to select data.
-     */
-    private String query;
+	/**
+	 * The query to use to select data.
+	 */
+	private String query;
 
-    /**
-     * An SQL update statement to execute for marking polled messages as 'seen'.
-     */
-    private String update;
+	/**
+	 * An SQL update statement to execute for marking polled messages as 'seen'.
+	 */
+	private String update;
 
-    /**
-     * Whether to split the SQL result as individual messages.
-     */
-    private boolean split = true;
+	/**
+	 * Whether to split the SQL result as individual messages.
+	 */
+	private boolean split = true;
 
-    /**
-     * Max numbers of rows to process for each poll.
-     */
-    private int maxRowsPerPoll = 0;
+	/**
+	 * Max numbers of rows to process for each poll.
+	 */
+	private int maxRowsPerPoll = 0;
 
-    @NotNull
-    public String getQuery() {
-        return query;
-    }
+	@NotNull
+	public String getQuery() {
+		return query;
+	}
 
-    public void setQuery(String query) {
-        this.query = query;
-    }
+	public void setQuery(String query) {
+		this.query = query;
+	}
 
-    public String getUpdate() {
-        return update;
-    }
+	public String getUpdate() {
+		return update;
+	}
 
-    public void setUpdate(String update) {
-        this.update = update;
-    }
+	public void setUpdate(String update) {
+		this.update = update;
+	}
 
-    public boolean isSplit() {
-        return split;
-    }
+	public boolean isSplit() {
+		return split;
+	}
 
-    public void setSplit(boolean split) {
-        this.split = split;
-    }
+	public void setSplit(boolean split) {
+		this.split = split;
+	}
 
-    public int getMaxRowsPerPoll() {
-        return maxRowsPerPoll;
-    }
+	public int getMaxRowsPerPoll() {
+		return maxRowsPerPoll;
+	}
 
-    public void setMaxRowsPerPoll(int maxRowsPerPoll) {
-        this.maxRowsPerPoll = maxRowsPerPoll;
-    }
+	public void setMaxRowsPerPoll(int maxRowsPerPoll) {
+		this.maxRowsPerPoll = maxRowsPerPoll;
+	}
 }

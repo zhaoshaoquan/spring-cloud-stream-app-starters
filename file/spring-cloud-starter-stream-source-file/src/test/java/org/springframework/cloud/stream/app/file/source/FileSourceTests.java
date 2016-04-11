@@ -16,22 +16,9 @@
 
 package org.springframework.cloud.stream.app.file.source;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -43,6 +30,14 @@ import org.springframework.integration.file.splitter.FileSplitter;
 import org.springframework.messaging.Message;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.*;
 
 /**
  * @author Gary Russell
@@ -77,8 +72,8 @@ public abstract class FileSourceTests {
 		return fileFinal;
 	}
 
-	@IntegrationTest({ "directory = ${java.io.tmpdir}${file.separator}dataflow-tests${file.separator}input",
-		"fixedDelay = 100", "timeUnit = MILLISECONDS" })
+	@IntegrationTest({"directory = ${java.io.tmpdir}${file.separator}dataflow-tests${file.separator}input",
+			"fixedDelay = 100", "timeUnit = MILLISECONDS"})
 	public static class ContentPayloadTests extends FileSourceTests {
 
 		@Test
@@ -94,8 +89,8 @@ public abstract class FileSourceTests {
 
 	}
 
-	@IntegrationTest({ "directory = ${java.io.tmpdir}${file.separator}dataflow-tests${file.separator}input",
-		"fixedDelay = 100", "timeUnit = MILLISECONDS", "mode = ref" })
+	@IntegrationTest({"directory = ${java.io.tmpdir}${file.separator}dataflow-tests${file.separator}input",
+			"fixedDelay = 100", "timeUnit = MILLISECONDS", "mode = ref"})
 	public static class FilePayloadTests extends FileSourceTests {
 
 		@Test
@@ -109,8 +104,8 @@ public abstract class FileSourceTests {
 
 	}
 
-	@IntegrationTest({ "directory = ${java.io.tmpdir}${file.separator}dataflow-tests${file.separator}input",
-		"fixedDelay = 100", "timeUnit = MILLISECONDS", "mode = lines", "withMarkers = false" })
+	@IntegrationTest({"directory = ${java.io.tmpdir}${file.separator}dataflow-tests${file.separator}input",
+			"fixedDelay = 100", "timeUnit = MILLISECONDS", "mode = lines", "withMarkers = false"})
 	public static class LinesPayloadTests extends FileSourceTests {
 
 		@Test
@@ -129,8 +124,8 @@ public abstract class FileSourceTests {
 
 	}
 
-	@IntegrationTest({ "directory = ${java.io.tmpdir}${file.separator}dataflow-tests${file.separator}input",
-		"fixedDelay = 100", "timeUnit = MILLISECONDS", "mode = lines", "withMarkers = true" })
+	@IntegrationTest({"directory = ${java.io.tmpdir}${file.separator}dataflow-tests${file.separator}input",
+			"fixedDelay = 100", "timeUnit = MILLISECONDS", "mode = lines", "withMarkers = true"})
 	public static class LinesAndMarkersPayloadTests extends FileSourceTests {
 
 		@Test
@@ -157,8 +152,8 @@ public abstract class FileSourceTests {
 
 	}
 
-	@IntegrationTest({ "directory = ${java.io.tmpdir}${file.separator}dataflow-tests${file.separator}input",
-		"fixedDelay = 100", "timeUnit = MILLISECONDS", "mode = ref", "filenamePattern = *.txt" })
+	@IntegrationTest({"directory = ${java.io.tmpdir}${file.separator}dataflow-tests${file.separator}input",
+			"fixedDelay = 100", "timeUnit = MILLISECONDS", "mode = ref", "filenamePattern = *.txt"})
 	public static class FilePayloadWithPatternTests extends FileSourceTests {
 
 		@Test
@@ -177,8 +172,8 @@ public abstract class FileSourceTests {
 
 	}
 
-	@IntegrationTest({ "directory = ${java.io.tmpdir}${file.separator}dataflow-tests${file.separator}input",
-		"fixedDelay = 100", "timeUnit = MILLISECONDS", "mode = ref", "filenameRegex = .*.txt" })
+	@IntegrationTest({"directory = ${java.io.tmpdir}${file.separator}dataflow-tests${file.separator}input",
+			"fixedDelay = 100", "timeUnit = MILLISECONDS", "mode = ref", "filenameRegex = .*.txt"})
 	public static class FilePayloadWithRegexTests extends FileSourceTests {
 
 		@Test

@@ -16,8 +16,6 @@
 
 package org.springframework.cloud.stream.app.file.source;
 
-import java.io.File;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -39,6 +37,8 @@ import org.springframework.integration.file.FileReadingMessageSource;
 import org.springframework.integration.scheduling.PollerMetadata;
 import org.springframework.util.StringUtils;
 
+import java.io.File;
+
 /**
  * Creates a {@link FileReadingMessageSource} bean and registers it as a
  * Inbound Channel Adapter that sends messages to the Source output channel.
@@ -47,7 +47,7 @@ import org.springframework.util.StringUtils;
  */
 @EnableBinding(Source.class)
 @Import(TriggerConfiguration.class)
-@EnableConfigurationProperties({ FileSourceProperties.class, FileConsumerProperties.class})
+@EnableConfigurationProperties({FileSourceProperties.class, FileConsumerProperties.class})
 public class FileSource {
 
 	@Autowired
@@ -69,8 +69,7 @@ public class FileSource {
 
 		if (StringUtils.hasText(this.properties.getFilenamePattern())) {
 			messageSourceSpec.patternFilter(this.properties.getFilenamePattern());
-		}
-		else if (this.properties.getFilenameRegex() != null) {
+		} else if (this.properties.getFilenameRegex() != null) {
 			messageSourceSpec.regexFilter(this.properties.getFilenameRegex().pattern());
 		}
 
@@ -80,18 +79,18 @@ public class FileSource {
 
 		IntegrationFlowBuilder flowBuilder = IntegrationFlows
 				.from(messageSourceSpec,
-					new Consumer<SourcePollingChannelAdapterSpec>() {
+						new Consumer<SourcePollingChannelAdapterSpec>() {
 
-						@Override
-						public void accept(SourcePollingChannelAdapterSpec sourcePollingChannelAdapterSpec) {
-							sourcePollingChannelAdapterSpec
-									.poller(defaultPoller);
-						}
+							@Override
+							public void accept(SourcePollingChannelAdapterSpec sourcePollingChannelAdapterSpec) {
+								sourcePollingChannelAdapterSpec
+										.poller(defaultPoller);
+							}
 
-					});
+						});
 		return FileUtils.enhanceFlowForReadingMode(flowBuilder, this.fileConsumerProperties)
-			.channel(source.output())
-			.get();
+				.channel(source.output())
+				.get();
 	}
 
 }

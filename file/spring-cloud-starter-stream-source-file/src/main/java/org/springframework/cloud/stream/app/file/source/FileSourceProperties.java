@@ -16,11 +16,11 @@
 
 package org.springframework.cloud.stream.app.file.source;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import javax.validation.constraints.AssertTrue;
 import java.io.File;
 import java.util.regex.Pattern;
-import javax.validation.constraints.AssertTrue;
-
-import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Properties for the file source.

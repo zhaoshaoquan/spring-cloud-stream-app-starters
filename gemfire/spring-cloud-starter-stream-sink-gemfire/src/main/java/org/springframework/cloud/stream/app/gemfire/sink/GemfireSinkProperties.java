@@ -16,7 +16,6 @@
 package org.springframework.cloud.stream.app.gemfire.sink;
 
 import org.hibernate.validator.constraints.NotBlank;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -25,17 +24,17 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties
 public class GemfireSinkProperties {
 
-    /**
-     * SpEL expression to use as a cache key
-     */
-    private String keyExpression;
+	/**
+	 * SpEL expression to use as a cache key
+	 */
+	private String keyExpression;
 
-    @NotBlank
-    public String getKeyExpression() {
-        return keyExpression;
-    }
+	@NotBlank
+	public String getKeyExpression() {
+		return keyExpression;
+	}
 
-    public void setKeyExpression(String keyExpression) {
-        this.keyExpression = keyExpression;
-    }
+	public void setKeyExpression(String keyExpression) {
+		this.keyExpression = keyExpression;
+	}
 }

@@ -16,56 +16,57 @@
 package org.springframework.cloud.stream.app.gemfire.sink;
 
 
-import java.net.InetSocketAddress;
-
 import org.hibernate.validator.constraints.NotEmpty;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import java.net.InetSocketAddress;
 
 /**
  * @author David Turanski
  */
 @ConfigurationProperties
 public class GemfirePoolProperties {
-    static enum ConnectType {locator, server};
-    /**
-     * Specifies one or more Gemfire locator or server addresses formatted as [host]:[port].
-     */
-    private InetSocketAddress[] hostAddresses = {new InetSocketAddress("localhost",10334)};
+	static enum ConnectType {locator, server}
 
-    /**
-     * Specifies connection type: 'server' or 'locator'.
-     */
-    private ConnectType connectType = ConnectType.locator;
+	;
+	/**
+	 * Specifies one or more Gemfire locator or server addresses formatted as [host]:[port].
+	 */
+	private InetSocketAddress[] hostAddresses = {new InetSocketAddress("localhost", 10334)};
 
-    /**
-     * Set to true to enable subscriptions for the client pool. Required to sync updates to the client cache.
-     */
-    private boolean subscriptionEnabled;
+	/**
+	 * Specifies connection type: 'server' or 'locator'.
+	 */
+	private ConnectType connectType = ConnectType.locator;
+
+	/**
+	 * Set to true to enable subscriptions for the client pool. Required to sync updates to the client cache.
+	 */
+	private boolean subscriptionEnabled;
 
 
-    @NotEmpty
-    public InetSocketAddress[] getHostAddresses() {
-        return hostAddresses;
-    }
+	@NotEmpty
+	public InetSocketAddress[] getHostAddresses() {
+		return hostAddresses;
+	}
 
-    public void setHostAddresses(InetSocketAddress[] hostAddresses) {
-        this.hostAddresses = hostAddresses;
-    }
+	public void setHostAddresses(InetSocketAddress[] hostAddresses) {
+		this.hostAddresses = hostAddresses;
+	}
 
-    public ConnectType getConnectType() {
-        return connectType;
-    }
+	public ConnectType getConnectType() {
+		return connectType;
+	}
 
-    public void setConnectType(ConnectType connectType) {
-        this.connectType = connectType;
-    }
+	public void setConnectType(ConnectType connectType) {
+		this.connectType = connectType;
+	}
 
-    public boolean isSubscriptionEnabled() {
-        return subscriptionEnabled;
-    }
+	public boolean isSubscriptionEnabled() {
+		return subscriptionEnabled;
+	}
 
-    public void setSubscriptionEnabled(boolean subscriptionEnabled) {
-        this.subscriptionEnabled = subscriptionEnabled;
-    }
+	public void setSubscriptionEnabled(boolean subscriptionEnabled) {
+		this.subscriptionEnabled = subscriptionEnabled;
+	}
 }

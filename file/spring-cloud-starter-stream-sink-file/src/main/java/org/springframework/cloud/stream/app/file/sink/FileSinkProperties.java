@@ -16,13 +16,13 @@
 
 package org.springframework.cloud.stream.app.file.sink;
 
-import java.io.File;
-import javax.validation.constraints.AssertTrue;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.expression.Expression;
 import org.springframework.integration.file.support.FileExistsMode;
 import org.springframework.util.StringUtils;
+
+import javax.validation.constraints.AssertTrue;
+import java.io.File;
 
 /**
  * Properties for the file sink.

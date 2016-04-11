@@ -16,11 +16,11 @@
 
 package org.springframework.cloud.stream.app.jdbc.sink;
 
-import java.util.Collections;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import java.util.Collections;
+import java.util.Map;
 
 /**
  * Holds configuration properties for the Jdbc Sink module.
@@ -30,45 +30,45 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties
 public class JdbcSinkProperties {
 
-    /**
-     * The name of the table to write into.
-     */
-    @Value("${spring.application.name:messages}")
-    private String tableName;
+	/**
+	 * The name of the table to write into.
+	 */
+	@Value("${spring.application.name:messages}")
+	private String tableName;
 
-    /**
-     * The names of the columns that shall receive data, as a set of column[:SpEL] mappings.
-     * Also used at initialization time to issue the DDL.
-     */
-    private Map<String, String> columns = Collections.singletonMap("payload", "payload.toString()");
+	/**
+	 * The names of the columns that shall receive data, as a set of column[:SpEL] mappings.
+	 * Also used at initialization time to issue the DDL.
+	 */
+	private Map<String, String> columns = Collections.singletonMap("payload", "payload.toString()");
 
-    /**
-     * 'true', 'false' or the location of a custom initialization script for the table.
-     */
-    private String initialize = "false";
+	/**
+	 * 'true', 'false' or the location of a custom initialization script for the table.
+	 */
+	private String initialize = "false";
 
-    public String getTableName() {
-        return tableName;
-    }
+	public String getTableName() {
+		return tableName;
+	}
 
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
-    }
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
+	}
 
-    public Map<String, String> getColumns() {
-        return columns;
-    }
+	public Map<String, String> getColumns() {
+		return columns;
+	}
 
-    @SupportsShorthands
-    public void setColumns(Map<String, String> columns) {
-        this.columns = columns;
-    }
+	@SupportsShorthands
+	public void setColumns(Map<String, String> columns) {
+		this.columns = columns;
+	}
 
-    public String getInitialize() {
-        return initialize;
-    }
+	public String getInitialize() {
+		return initialize;
+	}
 
-    public void setInitialize(String initialize) {
-        this.initialize = initialize;
-    }
+	public void setInitialize(String initialize) {
+		this.initialize = initialize;
+	}
 }

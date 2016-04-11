@@ -37,7 +37,7 @@ public class LogSink {
 	private LogSinkProperties properties;
 
 	@Bean
-	@ServiceActivator(inputChannel=Sink.INPUT)
+	@ServiceActivator(inputChannel = Sink.INPUT)
 	public LoggingHandler logSinkHandler() {
 		LoggingHandler loggingHandler = new LoggingHandler(this.properties.getLevel().name());
 		loggingHandler.setExpression(this.properties.getExpression());

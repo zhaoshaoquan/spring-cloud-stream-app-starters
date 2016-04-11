@@ -16,8 +16,6 @@
 
 package org.springframework.cloud.stream.app.jdbc.source;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -36,8 +34,11 @@ import org.springframework.integration.dsl.support.Consumer;
 import org.springframework.integration.jdbc.JdbcPollingChannelAdapter;
 import org.springframework.integration.scheduling.PollerMetadata;
 
+import javax.sql.DataSource;
+
 /**
  * A module that reads data from an RDBMS using JDBC and creates a payload with the data.
+ *
  * @author Thomas Risberg
  */
 @EnableBinding(Source.class)
@@ -45,45 +46,45 @@ import org.springframework.integration.scheduling.PollerMetadata;
 @EnableConfigurationProperties(JdbcSourceProperties.class)
 public class JdbcSourceConfiguration {
 
-    @Autowired
-    @Qualifier("defaultPoller")
-    private PollerMetadata poller;
+	@Autowired
+	@Qualifier("defaultPoller")
+	private PollerMetadata poller;
 
-    @Autowired
-    private JdbcSourceProperties properties;
+	@Autowired
+	private JdbcSourceProperties properties;
 
-    @Autowired
-    private DataSource dataSource;
+	@Autowired
+	private DataSource dataSource;
 
-    @Autowired
-    @Bindings(JdbcSourceConfiguration.class)
-    private Source source;
+	@Autowired
+	@Bindings(JdbcSourceConfiguration.class)
+	private Source source;
 
-    @Bean
-    public MessageSource<Object> jdbcMessageSource() {
-        JdbcPollingChannelAdapter jdbcPollingChannelAdapter =
-                new JdbcPollingChannelAdapter(this.dataSource, this.properties.getQuery());
-        jdbcPollingChannelAdapter.setMaxRowsPerPoll(this.properties.getMaxRowsPerPoll());
-        jdbcPollingChannelAdapter.setUpdateSql(this.properties.getUpdate());
-        return jdbcPollingChannelAdapter;
-    }
+	@Bean
+	public MessageSource<Object> jdbcMessageSource() {
+		JdbcPollingChannelAdapter jdbcPollingChannelAdapter =
+				new JdbcPollingChannelAdapter(this.dataSource, this.properties.getQuery());
+		jdbcPollingChannelAdapter.setMaxRowsPerPoll(this.properties.getMaxRowsPerPoll());
+		jdbcPollingChannelAdapter.setUpdateSql(this.properties.getUpdate());
+		return jdbcPollingChannelAdapter;
+	}
 
-    @Bean
-    public IntegrationFlow pollingFlow() {
-        IntegrationFlowBuilder flowBuilder = IntegrationFlows.from(jdbcMessageSource(),
-                new Consumer<SourcePollingChannelAdapterSpec>() {
+	@Bean
+	public IntegrationFlow pollingFlow() {
+		IntegrationFlowBuilder flowBuilder = IntegrationFlows.from(jdbcMessageSource(),
+				new Consumer<SourcePollingChannelAdapterSpec>() {
 
-                    @Override
-                    public void accept(SourcePollingChannelAdapterSpec sourcePollingChannelAdapterSpec) {
-                        sourcePollingChannelAdapterSpec.poller(poller);
-                    }
+					@Override
+					public void accept(SourcePollingChannelAdapterSpec sourcePollingChannelAdapterSpec) {
+						sourcePollingChannelAdapterSpec.poller(poller);
+					}
 
-                });
-        if (this.properties.isSplit()) {
-            flowBuilder.split();
-        }
-        flowBuilder.channel(this.source.output());
-        return flowBuilder.get();
-    }
+				});
+		if (this.properties.isSplit()) {
+			flowBuilder.split();
+		}
+		flowBuilder.channel(this.source.output());
+		return flowBuilder.get();
+	}
 
 }

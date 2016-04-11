@@ -16,10 +16,6 @@
 
 package org.springframework.cloud.stream.app.http.source;
 
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
-
-import java.util.Collections;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.messaging.Source;
@@ -32,6 +28,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
+import java.util.Collections;
+
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 /**
  * A source module that listens for HTTP requests and emits the body as a message payload.
@@ -49,7 +49,7 @@ public class HttpSource {
 	@Autowired
 	private Source channels;
 
-	@RequestMapping(path = "${pathPattern:/}", method = POST, consumes = { "text/*", "application/json" })
+	@RequestMapping(path = "${pathPattern:/}", method = POST, consumes = {"text/*", "application/json"})
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public void handleRequest(@RequestBody String body, @RequestHeader(HttpHeaders.CONTENT_TYPE) Object contentType) {
 		sendMessage(body, contentType);

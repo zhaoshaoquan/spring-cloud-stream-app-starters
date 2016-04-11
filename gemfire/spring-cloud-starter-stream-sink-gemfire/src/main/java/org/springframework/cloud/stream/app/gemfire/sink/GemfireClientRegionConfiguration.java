@@ -15,6 +15,7 @@
 
 package org.springframework.cloud.stream.app.gemfire.sink;
 
+import com.gemstone.gemfire.cache.DataPolicy;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,8 +26,6 @@ import org.springframework.data.gemfire.client.ClientCacheFactoryBean;
 import org.springframework.data.gemfire.client.ClientRegionFactoryBean;
 import org.springframework.util.StringUtils;
 
-import com.gemstone.gemfire.cache.DataPolicy;
-
 /**
  * @author David Turanski
  */
@@ -34,32 +33,31 @@ import com.gemstone.gemfire.cache.DataPolicy;
 @EnableConfigurationProperties(GemfireRegionProperties.class)
 public class GemfireClientRegionConfiguration {
 
-    @Autowired
-    GemfireRegionProperties config;
+	@Autowired
+	GemfireRegionProperties config;
 
-    @Value("${spring.application.name:}")
-    String regionName;
+	@Value("${spring.application.name:}")
+	String regionName;
 
-    @Bean
-    public ClientCacheFactoryBean clientCache() {
-        ClientCacheFactoryBean clientCacheFactoryBean = new ClientCacheFactoryBean();
-        clientCacheFactoryBean.setUseBeanFactoryLocator(false);
-        clientCacheFactoryBean.setPoolName("gemfirePool");
-        return clientCacheFactoryBean;
-    }
+	@Bean
+	public ClientCacheFactoryBean clientCache() {
+		ClientCacheFactoryBean clientCacheFactoryBean = new ClientCacheFactoryBean();
+		clientCacheFactoryBean.setUseBeanFactoryLocator(false);
+		clientCacheFactoryBean.setPoolName("gemfirePool");
+		return clientCacheFactoryBean;
+	}
 
-    @Bean(name = "clientRegion")
-    public ClientRegionFactoryBean clientRegionFactoryBean() {
-        ClientRegionFactoryBean clientRegionFactoryBean = new ClientRegionFactoryBean();
-        clientRegionFactoryBean.setRegionName(StringUtils.hasText(config.getRegionName()) ? config.getRegionName() :
-                regionName);
-        clientRegionFactoryBean.setDataPolicy(DataPolicy.EMPTY);
-        try {
-            clientRegionFactoryBean.setCache(clientCache().getObject());
-        }
-        catch (Exception e) {
-            throw new BeanCreationException(e.getMessage(), e);
-        }
-        return clientRegionFactoryBean;
-    }
+	@Bean(name = "clientRegion")
+	public ClientRegionFactoryBean clientRegionFactoryBean() {
+		ClientRegionFactoryBean clientRegionFactoryBean = new ClientRegionFactoryBean();
+		clientRegionFactoryBean.setRegionName(StringUtils.hasText(config.getRegionName()) ? config.getRegionName() :
+				regionName);
+		clientRegionFactoryBean.setDataPolicy(DataPolicy.EMPTY);
+		try {
+			clientRegionFactoryBean.setCache(clientCache().getObject());
+		} catch (Exception e) {
+			throw new BeanCreationException(e.getMessage(), e);
+		}
+		return clientRegionFactoryBean;
+	}
 }

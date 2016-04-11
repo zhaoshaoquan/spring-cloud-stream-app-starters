@@ -16,18 +16,10 @@
 
 package org.springframework.cloud.stream.app.log;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-
 import org.apache.commons.logging.Log;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
-
 import org.springframework.beans.DirectFieldAccessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -42,11 +34,14 @@ import org.springframework.messaging.support.GenericMessage;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = LogSinkApplicationTests.LogSinkApplication.class)
 @DirtiesContext
-@IntegrationTest({ "server.port=-1", "name=foo", "level=warn",
-		"expression=payload.toUpperCase()" })
+@IntegrationTest({"server.port=-1", "name=foo", "level=warn",
+		"expression=payload.toUpperCase()"})
 public class LogSinkApplicationTests {
 
 	@Autowired
@@ -80,7 +75,6 @@ public class LogSinkApplicationTests {
 		verify(logger, times(2)).warn(captor.capture());
 		assertSame(message, captor.getValue());
 	}
-
 
 
 	@SpringBootApplication

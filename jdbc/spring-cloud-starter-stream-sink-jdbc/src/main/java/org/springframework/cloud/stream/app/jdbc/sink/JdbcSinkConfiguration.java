@@ -16,15 +16,9 @@
 
 package org.springframework.cloud.stream.app.jdbc.sink;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import javax.annotation.PostConstruct;
-import javax.sql.DataSource;
-
+import com.fasterxml.jackson.databind.JsonNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.beans.DirectFieldAccessor;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +46,11 @@ import org.springframework.messaging.Message;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import javax.annotation.PostConstruct;
+import javax.sql.DataSource;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * A module that writes its incoming payload to an RDBMS using JDBC.
@@ -64,144 +62,137 @@ import com.fasterxml.jackson.databind.JsonNode;
 @EnableConfigurationProperties(JdbcSinkProperties.class)
 public class JdbcSinkConfiguration {
 
-    private static final Logger logger = LoggerFactory.getLogger(JdbcSinkConfiguration.class);
+	private static final Logger logger = LoggerFactory.getLogger(JdbcSinkConfiguration.class);
 
-    public static final Object NOT_SET = new Object();
+	public static final Object NOT_SET = new Object();
 
-    private SpelExpressionParser spelExpressionParser = new SpelExpressionParser();
+	private SpelExpressionParser spelExpressionParser = new SpelExpressionParser();
 
-    @Autowired
-    private BeanFactory beanFactory;
+	@Autowired
+	private BeanFactory beanFactory;
 
-    protected EvaluationContext evaluationContext;
+	protected EvaluationContext evaluationContext;
 
-    @Autowired
-    private JdbcSinkProperties properties;
+	@Autowired
+	private JdbcSinkProperties properties;
 
 
-    @Bean
-    @ServiceActivator(autoStartup = "false", inputChannel = Sink.INPUT)
-    public JdbcMessageHandler jdbcMessageHandler(DataSource dataSource) {
-        final MultiValueMap<String, Expression> columnExpressionVariations = new LinkedMultiValueMap<>();
-        for (Map.Entry<String, String> entry : properties.getColumns().entrySet()) {
-            String value = entry.getValue();
-            columnExpressionVariations.add(entry.getKey(), spelExpressionParser.parseExpression(value));
-            if (!value.startsWith("payload")) {
-                columnExpressionVariations.add(entry.getKey(), spelExpressionParser.parseExpression("payload." + value));
-            }
-        }
-        JdbcMessageHandler jdbcMessageHandler = new JdbcMessageHandler(dataSource,
-                generateSql(properties.getTableName(),columnExpressionVariations.keySet()));
-        jdbcMessageHandler.setSqlParameterSourceFactory(
-                new SqlParameterSourceFactory() {
-                    @Override
-                    public SqlParameterSource createParameterSource(Object o) {
-                        if (!(o instanceof Message)) {
-                            throw new IllegalArgumentException("Unable to handle type " + o.getClass().getName());
-                        }
-                        Message<?> message = (Message<?>) o;
-                        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
-                        for (String key: columnExpressionVariations.keySet()) {
-                            List<Expression> spels = columnExpressionVariations.get(key);
-                            Object value = NOT_SET;
-                            EvaluationException lastException = null;
-                            for (Expression spel : spels) {
-                                try {
-                                    value = spel.getValue(evaluationContext, message);
-                                    break;
-                                }
-                                catch (EvaluationException e) {
-                                    lastException = e;
-                                }
-                            }
-                            if (value == NOT_SET) {
-                                if (lastException != null) {
-                                    logger.info("Could not find value for column '" + key + "': " + lastException.getMessage());
-                                }
-                                parameterSource.addValue(key, null);
-                            }
-                            else {
-                                if (value instanceof JsonPropertyAccessor.ToStringFriendlyJsonNode) {
-                                    // Need to do some reflection until we have a getter for the Node
-                                    DirectFieldAccessor dfa = new DirectFieldAccessor(value);
-                                    JsonNode node = (JsonNode) dfa.getPropertyValue("node");
-                                    Object valueToUse;
-                                    if (node == null || node.isNull()) {
-                                        valueToUse = null;
-                                    }
-                                    else if (node.isNumber()) {
-                                        valueToUse = node.numberValue();
-                                    }
-                                    else if (node.isBoolean()) {
-                                        valueToUse = node.booleanValue();
-                                    }
-                                    else {
-                                        valueToUse = node.textValue();
-                                    }
-                                    parameterSource.addValue(key, valueToUse);
-                                }
-                                else {
-                                    parameterSource.addValue(key, value);
-                                }
-                            }
-                        }
-                        return parameterSource;
-                    }
-                });
-        return jdbcMessageHandler;
-    }
+	@Bean
+	@ServiceActivator(autoStartup = "false", inputChannel = Sink.INPUT)
+	public JdbcMessageHandler jdbcMessageHandler(DataSource dataSource) {
+		final MultiValueMap<String, Expression> columnExpressionVariations = new LinkedMultiValueMap<>();
+		for (Map.Entry<String, String> entry : properties.getColumns().entrySet()) {
+			String value = entry.getValue();
+			columnExpressionVariations.add(entry.getKey(), spelExpressionParser.parseExpression(value));
+			if (!value.startsWith("payload")) {
+				columnExpressionVariations.add(entry.getKey(), spelExpressionParser.parseExpression("payload." + value));
+			}
+		}
+		JdbcMessageHandler jdbcMessageHandler = new JdbcMessageHandler(dataSource,
+				generateSql(properties.getTableName(), columnExpressionVariations.keySet()));
+		jdbcMessageHandler.setSqlParameterSourceFactory(
+				new SqlParameterSourceFactory() {
+					@Override
+					public SqlParameterSource createParameterSource(Object o) {
+						if (!(o instanceof Message)) {
+							throw new IllegalArgumentException("Unable to handle type " + o.getClass().getName());
+						}
+						Message<?> message = (Message<?>) o;
+						MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+						for (String key : columnExpressionVariations.keySet()) {
+							List<Expression> spels = columnExpressionVariations.get(key);
+							Object value = NOT_SET;
+							EvaluationException lastException = null;
+							for (Expression spel : spels) {
+								try {
+									value = spel.getValue(evaluationContext, message);
+									break;
+								} catch (EvaluationException e) {
+									lastException = e;
+								}
+							}
+							if (value == NOT_SET) {
+								if (lastException != null) {
+									logger.info("Could not find value for column '" + key + "': " + lastException.getMessage());
+								}
+								parameterSource.addValue(key, null);
+							} else {
+								if (value instanceof JsonPropertyAccessor.ToStringFriendlyJsonNode) {
+									// Need to do some reflection until we have a getter for the Node
+									DirectFieldAccessor dfa = new DirectFieldAccessor(value);
+									JsonNode node = (JsonNode) dfa.getPropertyValue("node");
+									Object valueToUse;
+									if (node == null || node.isNull()) {
+										valueToUse = null;
+									} else if (node.isNumber()) {
+										valueToUse = node.numberValue();
+									} else if (node.isBoolean()) {
+										valueToUse = node.booleanValue();
+									} else {
+										valueToUse = node.textValue();
+									}
+									parameterSource.addValue(key, valueToUse);
+								} else {
+									parameterSource.addValue(key, value);
+								}
+							}
+						}
+						return parameterSource;
+					}
+				});
+		return jdbcMessageHandler;
+	}
 
-    @ConditionalOnProperty("initialize")
-    @Bean
-    public DataSourceInitializer nonBootDataSourceInitializer(DataSource dataSource, ResourceLoader resourceLoader) {
-        DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
-        dataSourceInitializer.setDataSource(dataSource);
-        ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
-        databasePopulator.setIgnoreFailedDrops(true);
-        dataSourceInitializer.setDatabasePopulator(databasePopulator);
-        if ("true".equals(properties.getInitialize())) {
-            databasePopulator.addScript(new DefaultInitializationScriptResource(properties));
-        }
-        else {
-            databasePopulator.addScript(resourceLoader.getResource(properties.getInitialize()));
-        }
-        return dataSourceInitializer;
-    }
+	@ConditionalOnProperty("initialize")
+	@Bean
+	public DataSourceInitializer nonBootDataSourceInitializer(DataSource dataSource, ResourceLoader resourceLoader) {
+		DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
+		dataSourceInitializer.setDataSource(dataSource);
+		ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
+		databasePopulator.setIgnoreFailedDrops(true);
+		dataSourceInitializer.setDatabasePopulator(databasePopulator);
+		if ("true".equals(properties.getInitialize())) {
+			databasePopulator.addScript(new DefaultInitializationScriptResource(properties));
+		} else {
+			databasePopulator.addScript(resourceLoader.getResource(properties.getInitialize()));
+		}
+		return dataSourceInitializer;
+	}
 
-    /*
-     * This is needed to prevent a circular dependency issue with the creation of the converter.
-     */
-    public static class Nested {
+	/*
+	 * This is needed to prevent a circular dependency issue with the creation of the converter.
+	 */
+	public static class Nested {
 
-        @Bean
-        @ConfigurationPropertiesBinding
-        public ShorthandMapConverter shorthandMapConverter() {
-            return new ShorthandMapConverter();
-        }
+		@Bean
+		@ConfigurationPropertiesBinding
+		public ShorthandMapConverter shorthandMapConverter() {
+			return new ShorthandMapConverter();
+		}
 
-    }
+	}
 
-    @PostConstruct
-    public void afterPropertiesSet() {
-        this.evaluationContext = ExpressionUtils.createStandardEvaluationContext(beanFactory);
-    }
+	@PostConstruct
+	public void afterPropertiesSet() {
+		this.evaluationContext = ExpressionUtils.createStandardEvaluationContext(beanFactory);
+	}
 
-    private String generateSql(String tableName, Set<String> columns) {
-        StringBuilder builder = new StringBuilder("INSERT INTO ");
-        StringBuilder questionMarks = new StringBuilder(") VALUES (");
-        builder.append(tableName).append("(");
-        int i = 0;
+	private String generateSql(String tableName, Set<String> columns) {
+		StringBuilder builder = new StringBuilder("INSERT INTO ");
+		StringBuilder questionMarks = new StringBuilder(") VALUES (");
+		builder.append(tableName).append("(");
+		int i = 0;
 
-        for (String column : columns) {
-            if (i++ > 0) {
-                builder.append(", ");
-                questionMarks.append(", ");
-            }
-            builder.append(column);
-            questionMarks.append(':' + column);
-        }
-        builder.append(questionMarks).append(")");
-        return builder.toString();
-    }
+		for (String column : columns) {
+			if (i++ > 0) {
+				builder.append(", ");
+				questionMarks.append(", ");
+			}
+			builder.append(column);
+			questionMarks.append(':' + column);
+		}
+		builder.append(questionMarks).append(")");
+		return builder.toString();
+	}
 
 }

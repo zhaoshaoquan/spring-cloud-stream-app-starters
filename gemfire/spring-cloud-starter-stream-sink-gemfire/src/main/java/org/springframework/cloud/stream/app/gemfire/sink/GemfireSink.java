@@ -15,9 +15,7 @@
 
 package org.springframework.cloud.stream.app.gemfire.sink;
 
-import java.util.Collections;
-import javax.annotation.Resource;
-
+import com.gemstone.gemfire.cache.Region;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.stream.annotation.EnableBinding;
@@ -28,7 +26,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.integration.gemfire.outbound.CacheWritingMessageHandler;
 
-import com.gemstone.gemfire.cache.Region;
+import javax.annotation.Resource;
+import java.util.Collections;
 
 /**
  * @author David Turanski
@@ -38,23 +37,23 @@ import com.gemstone.gemfire.cache.Region;
 @EnableConfigurationProperties(GemfireSinkProperties.class)
 public class GemfireSink {
 
-    @Autowired
-    GemfireSinkProperties config;
+	@Autowired
+	GemfireSinkProperties config;
 
-    @Autowired
-    ApplicationContext context;
+	@Autowired
+	ApplicationContext context;
 
-    //NOTE: https://jira.spring.io/browse/SPR-7915 supposedly fixed in SF 4.3. So
-    //should be able to change to @Autowired at that point
-    @Resource(name = "clientRegion")
-    Region<String, ?> region;
+	//NOTE: https://jira.spring.io/browse/SPR-7915 supposedly fixed in SF 4.3. So
+	//should be able to change to @Autowired at that point
+	@Resource(name = "clientRegion")
+	Region<String, ?> region;
 
-    @Bean
-    @ServiceActivator(inputChannel = Sink.INPUT)
-    public CacheWritingMessageHandler messageHandler() {
-        CacheWritingMessageHandler messageHandler = new CacheWritingMessageHandler(this.region);
-        messageHandler.setCacheEntries(Collections.singletonMap(this.config.getKeyExpression(), "payload"));
-        return messageHandler;
-    }
+	@Bean
+	@ServiceActivator(inputChannel = Sink.INPUT)
+	public CacheWritingMessageHandler messageHandler() {
+		CacheWritingMessageHandler messageHandler = new CacheWritingMessageHandler(this.region);
+		messageHandler.setCacheEntries(Collections.singletonMap(this.config.getKeyExpression(), "payload"));
+		return messageHandler;
+	}
 
 }

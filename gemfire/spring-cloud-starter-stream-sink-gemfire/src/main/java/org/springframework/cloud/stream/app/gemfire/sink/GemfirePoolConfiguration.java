@@ -15,8 +15,6 @@
 
 package org.springframework.cloud.stream.app.gemfire.sink;
 
-import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +22,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.gemfire.client.PoolFactoryBean;
 import org.springframework.data.gemfire.config.GemfireConstants;
+
+import java.util.Arrays;
 
 /**
  * @author David Turanski
@@ -33,25 +33,25 @@ import org.springframework.data.gemfire.config.GemfireConstants;
 @Import(InetSocketAddressConverterConfiguration.class)
 public class GemfirePoolConfiguration {
 
-    @Autowired
-    GemfirePoolProperties config;
+	@Autowired
+	GemfirePoolProperties config;
 
-    @Bean
-    public PoolFactoryBean gemfirePool() {
-        PoolFactoryBean poolFactoryBean = new PoolFactoryBean();
+	@Bean
+	public PoolFactoryBean gemfirePool() {
+		PoolFactoryBean poolFactoryBean = new PoolFactoryBean();
 
-        switch (config.getConnectType()) {
-            case locator:
-                poolFactoryBean.setLocators(Arrays.asList(config.getHostAddresses()));
-                break;
-            case server:
-                poolFactoryBean.setServers(Arrays.asList(config.getHostAddresses()));
-                break;
-            default:
-                throw new IllegalArgumentException("connectType " + config.getConnectType() + " is not supported.");
-        }
-        poolFactoryBean.setSubscriptionEnabled(config.isSubscriptionEnabled());
-        poolFactoryBean.setName(GemfireConstants.DEFAULT_GEMFIRE_POOL_NAME);
-        return poolFactoryBean;
-    }
+		switch (config.getConnectType()) {
+			case locator:
+				poolFactoryBean.setLocators(Arrays.asList(config.getHostAddresses()));
+				break;
+			case server:
+				poolFactoryBean.setServers(Arrays.asList(config.getHostAddresses()));
+				break;
+			default:
+				throw new IllegalArgumentException("connectType " + config.getConnectType() + " is not supported.");
+		}
+		poolFactoryBean.setSubscriptionEnabled(config.isSubscriptionEnabled());
+		poolFactoryBean.setName(GemfireConstants.DEFAULT_GEMFIRE_POOL_NAME);
+		return poolFactoryBean;
+	}
 }

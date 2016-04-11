@@ -22,17 +22,17 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @ConfigurationProperties
 public class GemfireRegionProperties {
-    /**
-     * The region name.
-     */
-    private String regionName;
+	/**
+	 * The region name.
+	 */
+	private String regionName;
 
-    public String getRegionName() {
-        return regionName;
-    }
+	public String getRegionName() {
+		return regionName;
+	}
 
-    public void setRegionName(String regionName) {
-        this.regionName = regionName;
-    }
+	public void setRegionName(String regionName) {
+		this.regionName = regionName;
+	}
 
 }

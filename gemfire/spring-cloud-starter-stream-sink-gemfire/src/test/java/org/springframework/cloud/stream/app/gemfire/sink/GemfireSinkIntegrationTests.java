@@ -15,23 +15,12 @@
 
 package org.springframework.cloud.stream.app.gemfire.sink;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertTrue;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import javax.annotation.Resource;
-
+import com.gemstone.gemfire.cache.Region;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -48,7 +37,16 @@ import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.messaging.support.GenericMessage;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.gemstone.gemfire.cache.Region;
+import javax.annotation.Resource;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -60,70 +58,70 @@ import com.gemstone.gemfire.cache.Region;
 @EnableConfigurationProperties(GemfireSinkProperties.class)
 public class GemfireSinkIntegrationTests {
 
-    @Autowired
-    @Bindings(GemfireSink.class)
-    protected Sink gemfireSink;
+	@Autowired
+	@Bindings(GemfireSink.class)
+	protected Sink gemfireSink;
 
-    @Resource(name = "clientRegion")
-    Region<String, String> region;
+	@Resource(name = "clientRegion")
+	Region<String, String> region;
 
-    private static ProcessWrapper serverProcess;
+	private static ProcessWrapper serverProcess;
 
-    @BeforeClass
-    public static void setup() throws IOException {
-        System.out.println(System.getProperty("java.home"));
-        String serverName = "GemFireTestServer";
+	@BeforeClass
+	public static void setup() throws IOException {
+		System.out.println(System.getProperty("java.home"));
+		String serverName = "GemFireTestServer";
 
-        File serverWorkingDirectory = new File(FileSystemUtils.WORKING_DIRECTORY, serverName.toLowerCase());
+		File serverWorkingDirectory = new File(FileSystemUtils.WORKING_DIRECTORY, serverName.toLowerCase());
 
-        assertTrue(serverWorkingDirectory.isDirectory() || serverWorkingDirectory.mkdirs());
+		assertTrue(serverWorkingDirectory.isDirectory() || serverWorkingDirectory.mkdirs());
 
-        List<String> arguments = new ArrayList<String>();
+		List<String> arguments = new ArrayList<String>();
 
-        arguments.add("-Dgemfire.name=" + serverName);
-        arguments.add("gemfire-server.xml");
+		arguments.add("-Dgemfire.name=" + serverName);
+		arguments.add("gemfire-server.xml");
 
-        serverProcess = ProcessExecutor.launch(serverWorkingDirectory, ServerProcess.class,
-                arguments.toArray(new String[arguments.size()]));
+		serverProcess = ProcessExecutor.launch(serverWorkingDirectory, ServerProcess.class,
+				arguments.toArray(new String[arguments.size()]));
 
-        waitForServerStart(TimeUnit.SECONDS.toMillis(20));
-    }
+		waitForServerStart(TimeUnit.SECONDS.toMillis(20));
+	}
 
-    private static void waitForServerStart(final long milliseconds) {
-        ThreadUtils.timedWait(milliseconds, TimeUnit.MILLISECONDS.toMillis(500), new ThreadUtils.WaitCondition() {
-            private File serverPidControlFile = new File(serverProcess.getWorkingDirectory(),
-                    ServerProcess.getServerProcessControlFilename());
+	private static void waitForServerStart(final long milliseconds) {
+		ThreadUtils.timedWait(milliseconds, TimeUnit.MILLISECONDS.toMillis(500), new ThreadUtils.WaitCondition() {
+			private File serverPidControlFile = new File(serverProcess.getWorkingDirectory(),
+					ServerProcess.getServerProcessControlFilename());
 
-            @Override
-            public boolean waiting() {
-                return !serverPidControlFile.isFile();
-            }
-        });
-    }
+			@Override
+			public boolean waiting() {
+				return !serverPidControlFile.isFile();
+			}
+		});
+	}
 
-    @Test
-    @Ignore("Need to spawn an embedded gemfire cacahe server.  " +
-            "See https://github.com/spring-cloud/spring-cloud-stream-modules/issues/49")
-    public void test() {
-        gemfireSink.input().send(new GenericMessage("hello"));
-        assertThat(region.get("key"), equalTo("hello"));
-    }
+	@Test
+	@Ignore("Need to spawn an embedded gemfire cacahe server.  " +
+			"See https://github.com/spring-cloud/spring-cloud-stream-modules/issues/49")
+	public void test() {
+		gemfireSink.input().send(new GenericMessage("hello"));
+		assertThat(region.get("key"), equalTo("hello"));
+	}
 
-    @AfterClass
-    public static void tearDown() {
-        serverProcess.shutdown();
+	@AfterClass
+	public static void tearDown() {
+		serverProcess.shutdown();
 
-        if (Boolean.valueOf(System.getProperty("spring.gemfire.fork.clean", Boolean.TRUE.toString()))) {
-            org.springframework.util.FileSystemUtils.deleteRecursively(serverProcess.getWorkingDirectory());
-        }
-    }
+		if (Boolean.valueOf(System.getProperty("spring.gemfire.fork.clean", Boolean.TRUE.toString()))) {
+			org.springframework.util.FileSystemUtils.deleteRecursively(serverProcess.getWorkingDirectory());
+		}
+	}
 
-    @SpringBootApplication
-    static class GemfireSinkApplication {
+	@SpringBootApplication
+	static class GemfireSinkApplication {
 
-        public static void main(String[] args) {
-            SpringApplication.run(GemfireSinkApplication.class, args);
-        }
-    }
+		public static void main(String[] args) {
+			SpringApplication.run(GemfireSinkApplication.class, args);
+		}
+	}
 
 }
