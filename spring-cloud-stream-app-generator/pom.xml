@@ -30,6 +30,8 @@
 						<version>1.0.0.BUILD-SNAPSHOT</version>
 					</bom>
 					<generatedApps>
+						<bridge-processor-kafka />
+						<bridge-processor-rabbit />
 						<file-source-kafka />
 						<file-source-rabbit />
 						<file-sink-kafka />
