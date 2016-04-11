@@ -74,6 +74,8 @@
 						<rabbit-sink-rabbit />
 						<rabbit-source-kafka />
 						<rabbit-source-rabbit />
+						<redis-sink-kafka />
+						<redis-sink-rabbit />
 						<router-sink-kafka />
 						<router-sink-rabbit />
 						<scriptable-transform-processor-kafka>
