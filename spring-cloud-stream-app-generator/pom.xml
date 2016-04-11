@@ -100,6 +100,8 @@
 						<transform-processor-rabbit />
 						<trigger-source-kafka />
 						<trigger-source-rabbit />
+						<websocket-sink-kafka />
+						<websocket-sink-rabbit />
 					</generatedApps>
 					<extraRepositories>
 						<repository>

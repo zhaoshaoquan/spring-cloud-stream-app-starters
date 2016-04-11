@@ -61,6 +61,8 @@
     <module>httpclient-processor-rabbit</module>
     <module>jms-source-kafka</module>
     <module>jms-source-rabbit</module>
+    <module>websocket-sink-kafka</module>
+    <module>websocket-sink-rabbit</module>
   </modules>
   <build>
     <plugins>
