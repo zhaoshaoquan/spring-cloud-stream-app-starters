@@ -106,6 +106,21 @@
 						<trigger-source-rabbit />
 						<websocket-sink-kafka />
 						<websocket-sink-rabbit />
+						<!-- Test Modules -->
+						<integration-test-processor-kafka>
+							<starterArtifactSuffix>processor-integration-test</starterArtifactSuffix>
+						</integration-test-processor-kafka>
+						<integration-test-processor-rabbit>
+							<starterArtifactSuffix>processor-integration-test</starterArtifactSuffix>
+						</integration-test-processor-rabbit>
+						<throughput-sink-kafka />
+						<throughput-sink-rabbit />
+						<load-generator-source-kafka>
+							<starterArtifactSuffix>source-load-generator</starterArtifactSuffix>
+						</load-generator-source-kafka>
+						<load-generator-source-rabbit>
+							<starterArtifactSuffix>source-load-generator</starterArtifactSuffix>
+						</load-generator-source-rabbit>
 					</generatedApps>
 					<extraRepositories>
 						<repository>
