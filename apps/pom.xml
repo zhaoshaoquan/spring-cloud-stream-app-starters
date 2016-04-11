@@ -57,6 +57,8 @@
     <module>jdbc-sink-rabbit</module>
     <module>filter-processor-kafka</module>
     <module>filter-processor-rabbit</module>
+    <module>httpclient-processor-kafka</module>
+    <module>httpclient-processor-rabbit</module>
   </modules>
   <build>
     <plugins>

@@ -58,6 +58,8 @@
 						<groovy-transform-processor-rabbit>
 							<starterArtifactSuffix>processor-groovy-transform</starterArtifactSuffix>
 						</groovy-transform-processor-rabbit>
+						<httpclient-processor-kafka />
+						<httpclient-processor-rabbit />
 						<http-source-kafka />
 						<http-source-rabbit />
 						<jdbc-sink-kafka />
