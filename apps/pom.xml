@@ -59,6 +59,8 @@
     <module>filter-processor-rabbit</module>
     <module>httpclient-processor-kafka</module>
     <module>httpclient-processor-rabbit</module>
+    <module>jms-source-kafka</module>
+    <module>jms-source-rabbit</module>
   </modules>
   <build>
     <plugins>
