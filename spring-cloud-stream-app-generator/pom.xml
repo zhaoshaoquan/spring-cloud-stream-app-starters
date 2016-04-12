@@ -84,6 +84,8 @@
 						<jdbc-source-rabbit />
 						<jms-source-kafka />
 						<jms-source-rabbit />
+						<loggregator-source-kafka />
+						<loggregator-source-rabbit />
 						<log-sink-kafka />
 						<log-sink-rabbit />
 						<rabbit-sink-kafka />

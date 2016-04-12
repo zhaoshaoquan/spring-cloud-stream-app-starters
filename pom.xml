@@ -19,6 +19,7 @@
     <module>app-starters-common-analytics</module>
     <module>app-starters-test-support</module>
     <module>cassandra</module>
+    <module>cloudfoundry</module>
     <module>file</module>
     <module>ftp</module>
     <module>gemfire</module>
