@@ -12,12 +12,8 @@ import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.cloud.stream.app.gemfire.source.GemfireSource;
 import org.springframework.cloud.stream.app.gemfire.source.GemfireSourceProperties;
-import org.springframework.cloud.stream.test.binder.MessageCollector;
 import org.springframework.cloud.stream.test.binder.TestSupportBinderAutoConfiguration;
 import org.springframework.data.gemfire.client.Interest;
-import org.springframework.integration.channel.DirectChannel;
-import org.springframework.integration.gemfire.inbound.CacheListeningMessageProducer;
-import org.springframework.messaging.Message;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;

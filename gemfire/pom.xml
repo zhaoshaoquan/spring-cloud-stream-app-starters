@@ -23,6 +23,13 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-releasetrain</artifactId>
+                <version>${spring-data-releasetrain.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework.cloud.stream.app</groupId>
                 <artifactId>spring-cloud-starter-stream-common-gemfire</artifactId>
                 <version>${project.version}</version>
@@ -32,32 +39,20 @@
                 <artifactId>spring-integration-gemfire</artifactId>
                 <version>${spring-integration.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-gemfire</artifactId>
-                <version>1.6.2.RELEASE</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>com.gemstone.gemfire</groupId>
-                        <artifactId>gemfire</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>com.gemstone.gemfire</groupId>
-                <artifactId>gemfire</artifactId>
-                <version>8.0.0</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>net.sourceforge.jline</groupId>
-                        <artifactId>jline</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.fusesource.jansi</groupId>
-                        <artifactId>jansi</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.springframework.data</groupId>-->
+                <!--<artifactId>spring-data-gemfire</artifactId>-->
+                <!--<exclusions>-->
+                    <!--<exclusion>-->
+                        <!--<groupId>net.sourceforge.jline</groupId>-->
+                        <!--<artifactId>jline</artifactId>-->
+                    <!--</exclusion>-->
+                    <!--<exclusion>-->
+                        <!--<groupId>org.fusesource.jansi</groupId>-->
+                        <!--<artifactId>jansi</artifactId>-->
+                    <!--</exclusion>-->
+                <!--</exclusions>-->
+            <!--</dependency>-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-stream</artifactId>
