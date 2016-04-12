@@ -60,6 +60,12 @@
 						</gemfire-sink-rabbit>
 						<gpfdist-sink-kafka />
 						<gpfdist-sink-rabbit />
+						<gemfire-source-kafka>
+							<extraRepository>gemstone-release-cache</extraRepository>
+						</gemfire-source-kafka>
+						<gemfire-source-rabbit>
+							<extraRepository>gemstone-release-cache</extraRepository>
+						</gemfire-source-rabbit>
 						<groovy-filter-processor-kafka>
 							<starterArtifactSuffix>processor-groovy-filter</starterArtifactSuffix>
 						</groovy-filter-processor-kafka>

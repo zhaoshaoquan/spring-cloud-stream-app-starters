@@ -17,6 +17,8 @@
     <module>ftp-sink-rabbit</module>
     <module>ftp-source-kafka</module>
     <module>ftp-source-rabbit</module>
+    <module>gemfire-source-kafka</module>
+    <module>gemfire-source-rabbit</module>
     <module>gemfire-sink-kafka</module>
     <module>gemfire-sink-rabbit</module>
     <module>groovy-filter-processor-kafka</module>
