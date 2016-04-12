@@ -16,17 +16,24 @@
 package org.springframework.cloud.stream.app.gemfire.source;
 
 import com.gemstone.gemfire.cache.Region;
+import com.gemstone.gemfire.pdx.PdxInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.app.gemfire.JsonObjectTransformer;
 import org.springframework.cloud.stream.app.gemfire.config.GemfireClientRegionConfiguration;
 import org.springframework.cloud.stream.app.gemfire.config.GemfirePoolConfiguration;
 import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.integration.channel.DirectChannel;
+import org.springframework.integration.dsl.IntegrationFlow;
+import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.integration.gemfire.inbound.CacheListeningMessageProducer;
+import org.springframework.integration.router.PayloadTypeRouter;
+import org.springframework.integration.transformer.GenericTransformer;
 import org.springframework.messaging.MessageChannel;
 
 import javax.annotation.Resource;
@@ -46,6 +53,9 @@ import javax.annotation.Resource;
  *
  * More complex transformations, such as Json, will require customization. To access
  * the original object, set 'cacheEntryExpression' to '#root' or "#this'.
+ *
+ * This converts payloads of type {@link PdxInstance}, which Gemfire uses to store
+ * JSON content, to a JSON String.
  *
  *
  * @author David Turanski
@@ -71,10 +81,51 @@ public class GemfireSource {
 	private MessageChannel output;
 
 	@Bean
+	public MessageChannel convertToStringChannel(){
+		return new DirectChannel();
+	}
+
+	@Bean
+	public MessageChannel toRouterChannel(){
+		return new DirectChannel();
+	}
+
+	@Bean
+	PayloadTypeRouter payloadTypeRouter(){
+		PayloadTypeRouter router = new PayloadTypeRouter();
+		router.setDefaultOutputChannel(output);
+		router.setChannelMapping(PdxInstance.class.getName(),"convertToStringChannel");
+
+		return router;
+	}
+
+	@Bean
+	public IntegrationFlow startFlow() {
+		return IntegrationFlows.from(toRouterChannel()).route
+				(payloadTypeRouter())
+				.get();
+	}
+
+	@Bean JsonObjectTransformer transformer() {
+		return new JsonObjectTransformer();
+	}
+
+	@Bean IntegrationFlow convertToString() {
+		return IntegrationFlows.from(convertToStringChannel())
+				.transform(new GenericTransformer<PdxInstance, String>() {
+					@Override public String transform(PdxInstance pdxInstance) {
+						return transformer().toString(pdxInstance);
+					}
+				})
+				.channel(output)
+				.get();
+	}
+
+	@Bean
 	public CacheListeningMessageProducer cacheListeningMessageProducer() {
 		CacheListeningMessageProducer cacheListeningMessageProducer = new
 				CacheListeningMessageProducer(region);
-		cacheListeningMessageProducer.setOutputChannel(output);
+		cacheListeningMessageProducer.setOutputChannel(toRouterChannel());
 		cacheListeningMessageProducer.setExpressionPayload(
 				config.getCacheEventExpression());
 		return cacheListeningMessageProducer;
