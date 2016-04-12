@@ -29,6 +29,11 @@ public class GemfireSinkProperties {
 	 */
 	private String keyExpression;
 
+	/**
+	 * Indicates if the Gemfire region stores json objects as native Gemfire PdxInstance
+	 */
+	private boolean json;
+
 	@NotBlank
 	public String getKeyExpression() {
 		return keyExpression;
@@ -37,4 +42,14 @@ public class GemfireSinkProperties {
 	public void setKeyExpression(String keyExpression) {
 		this.keyExpression = keyExpression;
 	}
+
+	public boolean isJson() {
+		return json;
+	}
+
+	public void setJson(boolean json) {
+		this.json = json;
+	}
+
+
 }
