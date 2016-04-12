@@ -77,6 +77,8 @@
     <module>hdfs-sink-rabbit</module>
     <module>twitterstream-source-kafka</module>
     <module>twitterstream-source-rabbit</module>
+    <module>hdfs-dataset-sink-kafka</module>
+    <module>hdfs-dataset-sink-rabbit</module>
   </modules>
   <build>
     <plugins>

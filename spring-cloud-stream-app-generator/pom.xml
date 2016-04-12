@@ -62,6 +62,8 @@
 						</groovy-transform-processor-rabbit>
 						<hdfs-sink-kafka />
 						<hdfs-sink-rabbit />
+						<hdfs-dataset-sink-kafka />
+						<hdfs-dataset-sink-rabbit />
 						<httpclient-processor-kafka />
 						<httpclient-processor-rabbit />
 						<http-source-kafka />
