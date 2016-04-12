@@ -39,20 +39,6 @@
                 <artifactId>spring-integration-gemfire</artifactId>
                 <version>${spring-integration.version}</version>
             </dependency>
-            <!--<dependency>-->
-                <!--<groupId>org.springframework.data</groupId>-->
-                <!--<artifactId>spring-data-gemfire</artifactId>-->
-                <!--<exclusions>-->
-                    <!--<exclusion>-->
-                        <!--<groupId>net.sourceforge.jline</groupId>-->
-                        <!--<artifactId>jline</artifactId>-->
-                    <!--</exclusion>-->
-                    <!--<exclusion>-->
-                        <!--<groupId>org.fusesource.jansi</groupId>-->
-                        <!--<artifactId>jansi</artifactId>-->
-                    <!--</exclusion>-->
-                <!--</exclusions>-->
-            <!--</dependency>-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-stream</artifactId>
