@@ -106,6 +106,8 @@
 						<transform-processor-rabbit />
 						<trigger-source-kafka />
 						<trigger-source-rabbit />
+						<twitterstream-source-kafka />
+						<twitterstream-source-rabbit />
 						<websocket-sink-kafka />
 						<websocket-sink-rabbit />
 						<!-- Test Modules -->

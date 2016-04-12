@@ -13,17 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.springframework.cloud.stream.app.twitterstream;
 
-package org.springframework.cloud.stream.app.time;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
-public class TestTimeSourceApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(TestTimeSourceApplication.class, args);
-	}
-
+/**
+ * Twitter stream types.
+ *
+ * @author Ilayaperumal Gopinathan
+ * @author Gary Russell
+ */
+public enum TwitterStreamType {
+	//TODO: Support more stream types such as `filter`, `search` that TwitterTemplate implementation supports.
+	SAMPLE, FIREHOSE
 }

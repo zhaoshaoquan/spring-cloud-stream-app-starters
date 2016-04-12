@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 the original author or authors.
+ * Copyright 2015-2016 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,28 +41,29 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @DirtiesContext
 public abstract class TimeSourceIntegrationTests {
 
-    @Autowired
-    @Bindings(TimeSource.class)
-    protected Source timeSource;
+	@Autowired
+	@Bindings(TimeSource.class)
+	protected Source timeSource;
 
-    @Autowired
-    protected MessageCollector messageCollector;
+	@Autowired
+	protected MessageCollector messageCollector;
 
-    public static class DefaultPropertiesTests extends TimeSourceIntegrationTests {
-        @Test
-        public void test() throws InterruptedException {
-            Thread.sleep(1100);
-            assertEquals(2, messageCollector.forChannel(timeSource.output()).size());
-        }
-    }
+	public static class DefaultPropertiesTests extends TimeSourceIntegrationTests {
+		@Test
+		public void test() throws InterruptedException {
+			Thread.sleep(1100);
+			assertEquals(2, messageCollector.forChannel(timeSource.output()).size());
+		}
+	}
 
-    @IntegrationTest({"timeUnit=MILLISECONDS" })
-    public static class TimeUnitPropertiesTests extends TimeSourceIntegrationTests {
-        @Test
-        public void test() throws InterruptedException {
-            Assume.assumeThat("Skipping this test which is time dependent in travis", System.getenv("TRAVIS"), CoreMatchers.nullValue());
-            Thread.sleep(5000);
-            assertThat(messageCollector.forChannel(timeSource.output()).size(), Matchers.greaterThanOrEqualTo(500));
-        }
-    }
+	@IntegrationTest({ "timeUnit=MILLISECONDS" })
+	public static class TimeUnitPropertiesTests extends TimeSourceIntegrationTests {
+		@Test
+		public void test() throws InterruptedException {
+			Assume.assumeThat("Skipping this test which is time dependent in travis", System.getenv("TRAVIS"),
+					CoreMatchers.nullValue());
+			Thread.sleep(5000);
+			assertThat(messageCollector.forChannel(timeSource.output()).size(), Matchers.greaterThanOrEqualTo(500));
+		}
+	}
 }
