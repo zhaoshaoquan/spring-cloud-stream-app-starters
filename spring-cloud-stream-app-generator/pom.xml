@@ -32,6 +32,8 @@
 					<generatedApps>
 						<bridge-processor-kafka />
 						<bridge-processor-rabbit />
+						<cassandra-sink-kafka />
+						<cassandra-sink-rabbit />
 						<counter-sink-kafka />
 						<counter-sink-rabbit />
 						<field-value-counter-sink-kafka>
