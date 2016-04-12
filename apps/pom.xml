@@ -79,6 +79,10 @@
     <module>twitterstream-source-rabbit</module>
     <module>hdfs-dataset-sink-kafka</module>
     <module>hdfs-dataset-sink-rabbit</module>
+    <module>counter-sink-kafka</module>
+    <module>counter-sink-rabbit</module>
+    <module>field-value-counter-sink-kafka</module>
+    <module>field-value-counter-sink-rabbit</module>
   </modules>
   <build>
     <plugins>

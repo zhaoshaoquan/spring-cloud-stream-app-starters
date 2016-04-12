@@ -32,6 +32,14 @@
 					<generatedApps>
 						<bridge-processor-kafka />
 						<bridge-processor-rabbit />
+						<counter-sink-kafka />
+						<counter-sink-rabbit />
+						<field-value-counter-sink-kafka>
+							<starterArtifactSuffix>sink-field-value-counter</starterArtifactSuffix>
+						</field-value-counter-sink-kafka>
+						<field-value-counter-sink-rabbit>
+							<starterArtifactSuffix>sink-field-value-counter</starterArtifactSuffix>
+						</field-value-counter-sink-rabbit>
 						<file-source-kafka />
 						<file-source-rabbit />
 						<file-sink-kafka />

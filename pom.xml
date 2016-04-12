@@ -16,6 +16,7 @@
     <module>spring-cloud-stream-app-dependencies</module>
     <module>spring-cloud-stream-app-generator</module>
     <module>app-starters-common</module>
+    <module>app-starters-common-analytics</module>
     <module>app-starters-test-support</module>
     <module>file</module>
     <module>ftp</module>
@@ -25,6 +26,7 @@
     <module>jdbc</module>
     <module>jms</module>
     <module>log</module>
+    <module>metrics</module>
     <module>processor</module>
     <module>rabbit</module>
     <module>redis</module>
