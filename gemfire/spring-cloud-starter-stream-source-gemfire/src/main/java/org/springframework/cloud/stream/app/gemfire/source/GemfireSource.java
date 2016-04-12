@@ -33,7 +33,6 @@ import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.integration.gemfire.inbound.CacheListeningMessageProducer;
 import org.springframework.integration.router.PayloadTypeRouter;
-import org.springframework.integration.transformer.GenericTransformer;
 import org.springframework.messaging.MessageChannel;
 
 import javax.annotation.Resource;
@@ -86,7 +85,7 @@ public class GemfireSource {
 	}
 
 	@Bean
-	public MessageChannel toRouterChannel(){
+	public MessageChannel routerChannel(){
 		return new DirectChannel();
 	}
 
@@ -101,8 +100,8 @@ public class GemfireSource {
 
 	@Bean
 	public IntegrationFlow startFlow() {
-		return IntegrationFlows.from(toRouterChannel()).route
-				(payloadTypeRouter())
+		return IntegrationFlows.from(routerChannel())
+				.route(payloadTypeRouter())
 				.get();
 	}
 
@@ -112,11 +111,7 @@ public class GemfireSource {
 
 	@Bean IntegrationFlow convertToString() {
 		return IntegrationFlows.from(convertToStringChannel())
-				.transform(new GenericTransformer<PdxInstance, String>() {
-					@Override public String transform(PdxInstance pdxInstance) {
-						return transformer().toString(pdxInstance);
-					}
-				})
+				.transform(transformer(),"toString")
 				.channel(output)
 				.get();
 	}
@@ -125,7 +120,7 @@ public class GemfireSource {
 	public CacheListeningMessageProducer cacheListeningMessageProducer() {
 		CacheListeningMessageProducer cacheListeningMessageProducer = new
 				CacheListeningMessageProducer(region);
-		cacheListeningMessageProducer.setOutputChannel(toRouterChannel());
+		cacheListeningMessageProducer.setOutputChannel(routerChannel());
 		cacheListeningMessageProducer.setExpressionPayload(
 				config.getCacheEventExpression());
 		return cacheListeningMessageProducer;
