@@ -14,18 +14,15 @@
  * limitations under the License.
  */
 
-package org.springframework.cloud.stream.app.time;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertEquals;
+package org.springframework.cloud.stream.app.time.source;
 
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matchers;
 import org.junit.Assume;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
@@ -35,8 +32,11 @@ import org.springframework.cloud.stream.test.binder.MessageCollector;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertEquals;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = TestTimeSourceApplication.class)
+@SpringApplicationConfiguration(classes = TimeSourceIntegrationTests.TimeSourceApplication.class)
 @WebIntegrationTest(randomPort = true)
 @DirtiesContext
 public abstract class TimeSourceIntegrationTests {
@@ -65,5 +65,10 @@ public abstract class TimeSourceIntegrationTests {
 			Thread.sleep(5000);
 			assertThat(messageCollector.forChannel(timeSource.output()).size(), Matchers.greaterThanOrEqualTo(500));
 		}
+	}
+
+	@SpringBootApplication
+	public static class TimeSourceApplication {
+
 	}
 }

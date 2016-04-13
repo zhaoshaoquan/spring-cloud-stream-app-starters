@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package org.springframework.cloud.stream.app.time;
+package org.springframework.cloud.stream.app.time.source;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cloud.stream.app.time.source.DateFormat;
 
 /**
  * Describes properties of the {@code time} source app.
