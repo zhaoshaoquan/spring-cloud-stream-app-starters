@@ -18,6 +18,9 @@ package org.springframework.cloud.stream.app.metrics;
 import org.joda.time.DateTime;
 import org.joda.time.Interval;
 
+import java.util.Collection;
+import java.util.List;
+
 /**
  * Contains operations to find AggreageCounters.
  *
@@ -59,4 +62,14 @@ public interface AggregateCounterReader {
 	 * @return an object containing an indexed array of the counts .
 	 */
 	AggregateCounter getCounts(String name, int nCounts, DateTime end, AggregateCounterResolution resolution);
+
+	/**
+	 * Retrieve a single counter by name.
+	 */
+	AggregateCounter findOne(String name);
+
+	/**
+	 * List the names of all available aggregate counters.
+	 */
+	List<String> list();
 }

@@ -16,8 +16,11 @@
 
 package org.springframework.cloud.stream.app.metrics.memory;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.joda.time.DateTime;
 import org.joda.time.Interval;
@@ -37,7 +40,9 @@ import org.springframework.cloud.stream.app.metrics.AggregateCounterResolution;
  */
 public class InMemoryAggregateCounterRepository implements AggregateCounterRepository {
 
-	private Map<String, InMemoryAggregateCounter> aggregates = new HashMap<String, InMemoryAggregateCounter>();
+	private Map<String, InMemoryAggregateCounter> aggregates = new ConcurrentHashMap<String, InMemoryAggregateCounter>();
+
+	private Map<String, AggregateCounter> counters = new ConcurrentHashMap<String, AggregateCounter>();
 
 
 	public long increment(String name) {
@@ -51,6 +56,7 @@ public class InMemoryAggregateCounterRepository implements AggregateCounterRepos
 	@Override
 	public void reset(String name) {
 		aggregates.remove(name);
+		counters.remove(name);
 	}
 
 	@Override
@@ -70,6 +76,19 @@ public class InMemoryAggregateCounterRepository implements AggregateCounterRepos
 	}
 
 	@Override
+	public AggregateCounter findOne(String name) {
+		return counters.get(name);
+	}
+
+	@Override
+	public List<String> list() {
+		List<String> list = new ArrayList<>();
+		list.addAll(aggregates.keySet());
+		Collections.sort(list);
+		return list;
+	}
+
+	@Override
 	public AggregateCounter getCounts(String name, int nCounts, DateTime end, AggregateCounterResolution resolution) {
 		return getOrCreate(name).getCounts(nCounts, end, resolution);
 	}
@@ -85,6 +104,7 @@ public class InMemoryAggregateCounterRepository implements AggregateCounterRepos
 
 	public AggregateCounter save(AggregateCounter counter) {
 		aggregates.remove(counter.getName());
+		counters.put(counter.getName(), counter);
 		increment(counter.getName(), counter.getTotal(), DateTime.now());
 		return counter;
 	}
