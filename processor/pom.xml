@@ -11,12 +11,17 @@
 		<version>1.0.0.BUILD-SNAPSHOT</version>
 	</parent>
 
+	<properties>
+		<pmml.version>1.2.6</pmml.version>
+	</properties>
+
 	<modules>
 		<module>spring-cloud-starter-stream-processor-bridge</module>
 		<module>spring-cloud-starter-stream-processor-filter</module>
 		<module>spring-cloud-starter-stream-processor-groovy-filter</module>
 		<module>spring-cloud-starter-stream-processor-groovy-transform</module>
 		<module>spring-cloud-starter-stream-processor-httpclient</module>
+		<module>spring-cloud-starter-stream-processor-pmml</module>
 		<module>spring-cloud-starter-stream-processor-splitter</module>
 		<module>spring-cloud-starter-stream-processor-transform</module>
 		<module>spring-cloud-starter-stream-processor-scriptable-transform</module>
@@ -47,6 +52,12 @@
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-stream</artifactId>
 				<version>${spring-cloud-stream.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jpmml</groupId>
+				<artifactId>pmml-evaluator</artifactId>
+				<version>${pmml.version}</version>
 			</dependency>
 
 			<dependency>

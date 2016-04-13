@@ -16,11 +16,13 @@
 
 package org.springframework.cloud.stream.app.cassandra.sink;
 
-import com.datastax.driver.core.querybuilder.QueryBuilder;
-import com.datastax.driver.core.querybuilder.Select;
-import com.datastax.driver.core.utils.UUIDs;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+
 import org.cassandraunit.spring.CassandraUnitDependencyInjectionIntegrationTestExecutionListener;
 import org.cassandraunit.spring.EmbeddedCassandra;
 import org.cassandraunit.utils.EmbeddedCassandraServerHelper;
@@ -29,6 +31,7 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -47,12 +50,11 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
-
-import static org.junit.Assert.assertTrue;
+import com.datastax.driver.core.querybuilder.QueryBuilder;
+import com.datastax.driver.core.querybuilder.Select;
+import com.datastax.driver.core.utils.UUIDs;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 /**
  * @author Artem Bilan
@@ -124,7 +126,7 @@ public abstract class CassandraSinkIntegrationTests {
 	}
 
 
-	@WebIntegrationTest({"spring.cassandra.init-script=init-db.cql",
+	@WebIntegrationTest(randomPort = true, value = {"spring.cassandra.init-script=init-db.cql",
 			"ingest-query=insert into book (isbn, title, author, pages, saleDate, inStock) values (?, ?, ?, ?, ?, ?)"})
 	public static class CassandraSinkIngestTests extends CassandraSinkIntegrationTests {
 
@@ -154,7 +156,7 @@ public abstract class CassandraSinkIntegrationTests {
 
 	}
 
-	@WebIntegrationTest({"spring.cassandra.init-script=init-db.cql",
+	@WebIntegrationTest(randomPort = true, value = {"spring.cassandra.init-script=init-db.cql",
 			"ingest-query=insert into book (isbn, title, author, pages, saleDate, inStock) values (:myIsbn, :myTitle, :myAuthor, ?, ?, ?)"})
 	public static class CassandraSinkIngestNamedParamsTests extends CassandraSinkIntegrationTests {
 

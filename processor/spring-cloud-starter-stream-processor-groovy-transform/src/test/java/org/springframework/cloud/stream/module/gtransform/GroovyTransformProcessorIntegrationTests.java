@@ -25,6 +25,7 @@ import org.junit.runner.RunWith;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.cloud.stream.annotation.Bindings;
@@ -57,7 +58,7 @@ public abstract class GroovyTransformProcessorIntegrationTests {
 	@Autowired
 	protected MessageCollector collector;
 
-	@WebIntegrationTest({"script=script.groovy", "variables=limit=5\\n foo=\\\\\40WORLD"})
+	@IntegrationTest({"script=script.groovy", "variables=limit=5\\n foo=\\\\\40WORLD"})
 	public static class UsingScriptIntegrationTests extends GroovyTransformProcessorIntegrationTests {
 
 		@Test

@@ -26,6 +26,7 @@ import org.junit.runner.RunWith;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.cloud.stream.annotation.Bindings;
@@ -56,7 +57,7 @@ public abstract class ScriptableTransformProcessorIntegrationTests {
 	@Autowired
 	protected MessageCollector collector;
 
-	@WebIntegrationTest({"script=function add(a,b) { return a+b;};add(1,3)", "language=js"})
+	@IntegrationTest({"script=function add(a,b) { return a+b;};add(1,3)", "language=js"})
 	public static class JavascriptScriptProperty1Tests extends ScriptableTransformProcessorIntegrationTests {
 
 		@Test
@@ -67,7 +68,7 @@ public abstract class ScriptableTransformProcessorIntegrationTests {
 		}
 	}
 
-	@WebIntegrationTest({"script=payload+foo", "language=js", "variables=foo=\\\\\40WORLD"})
+	@IntegrationTest({"script=payload+foo", "language=js", "variables=foo=\\\\\40WORLD"})
 	public static class JavascriptScriptProperty2Tests extends ScriptableTransformProcessorIntegrationTests {
 
 		@Test
@@ -78,7 +79,7 @@ public abstract class ScriptableTransformProcessorIntegrationTests {
 
 	}
 
-	@WebIntegrationTest({"script=payload*limit", "language=js", "variables=limit=5"})
+	@IntegrationTest({"script=payload*limit", "language=js", "variables=limit=5"})
 	public static class JavascriptScriptProperty3Tests extends ScriptableTransformProcessorIntegrationTests {
 
 		@Test
@@ -89,7 +90,7 @@ public abstract class ScriptableTransformProcessorIntegrationTests {
 
 	}
 
-	@WebIntegrationTest({"script=payload+foo", "language=groovy", "variables=foo=\\\\\40WORLD"})
+	@IntegrationTest({"script=payload+foo", "language=groovy", "variables=foo=\\\\\40WORLD"})
 	public static class GroovyScriptProperty1Tests extends ScriptableTransformProcessorIntegrationTests {
 
 		@Test
@@ -100,7 +101,7 @@ public abstract class ScriptableTransformProcessorIntegrationTests {
 
 	}
 
-	@WebIntegrationTest({"script=payload.substring(0, limit as int) + foo", "language=groovy",
+	@IntegrationTest({"script=payload.substring(0, limit as int) + foo", "language=groovy",
 			"variables=limit=5\\n foo=\\\\\40WORLD"})
 	public static class GroovyScriptProperty2Tests extends ScriptableTransformProcessorIntegrationTests {
 
@@ -112,7 +113,7 @@ public abstract class ScriptableTransformProcessorIntegrationTests {
 
 	}
 
-	@WebIntegrationTest({"script=return \"\"#{payload.upcase}\"\"", "language=ruby"})
+	@IntegrationTest({"script=return \"\"#{payload.upcase}\"\"", "language=ruby"})
 	public static class RubyScriptProperty1Tests extends ScriptableTransformProcessorIntegrationTests {
 
 		@Test
@@ -123,7 +124,7 @@ public abstract class ScriptableTransformProcessorIntegrationTests {
 
 	}
 
-	@WebIntegrationTest({"script=\"def foo(x)\\n  return x+5\\nend\\nfoo(payload)\\n\"", "language=ruby"})
+	@IntegrationTest({"script=\"def foo(x)\\n  return x+5\\nend\\nfoo(payload)\\n\"", "language=ruby"})
 	public static class RubyScriptProperty2Tests extends ScriptableTransformProcessorIntegrationTests {
 
 		@Test
@@ -136,7 +137,7 @@ public abstract class ScriptableTransformProcessorIntegrationTests {
 
 	// Python not currently supported, problems running it in SCDF
 
-	@WebIntegrationTest({"script=\"def multiply(x,y):\\n  return x*y\\nanswer = multiply(payload,5)\\n\"",
+	@IntegrationTest({"script=\"def multiply(x,y):\\n  return x*y\\nanswer = multiply(payload,5)\\n\"",
 			"language=python"})
 	public static class PythonScriptProperty1Tests extends ScriptableTransformProcessorIntegrationTests {
 
@@ -148,7 +149,7 @@ public abstract class ScriptableTransformProcessorIntegrationTests {
 
 	}
 
-	@WebIntegrationTest({"script=\"def concat(x,y):\\n  return x+y\\nanswer = concat(\"\"hello \"\",payload)\\n\"",
+	@IntegrationTest({"script=\"def concat(x,y):\\n  return x+y\\nanswer = concat(\"\"hello \"\",payload)\\n\"",
 			"language=python"})
 	public static class PythonScriptProperty2Tests extends ScriptableTransformProcessorIntegrationTests {
 

@@ -90,6 +90,8 @@
 						<loggregator-source-rabbit />
 						<log-sink-kafka />
 						<log-sink-rabbit />
+						<pmml-processor-kafka />
+						<pmml-processor-rabbit />
 						<rabbit-sink-kafka />
 						<rabbit-sink-rabbit />
 						<rabbit-source-kafka />

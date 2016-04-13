@@ -25,6 +25,7 @@ import org.junit.runner.RunWith;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.cloud.stream.annotation.Bindings;
@@ -66,7 +67,7 @@ public abstract class TransformProcessorIntegrationTests {
 		}
 	}
 
-	@WebIntegrationTest("expression=payload.toUpperCase()")
+	@IntegrationTest("expression=payload.toUpperCase()")
 	public static class UsingExpressionIntegrationTests extends TransformProcessorIntegrationTests {
 
 		@Test

@@ -27,6 +27,7 @@ import org.junit.runner.RunWith;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.cloud.stream.messaging.Processor;
@@ -61,7 +62,7 @@ public abstract class HttpClientProcessorTests {
 	protected MessageCollector messageCollector;
 
 
-	@WebIntegrationTest(
+	@IntegrationTest(
 			value = {"urlExpression='http://localhost:' + @environment.getProperty('local.server.port') + '/greet'"})
 	public static class TestRequestGET extends HttpClientProcessorTests {
 
@@ -73,7 +74,7 @@ public abstract class HttpClientProcessorTests {
 
 	}
 
-	@WebIntegrationTest(
+	@IntegrationTest(
 			value = "urlExpression='http://localhost:' + @environment.getProperty('local.server.port') + '/' + payload")
 	public static class TestRequestGETWithUrlExpressionUsingMessage extends HttpClientProcessorTests {
 
@@ -85,7 +86,7 @@ public abstract class HttpClientProcessorTests {
 
 	}
 
-	@WebIntegrationTest(
+	@IntegrationTest(
 			value = {
 					"urlExpression='http://localhost:' + @environment.getProperty('local.server.port') + '/greet'",
 					"body={\"foo\":\"bar\"}",
@@ -102,7 +103,7 @@ public abstract class HttpClientProcessorTests {
 
 	}
 
-	@WebIntegrationTest(
+	@IntegrationTest(
 			value = {
 					"urlExpression='http://localhost:' + @environment.getProperty('local.server.port') + '/greet'",
 					"httpMethod=POST"})
@@ -118,7 +119,7 @@ public abstract class HttpClientProcessorTests {
 
 	}
 
-	@WebIntegrationTest(
+	@IntegrationTest(
 			value = {
 					"urlExpression='http://localhost:' + @environment.getProperty('local.server.port') + '/headers'",
 					"headersExpression={Key1:'value1',Key2:'value2'}"})
@@ -133,7 +134,7 @@ public abstract class HttpClientProcessorTests {
 
 	}
 
-	@WebIntegrationTest(
+	@IntegrationTest(
 			value = {
 					"urlExpression='http://localhost:' + @environment.getProperty('local.server.port') +'/greet'",
 					"httpMethod=POST",
@@ -150,7 +151,7 @@ public abstract class HttpClientProcessorTests {
 
 	}
 
-	@WebIntegrationTest(
+	@IntegrationTest(
 			value = {
 					"urlExpression='http://localhost:' + @environment.getProperty('local.server.port') + '/greet'",
 					"httpMethod=POST",

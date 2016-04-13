@@ -25,6 +25,7 @@ import org.junit.runner.RunWith;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.cloud.stream.annotation.Bindings;
@@ -50,7 +51,7 @@ public abstract class TriggerSourceTests {
 	@Autowired
 	protected MessageCollector messageCollector;
 
-	@WebIntegrationTest({"fixedDelay=2", "initialDelay=1", "payload='test'"})
+	@IntegrationTest({"fixedDelay=2", "initialDelay=1", "payload='test'"})
 	public static class FixedDelayTest extends TriggerSourceTests {
 
 		@Test
@@ -59,7 +60,7 @@ public abstract class TriggerSourceTests {
 		}
 	}
 
-	@WebIntegrationTest({"fixedDelay=2", "initialDelay=1"})
+	@IntegrationTest({"fixedDelay=2", "initialDelay=1"})
 	public static class FixedDelayEmptyPayloadTest extends TriggerSourceTests {
 
 		@Test
@@ -68,7 +69,7 @@ public abstract class TriggerSourceTests {
 		}
 	}
 
-	@WebIntegrationTest({"cron=0/2 * * * * *", "payload='cronTest'"})
+	@IntegrationTest({"cron=0/2 * * * * *", "payload='cronTest'"})
 	public static class CronTriggerTest extends TriggerSourceTests {
 
 		@Test
