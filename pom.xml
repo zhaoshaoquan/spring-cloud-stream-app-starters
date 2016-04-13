@@ -23,6 +23,7 @@
     <module>file</module>
     <module>ftp</module>
     <module>gemfire</module>
+    <module>gpfdist</module>
     <module>hdfs</module>
     <module>http</module>
     <module>jdbc</module>

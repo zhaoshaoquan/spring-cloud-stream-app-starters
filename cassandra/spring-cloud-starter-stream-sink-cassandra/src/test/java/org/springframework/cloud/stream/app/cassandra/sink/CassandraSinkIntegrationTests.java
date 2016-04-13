@@ -69,7 +69,6 @@ import static org.junit.Assert.assertTrue;
 		"server.port=-1"})
 @EmbeddedCassandra(configuration = EmbeddedCassandraServerHelper.CASSANDRA_RNDPORT_YML_FILE, timeout = 120000)
 @DirtiesContext
-@Ignore("Ignoring temporarily until the CI failure root cause is resolved")
 public abstract class CassandraSinkIntegrationTests {
 
 	public static final String CASSANDRA_KEYSPACE = "test";
@@ -93,6 +92,7 @@ public abstract class CassandraSinkIntegrationTests {
 
 	@WebIntegrationTest({"spring.cassandra.schema-action=RECREATE",
 			"spring.cassandra.entity-base-packages=org.springframework.cloud.stream.app.cassandra.domain"})
+	@Ignore("Ignoring temporarily until the CI failure root cause is resolved")
 	public static class CassandraEntityInsertTests extends CassandraSinkIntegrationTests {
 
 		@Test

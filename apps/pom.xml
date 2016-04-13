@@ -87,6 +87,8 @@
     <module>cassandra-sink-rabbit</module>
     <module>loggregator-source-kafka</module>
     <module>loggregator-source-rabbit</module>
+    <module>gpfdist-sink-kafka</module>
+    <module>gpfdist-sink-rabbit</module>
   </modules>
   <build>
     <plugins>
