@@ -30,7 +30,7 @@ public class GemfireSourceProperties {
 	private static final String DEFAULT_EXPRESSION = "newValue";
 
 	/**
-	 * SpEL expression to use as a cache event.
+	 * SpEL expression to extract fields from a cache event.
 	 */
 	private Expression expression = new SpelExpressionParser().parseExpression
 			(DEFAULT_EXPRESSION);

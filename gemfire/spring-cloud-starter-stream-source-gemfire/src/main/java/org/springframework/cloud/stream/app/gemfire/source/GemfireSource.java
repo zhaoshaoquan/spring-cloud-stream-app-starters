@@ -45,16 +45,16 @@ import javax.annotation.Resource;
  * be also in the consuming app's classpath. Hence, a SpEl Expression, given by the
  * property 'cacheEventExpression' is used to extract required information from the
  * payload. The default expression is 'newValue' which returns the updated object. This
- * may not be ideal for every use case especially since it does not provide the key
+ * may not be ideal for every use case especially if it does not provide the key
  * value. The key is referenced by the field 'key'. Also available are 'operation' (the
  * operation associated with the event, and 'oldValue'. If the cached key and value
- * types are primitives, an simple expression like "'key' + key + ':' + value" may work.
+ * types are primitives, an simple expression like "key + ':' + newValue" may work.
  *
  * More complex transformations, such as Json, will require customization. To access
  * the original object, set 'cacheEntryExpression' to '#root' or "#this'.
  *
  * This converts payloads of type {@link PdxInstance}, which Gemfire uses to store
- * JSON content, to a JSON String.
+ * JSON content (the type of newValue for instance), to a JSON String.
  *
  *
  * @author David Turanski

@@ -15,6 +15,7 @@
 
 package org.springframework.cloud.stream.app.gemfire.config;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -27,6 +28,7 @@ public class GemfireRegionProperties {
 	 */
 	private String regionName;
 
+	@NotBlank(message = "Region name is required")
 	public String getRegionName() {
 		return regionName;
 	}

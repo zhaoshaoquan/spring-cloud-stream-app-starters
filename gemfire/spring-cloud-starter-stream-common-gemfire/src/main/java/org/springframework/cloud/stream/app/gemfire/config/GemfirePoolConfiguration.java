@@ -58,7 +58,7 @@ public class GemfirePoolConfiguration {
 						"connectType " + config.getConnectType() + " is not supported.");
 			}
 		poolFactoryBean.setSubscriptionEnabled(config.isSubscriptionEnabled());
-		poolFactoryBean.setName(GemfireConstants.DEFAULT_GEMFIRE_POOL_NAME);
+		poolFactoryBean.setName("gemfirePool");
 		return poolFactoryBean;
 	}
 }

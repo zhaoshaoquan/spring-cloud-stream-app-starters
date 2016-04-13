@@ -93,6 +93,8 @@
     <module>gpfdist-sink-rabbit</module>
     <module>pmml-processor-kafka</module>
     <module>pmml-processor-rabbit</module>
+    <module>cq-gemfire-source-kafka</module>
+    <module>cq-gemfire-source-rabbit</module>
   </modules>
   <build>
     <plugins>

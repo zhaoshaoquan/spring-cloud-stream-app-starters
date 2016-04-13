@@ -16,12 +16,14 @@
 package org.springframework.cloud.stream.app.gemfire.config;
 
 import com.gemstone.gemfire.cache.DataPolicy;
+import com.gemstone.gemfire.cache.client.ClientCache;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.gemfire.client.ClientCacheFactoryBean;
 import org.springframework.data.gemfire.client.ClientRegionFactoryBean;
 import org.springframework.data.gemfire.client.Interest;
@@ -40,33 +42,24 @@ import java.util.List;
  * @author David Turanski
  */
 @Configuration
+@Import(GemfireClientCacheConfiguration.class)
 @EnableConfigurationProperties(GemfireRegionProperties.class)
 public class GemfireClientRegionConfiguration {
 
 	@Autowired
-	GemfireRegionProperties config;
+	private GemfireRegionProperties config;
 
-	@Value("${spring.application.name:}")
-	String regionName;
+	@Autowired
+	private ClientCacheFactoryBean clientCache;
+
 
 	@Autowired(required = false)
-	List<Interest> keyInterests;
-
-	@Bean
-	public ClientCacheFactoryBean clientCache() {
-		ClientCacheFactoryBean clientCacheFactoryBean = new ClientCacheFactoryBean();
-		clientCacheFactoryBean.setUseBeanFactoryLocator(false);
-		clientCacheFactoryBean.setPoolName("gemfirePool");
-		clientCacheFactoryBean.setReadyForEvents(true);
-		return clientCacheFactoryBean;
-	}
+	private List<Interest> keyInterests;
 
 	@Bean(name = "clientRegion")
 	public ClientRegionFactoryBean clientRegionFactoryBean() {
 		ClientRegionFactoryBean clientRegionFactoryBean = new ClientRegionFactoryBean();
-		clientRegionFactoryBean.setRegionName(
-				StringUtils.hasText(config.getRegionName()) ? config.getRegionName() :
-						regionName);
+		clientRegionFactoryBean.setRegionName(config.getRegionName());
 		clientRegionFactoryBean.setDataPolicy(DataPolicy.EMPTY);
 		if (!CollectionUtils.isEmpty(keyInterests)) {
 			clientRegionFactoryBean.setInterests((Interest[]) keyInterests
@@ -74,7 +67,7 @@ public class GemfireClientRegionConfiguration {
 		}
 
 		try {
-			clientRegionFactoryBean.setCache(clientCache().getObject());
+			clientRegionFactoryBean.setCache(clientCache.getObject());
 		} catch (Exception e) {
 			throw new BeanCreationException(e.getMessage(), e);
 		}

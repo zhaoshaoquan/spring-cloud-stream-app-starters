@@ -18,6 +18,7 @@
         <module>spring-cloud-starter-stream-common-gemfire</module>
         <module>spring-cloud-starter-stream-sink-gemfire</module>
         <module>spring-cloud-starter-stream-source-gemfire</module>
+        <module>spring-cloud-starter-stream-source-gemfire-cq</module>
     </modules>
 
     <dependencyManagement>

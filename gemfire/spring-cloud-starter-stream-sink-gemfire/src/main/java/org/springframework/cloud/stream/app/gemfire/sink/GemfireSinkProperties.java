@@ -34,7 +34,7 @@ public class GemfireSinkProperties {
 	 */
 	private boolean json;
 
-	@NotBlank
+	@NotBlank(message = "A valid key expression is required")
 	public String getKeyExpression() {
 		return keyExpression;
 	}
