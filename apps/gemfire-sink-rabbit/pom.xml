@@ -9,10 +9,10 @@
     <relativePath></relativePath>
   </parent>
   <groupId>org.springframework.cloud.stream.app</groupId>
-  <artifactId>cq-gemfire-source-kafka</artifactId>
+  <artifactId>gemfire-sink-rabbit</artifactId>
   <version>1.0.0.BUILD-SNAPSHOT</version>
-  <name>cq-gemfire-source-kafka</name>
-  <description>Spring Cloud Stream Cq Gemfire Source Kafka Binder Application</description>
+  <name>gemfire-sink-rabbit</name>
+  <description>Spring Cloud Stream Gemfire Sink Rabbit Binder Application</description>
   <properties>
     <skipTests>true</skipTests>
     <java.version>1.7</java.version>
@@ -32,11 +32,11 @@
   <dependencies>
     <dependency>
       <groupId>org.springframework.cloud.stream.app</groupId>
-      <artifactId>spring-cloud-starter-stream-source-gemfire-cq</artifactId>
+      <artifactId>spring-cloud-starter-stream-sink-gemfire</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-stream-binder-kafka</artifactId>
+      <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -93,7 +93,7 @@
                   <exec>
                     <arg>java</arg>
                     <arg>-jar</arg>
-                    <arg>/maven/cq-gemfire-source-kafka.jar</arg>
+                    <arg>/maven/gemfire-sink-rabbit.jar</arg>
                   </exec>
                 </entryPoint>
                 <assembly>
