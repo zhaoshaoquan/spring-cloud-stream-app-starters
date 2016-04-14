@@ -25,8 +25,6 @@ import org.springframework.boot.autoconfigure.PropertyPlaceholderAutoConfigurati
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.cloud.stream.app.gemfire.source.GemfireSource;
-import org.springframework.cloud.stream.app.gemfire.source.GemfireSourceProperties;
 import org.springframework.cloud.stream.test.binder.TestSupportBinderAutoConfiguration;
 import org.springframework.data.gemfire.client.Interest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -59,7 +57,7 @@ public class GemfireSourceConfigurationTests {
 	private List<Interest> interests;
 
 	@Test
-	//@Ignore("No Subscription Servers available")
+	@Ignore("No Subscription Servers available")
 	public void testDefaultConfiguration() throws InterruptedException {
 		assertThat("interests not present", interests.size() >= 1);
 		assertThat("subscriptions should be enabled", pool.getSubscriptionEnabled());
