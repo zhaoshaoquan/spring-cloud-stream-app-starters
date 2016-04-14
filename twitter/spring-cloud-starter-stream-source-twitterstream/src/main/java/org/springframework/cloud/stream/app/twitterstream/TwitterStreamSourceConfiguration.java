@@ -17,6 +17,7 @@
 package org.springframework.cloud.stream.app.twitterstream;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.stream.annotation.Bindings;
 import org.springframework.cloud.stream.annotation.EnableBinding;
@@ -55,6 +56,7 @@ public class TwitterStreamSourceConfiguration {
 	}
 
 	@Bean
+	@ConditionalOnMissingBean
 	public TwitterTemplate twitterTemplate() {
 		return new TwitterTemplate(credentials.getConsumerKey(), credentials.getConsumerSecret(),
 				credentials.getAccessToken(), credentials.getAccessTokenSecret());
