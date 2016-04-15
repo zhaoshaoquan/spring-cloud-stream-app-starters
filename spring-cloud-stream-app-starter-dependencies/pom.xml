@@ -14,7 +14,7 @@
 	<artifactId>spring-cloud-stream-app-starter-dependencies</artifactId>
 	<version>1.0.0.BUILD-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>spring-cloud-stream-app-dependencies</name>
+	<name>spring-cloud-stream-app-starter-dependencies</name>
 	<description>Spring Cloud Stream App Starters Dependencies</description>
 
 	<properties>
@@ -42,16 +42,35 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-stream-test-support</artifactId>
-				<version>${spring-cloud-stream.version}</version>
+				<groupId>org.springframework.cloud.stream.app</groupId>
+				<artifactId>app-starters-test-support</artifactId>
+				<version>1.0.0.BUILD-SNAPSHOT</version>
 				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud.stream.app</groupId>
+				<artifactId>app-starters-common-analytics</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud.stream.app</groupId>
+				<artifactId>spring-cloud-starter-stream-common-gemfire</artifactId>
+				<version>${project.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-stream</artifactId>
 				<version>${spring-cloud-stream.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-stream-test-support</artifactId>
+				<version>${spring-cloud-stream.version}</version>
+				<scope>test</scope>
 			</dependency>
 
 			<dependency>
@@ -208,13 +227,6 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.springframework.cloud.stream.app</groupId>
-				<artifactId>app-starters-test-support</artifactId>
-				<version>1.0.0.BUILD-SNAPSHOT</version>
-				<scope>test</scope>
-			</dependency>
-
-			<dependency>
 				<groupId>org.apache.ftpserver</groupId>
 				<artifactId>ftpserver-core</artifactId>
 				<version>1.0.6</version>
@@ -228,11 +240,11 @@
 				<!--<scope>import</scope>-->
 				<!--<type>pom</type>-->
 			<!--</dependency>-->
-			<dependency>
-				<groupId>org.springframework.cloud.stream.app</groupId>
-				<artifactId>spring-cloud-starter-stream-common-gemfire</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+			<!--<dependency>-->
+				<!--<groupId>org.springframework.cloud.stream.app</groupId>-->
+				<!--<artifactId>spring-cloud-starter-stream-common-gemfire</artifactId>-->
+				<!--<version>${project.version}</version>-->
+			<!--</dependency>-->
 			<dependency>
 				<groupId>org.springframework.integration</groupId>
 				<artifactId>spring-integration-gemfire</artifactId>
@@ -300,11 +312,7 @@
 				<scope>runtime</scope>
 			</dependency>
 
-			<dependency>
-				<groupId>org.springframework.cloud.stream.app</groupId>
-				<artifactId>app-starters-common-analytics</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+
 
 			<dependency>
 				<groupId>org.springframework.integration</groupId>
