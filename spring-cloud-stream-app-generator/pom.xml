@@ -136,8 +136,12 @@
 						<transform-processor-rabbit />
 						<trigger-source-kafka />
 						<trigger-source-rabbit />
-						<twitterstream-source-kafka />
-						<twitterstream-source-rabbit />
+						<twitterstream-source-kafka>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.twitter.TwitterTestConfiguration.class</extraTestConfigClass>
+						</twitterstream-source-kafka>
+						<twitterstream-source-rabbit>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.twitter.TwitterTestConfiguration.class</extraTestConfigClass>
+						</twitterstream-source-rabbit>
 						<websocket-sink-kafka />
 						<websocket-sink-rabbit />
 						<!-- Test Modules -->
