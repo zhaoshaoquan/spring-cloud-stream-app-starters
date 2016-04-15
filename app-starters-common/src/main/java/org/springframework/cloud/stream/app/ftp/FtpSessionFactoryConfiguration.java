@@ -15,9 +15,14 @@
 
 package org.springframework.cloud.stream.app.ftp;
 
+import org.apache.commons.net.ftp.FTPFile;
+
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.integration.file.remote.session.CachingSessionFactory;
+import org.springframework.integration.file.remote.session.SessionFactory;
 import org.springframework.integration.ftp.session.DefaultFtpSessionFactory;
 
 /**
@@ -31,14 +36,21 @@ import org.springframework.integration.ftp.session.DefaultFtpSessionFactory;
 public class FtpSessionFactoryConfiguration {
 
 	@Bean
-	public DefaultFtpSessionFactory ftpSessionFactory(FtpSessionFactoryProperties properties) {
+	@ConditionalOnMissingBean
+	public SessionFactory<FTPFile> ftpSessionFactory(FtpSessionFactoryProperties properties) {
 		DefaultFtpSessionFactory ftpSessionFactory = new DefaultFtpSessionFactory();
 		ftpSessionFactory.setHost(properties.getHost());
 		ftpSessionFactory.setPort(properties.getPort());
 		ftpSessionFactory.setUsername(properties.getUsername());
 		ftpSessionFactory.setPassword(properties.getPassword());
 		ftpSessionFactory.setClientMode(properties.getClientMode().getMode());
-		return ftpSessionFactory;
+		if (properties.getCacheSessions() != null) {
+			CachingSessionFactory<FTPFile> csf = new CachingSessionFactory<>(ftpSessionFactory);
+			return csf;
+		}
+		else {
+			return ftpSessionFactory;
+		}
 	}
 
 }

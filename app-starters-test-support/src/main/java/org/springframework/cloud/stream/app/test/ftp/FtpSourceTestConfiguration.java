@@ -16,12 +16,20 @@
 
 package org.springframework.cloud.stream.app.test.ftp;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 import java.util.Properties;
+
+import org.apache.commons.net.ftp.FTPFile;
+import org.mockito.Mockito;
 
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.PropertiesPropertySource;
+import org.springframework.integration.file.remote.session.Session;
+import org.springframework.integration.file.remote.session.SessionFactory;
 
 /**
  * @author Gary Russell
@@ -40,8 +48,18 @@ public class FtpSourceTestConfiguration {
 		properties.put("port", 21);
 		properties.put("mode", "ref");
 		context.getEnvironment().getPropertySources().addLast(new
-				PropertiesPropertySource("moduleOptions", properties));
+				PropertiesPropertySource("scsAppOptions", properties));
 		return new Object();
+	}
+
+	@Bean
+	public SessionFactory<FTPFile> ftpSessionFactory() {
+		@SuppressWarnings("unchecked")
+		SessionFactory<FTPFile> ftpSessionFactory = Mockito.mock(SessionFactory.class);
+		@SuppressWarnings("unchecked")
+		Session<FTPFile> session = mock(Session.class);
+		when(ftpSessionFactory.getSession()).thenReturn(session);
+		return ftpSessionFactory;
 	}
 
 }

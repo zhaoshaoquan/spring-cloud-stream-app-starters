@@ -16,6 +16,7 @@
 package org.springframework.cloud.stream.app.ftp.source;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
@@ -25,6 +26,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.net.ftp.FTPFile;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,13 +34,13 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.cloud.stream.app.ftp.source.FtpSourceProperties;
 import org.springframework.cloud.stream.app.test.PropertiesInitializer;
 import org.springframework.cloud.stream.app.test.file.remote.FtpTestSupport;
 import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.cloud.stream.test.binder.MessageCollector;
-import org.springframework.context.ApplicationContext;
 import org.springframework.integration.endpoint.SourcePollingChannelAdapter;
+import org.springframework.integration.file.remote.session.CachingSessionFactory;
+import org.springframework.integration.file.remote.session.SessionFactory;
 import org.springframework.integration.test.util.TestUtils;
 import org.springframework.messaging.Message;
 import org.springframework.test.annotation.DirtiesContext;
@@ -55,9 +57,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @DirtiesContext
 public class FtpSourceIntegrationTests extends FtpTestSupport {
 
-	@Autowired ApplicationContext applicationContext;
-
-	@Autowired SourcePollingChannelAdapter sourcePollingChannelAdapter;
+	@Autowired
+	private SourcePollingChannelAdapter sourcePollingChannelAdapter;
 
 	@Autowired
 	private MessageCollector messageCollector;
@@ -65,9 +66,16 @@ public class FtpSourceIntegrationTests extends FtpTestSupport {
 	@Autowired
 	private FtpSourceProperties config;
 
+	@Autowired
+	private SessionFactory<FTPFile> sessionFactory;
+
 	@BeforeClass
 	public static void configureSource() throws Throwable {
+		Properties properties = buildProperties();
+		PropertiesInitializer.PROPERTIES = properties;
+	}
 
+	protected static Properties buildProperties() {
 		Properties properties = new Properties();
 		properties.put("remoteDir", "ftpSource");
 		properties.put("localDir", localTemporaryFolder.getRoot().getAbsolutePath() + File.separator + "localTarget");
@@ -76,7 +84,8 @@ public class FtpSourceIntegrationTests extends FtpTestSupport {
 		properties.put("filenamePattern", "*");
 		properties.put("port", port);
 		properties.put("mode", "ref");
-		PropertiesInitializer.PROPERTIES = properties;
+		properties.put("cacheSessions", true);
+		return properties;
 	}
 
 	@Autowired
@@ -93,6 +102,7 @@ public class FtpSourceIntegrationTests extends FtpTestSupport {
 			assertNotNull(received);
 			assertThat(received.getPayload(), equalTo(new File(config.getLocalDir() + "/ftpSource" + i + ".txt")));
 		}
+		assertThat(this.sessionFactory, instanceOf(CachingSessionFactory.class));
 	}
 
 	@SpringBootApplication

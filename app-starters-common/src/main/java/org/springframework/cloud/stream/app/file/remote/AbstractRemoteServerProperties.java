@@ -41,6 +41,11 @@ public abstract class AbstractRemoteServerProperties {
 	 */
 	private String password;
 
+	/**
+	 * Cache sessions
+	 */
+	private Boolean cacheSessions;
+
 	@NotBlank
 	public String getHost() {
 		return this.host;
@@ -65,6 +70,14 @@ public abstract class AbstractRemoteServerProperties {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Boolean getCacheSessions() {
+		return this.cacheSessions;
+	}
+
+	public void setCacheSessions(Boolean cacheSessions) {
+		this.cacheSessions = cacheSessions;
 	}
 
 }
