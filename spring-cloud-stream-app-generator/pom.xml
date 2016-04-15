@@ -48,10 +48,18 @@
 						<file-sink-rabbit />
 						<filter-processor-kafka />
 						<filter-processor-rabbit />
-						<ftp-sink-kafka />
-						<ftp-sink-rabbit />
-						<ftp-source-kafka />
-						<ftp-source-rabbit />
+						<ftp-sink-kafka>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ftp.FtpSinkTestConfiguration.class</extraTestConfigClass>
+						</ftp-sink-kafka>
+						<ftp-sink-rabbit>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ftp.FtpSinkTestConfiguration.class</extraTestConfigClass>
+						</ftp-sink-rabbit>
+						<ftp-source-kafka>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ftp.FtpSourceTestConfiguration.class</extraTestConfigClass>
+						</ftp-source-kafka>
+						<ftp-source-rabbit>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ftp.FtpSourceTestConfiguration.class</extraTestConfigClass>
+						</ftp-source-rabbit>
 						<gemfire-sink-kafka>
 							<extraRepository>gemstone-release-cache</extraRepository>
 						</gemfire-sink-kafka>
