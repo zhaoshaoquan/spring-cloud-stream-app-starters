@@ -15,25 +15,4 @@
         <module>spring-cloud-starter-stream-source-trigger</module>
     </modules>
 
-    <dependencyManagement>
-        <dependencies>
-
-            <!-- This dependency will be moved to spring cloud streams soon.
-            Change accordingly when that happens -->
-            <dependency>
-                <groupId>org.springframework.cloud.stream.app</groupId>
-                <artifactId>app-starters-common</artifactId>
-                <version>1.0.0.BUILD-SNAPSHOT</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-stream-test-support</artifactId>
-                <version>${spring-cloud-stream.version}</version>
-                <scope>test</scope>
-            </dependency>
-
-        </dependencies>
-    </dependencyManagement>
-
 </project>

@@ -15,7 +15,7 @@
 	<version>1.0.0.BUILD-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>spring-cloud-stream-app-dependencies</name>
-	<description>Spring Cloud Stream App Starters Dependencies</description>
+	<description>Spring Cloud Stream App BOM</description>
 
 	<dependencyManagement>
 		<dependencies>
