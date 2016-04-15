@@ -14,7 +14,6 @@
   <packaging>pom</packaging>
   <modules>
     <module>spring-cloud-stream-app-dependencies</module>
-    <module>spring-cloud-stream-app-starter-dependencies</module>
     <module>spring-cloud-stream-app-generator</module>
     <module>spring-cloud-stream-app-starters-docs</module>
     <module>app-starters-common</module>
@@ -60,7 +59,7 @@
     <dependencies>
       <dependency>
         <groupId>org.springframework.cloud.stream.app</groupId>
-        <artifactId>spring-cloud-stream-app-starter-dependencies</artifactId>
+        <artifactId>spring-cloud-stream-app-dependencies</artifactId>
         <version>${project.version}</version>
         <type>pom</type>
         <scope>import</scope>

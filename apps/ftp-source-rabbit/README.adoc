@@ -18,6 +18,7 @@ The payload of these 2 additional marker messages is of type `FileSplitter.FileM
 The **$$ftp$$** $$source$$ has the following options:
 
 $$autoCreateLocalDir$$:: $$local directory must be auto created if it does not exist$$ *($$boolean$$, default: `true`)*
+$$cacheSessions$$:: $$true to cache ftp sessions$$ *($$boolean$$, default: `false`)*
 $$clientMode$$:: $$client mode to use : 2 for passive mode and 0 for active mode$$ *($$int$$, default: `0`)*
 $$deleteRemoteFiles$$:: $$delete remote files after transfer$$ *($$boolean$$, default: `false`)*
 $$filenamePattern$$:: $$simple filename pattern to apply to the filter$$ *($$String$$, default: *)*
