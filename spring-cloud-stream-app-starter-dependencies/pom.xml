@@ -233,18 +233,6 @@
 				<scope>test</scope>
 			</dependency>
 
-			<!--<dependency>-->
-				<!--<groupId>org.springframework.data</groupId>-->
-				<!--<artifactId>spring-data-releasetrain</artifactId>-->
-				<!--<version>${spring-data-releasetrain.version}</version>-->
-				<!--<scope>import</scope>-->
-				<!--<type>pom</type>-->
-			<!--</dependency>-->
-			<!--<dependency>-->
-				<!--<groupId>org.springframework.cloud.stream.app</groupId>-->
-				<!--<artifactId>spring-cloud-starter-stream-common-gemfire</artifactId>-->
-				<!--<version>${project.version}</version>-->
-			<!--</dependency>-->
 			<dependency>
 				<groupId>org.springframework.integration</groupId>
 				<artifactId>spring-integration-gemfire</artifactId>
@@ -263,16 +251,6 @@
 				<artifactId>spring-integration-core</artifactId>
 				<version>${spring-integration.version}</version>
 			</dependency>
-
-
-
-
-
-
-
-
-
-
 
 			<dependency>
 				<groupId>io.projectreactor</groupId>
