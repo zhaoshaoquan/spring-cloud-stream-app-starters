@@ -11,10 +11,6 @@
 		<version>1.0.0.BUILD-SNAPSHOT</version>
 	</parent>
 
-	<properties>
-		<pmml.version>1.2.6</pmml.version>
-	</properties>
-
 	<modules>
 		<module>spring-cloud-starter-stream-processor-bridge</module>
 		<module>spring-cloud-starter-stream-processor-filter</module>

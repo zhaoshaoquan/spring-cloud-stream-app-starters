@@ -3,7 +3,6 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>spring-cloud-stream-gemfire-parent</artifactId>
-	<version>1.0.0.BUILD-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<parent>
@@ -11,8 +10,6 @@
 		<artifactId>spring-cloud-stream-app-starters</artifactId>
 		<version>1.0.0.BUILD-SNAPSHOT</version>
 	</parent>
-
-
 
     <modules>
         <module>spring-cloud-starter-stream-common-gemfire</module>
@@ -30,7 +27,6 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
-
 		</dependencies>
 	</dependencyManagement>
 

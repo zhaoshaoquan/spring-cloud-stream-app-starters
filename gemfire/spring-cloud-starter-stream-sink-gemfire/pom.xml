@@ -11,8 +11,6 @@
 	</parent>
 
 	<artifactId>spring-cloud-starter-stream-sink-gemfire</artifactId>
-	<version>1.0.0.BUILD-SNAPSHOT</version>
-
 
     <dependencies>
         <dependency>
