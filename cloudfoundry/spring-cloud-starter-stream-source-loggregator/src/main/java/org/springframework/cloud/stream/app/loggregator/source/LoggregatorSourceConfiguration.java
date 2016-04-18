@@ -23,6 +23,7 @@ import org.cloudfoundry.client.lib.CloudFoundryClient;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.messaging.Source;
@@ -58,6 +59,7 @@ public class LoggregatorSourceConfiguration {
 	}
 
 	@Bean
+	@ConditionalOnMissingBean
 	public CloudFoundryClient cloudFoundryClient(CloudCredentials cc) throws MalformedURLException {
 		URI uri = URI.create(this.loggregatorSourceProperties.getCloudFoundryApi());
 		CloudFoundryClient cloudFoundryClient = new CloudFoundryClient(cc, uri.toURL());

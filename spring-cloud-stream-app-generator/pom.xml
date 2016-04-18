@@ -110,8 +110,12 @@
 						<jms-source-rabbit>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.jms.JmsSourceTestConfiguration.class</extraTestConfigClass>
 						</jms-source-rabbit>
-						<loggregator-source-kafka />
-						<loggregator-source-rabbit />
+						<loggregator-source-kafka>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.loggregator.LoggregatorSourceTestConfiguration.class</extraTestConfigClass>
+						</loggregator-source-kafka>
+						<loggregator-source-rabbit>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.loggregator.LoggregatorSourceTestConfiguration.class</extraTestConfigClass>
+						</loggregator-source-rabbit>
 						<log-sink-kafka />
 						<log-sink-rabbit />
 						<pmml-processor-kafka />
