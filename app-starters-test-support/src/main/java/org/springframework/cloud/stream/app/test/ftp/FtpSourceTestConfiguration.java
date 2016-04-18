@@ -24,10 +24,10 @@ import java.util.Properties;
 import org.apache.commons.net.ftp.FTPFile;
 import org.mockito.Mockito;
 
+import org.springframework.cloud.stream.app.test.BinderTestPropertiesInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.PropertiesPropertySource;
 import org.springframework.integration.file.remote.session.Session;
 import org.springframework.integration.file.remote.session.SessionFactory;
 
@@ -39,7 +39,7 @@ import org.springframework.integration.file.remote.session.SessionFactory;
 public class FtpSourceTestConfiguration {
 
 	@Bean
-	public static Object loadProps(ConfigurableApplicationContext context) {
+	public static BinderTestPropertiesInitializer loadProps(ConfigurableApplicationContext context) {
 		Properties properties = new Properties();
 		properties.put("remoteDir", "ftpSource");
 		properties.put("username", "foo");
@@ -47,9 +47,7 @@ public class FtpSourceTestConfiguration {
 		properties.put("filenamePattern", "*");
 		properties.put("port", 21);
 		properties.put("mode", "ref");
-		context.getEnvironment().getPropertySources().addLast(new
-				PropertiesPropertySource("scsAppOptions", properties));
-		return new Object();
+		return new BinderTestPropertiesInitializer(context, properties);
 	}
 
 	@Bean

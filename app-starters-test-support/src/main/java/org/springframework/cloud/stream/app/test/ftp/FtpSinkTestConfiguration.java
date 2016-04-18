@@ -18,10 +18,10 @@ package org.springframework.cloud.stream.app.test.ftp;
 
 import java.util.Properties;
 
+import org.springframework.cloud.stream.app.test.BinderTestPropertiesInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.PropertiesPropertySource;
 
 /**
  * @author Gary Russell
@@ -31,7 +31,7 @@ import org.springframework.core.env.PropertiesPropertySource;
 public class FtpSinkTestConfiguration {
 
 	@Bean
-	public static Object loadProps(ConfigurableApplicationContext context) {
+	public static BinderTestPropertiesInitializer loadProps(ConfigurableApplicationContext context) {
 		Properties properties = new Properties();
 		properties.put("remoteDir", "ftpTarget");
 		properties.put("username", "foo");
@@ -40,9 +40,7 @@ public class FtpSinkTestConfiguration {
 		properties.put("port", 21);
 		properties.put("mode", "FAIL");
 		properties.put("filenameExpression", "payload.name.toUpperCase()");
-		context.getEnvironment().getPropertySources().addLast(new
-				PropertiesPropertySource("moduleOptions", properties));
-		return new Object();
+		return new BinderTestPropertiesInitializer(context, properties);
 	}
 
 }
