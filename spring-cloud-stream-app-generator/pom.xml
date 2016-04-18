@@ -128,8 +128,12 @@
 						</loggregator-source-rabbit>
 						<log-sink-kafka />
 						<log-sink-rabbit />
-						<pmml-processor-kafka />
-						<pmml-processor-rabbit />
+						<pmml-processor-kafka>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.pmml.PmmlProcessorTestConfiguration.class</extraTestConfigClass>
+						</pmml-processor-kafka>
+						<pmml-processor-rabbit>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.pmml.PmmlProcessorTestConfiguration.class</extraTestConfigClass>
+						</pmml-processor-rabbit>
 						<rabbit-sink-kafka>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.rabbit.RabbitSinkTestConfiguration.class</extraTestConfigClass>
 						</rabbit-sink-kafka>

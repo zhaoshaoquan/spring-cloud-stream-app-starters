@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 the original author or authors.
+ * Copyright 2015-2016 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +16,9 @@
 
 package org.springframework.cloud.stream.app.pmml.processor;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.collection.IsMapContaining.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.collection.IsMapContaining.hasEntry;
+import static org.junit.Assert.assertThat;
 
 import java.nio.charset.Charset;
 import java.util.Map;
@@ -27,7 +27,6 @@ import java.util.UUID;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
-import org.springframework.cloud.stream.app.pmml.processor.GenericMapConverter;
 import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.core.convert.support.DefaultConversionService;
 import org.springframework.core.convert.support.GenericConversionService;
@@ -36,6 +35,7 @@ import org.springframework.core.convert.support.GenericConversionService;
  * Tests for GenericMapConverter.
  *
  * @author Eric Bottard
+ * @author Gary Russell
  */
 public class GenericMapConverterTests {
 
@@ -50,8 +50,9 @@ public class GenericMapConverterTests {
 		assertThat(result, hasEntry("foo", "bar"));
 		assertThat(result, hasEntry("wizz", "jogg"));
 
-		assertThat(conversionService.canConvert(TypeDescriptor.valueOf(String.class),
-						TypeDescriptor.map(Map.class, TypeDescriptor.valueOf(GenericMapConverterTests.class), TypeDescriptor.valueOf(Integer.class))),
+		assertThat(
+				conversionService.canConvert(TypeDescriptor.valueOf(String.class), TypeDescriptor.map(Map.class,
+						TypeDescriptor.valueOf(GenericMapConverterTests.class), TypeDescriptor.valueOf(Integer.class))),
 				is(false));
 	}
 
@@ -61,9 +62,11 @@ public class GenericMapConverterTests {
 		GenericMapConverter mapConverter = new GenericMapConverter(conversionService);
 		conversionService.addConverter(mapConverter);
 
-		TypeDescriptor targetType = TypeDescriptor.map(Map.class, TypeDescriptor.valueOf(Charset.class), TypeDescriptor.valueOf(UUID.class));
+		TypeDescriptor targetType = TypeDescriptor.map(Map.class, TypeDescriptor.valueOf(Charset.class),
+				TypeDescriptor.valueOf(UUID.class));
 		@SuppressWarnings("unchecked")
-		Map<Charset, UUID> result = (Map<Charset, UUID>) conversionService.convert("UTF-8 = c46c18c7-b000-44d0-8326-f12ddf423972", targetType);
+		Map<Charset, UUID> result = (Map<Charset, UUID>) conversionService
+				.convert("UTF-8 = c46c18c7-b000-44d0-8326-f12ddf423972", targetType);
 
 		assertThat(result, hasEntry(Charset.forName("UTF-8"), UUID.fromString("c46c18c7-b000-44d0-8326-f12ddf423972")));
 	}
@@ -74,9 +77,11 @@ public class GenericMapConverterTests {
 		GenericMapConverter mapConverter = new GenericMapConverter(conversionService);
 		conversionService.addConverter(mapConverter);
 
-		TypeDescriptor targetType = TypeDescriptor.map(Map.class, TypeDescriptor.valueOf(String.class), TypeDescriptor.valueOf(String[].class));
+		TypeDescriptor targetType = TypeDescriptor.map(Map.class, TypeDescriptor.valueOf(String.class),
+				TypeDescriptor.valueOf(String[].class));
 		@SuppressWarnings("unchecked")
-		Map<String, String[]> result = (Map<String, String[]>) conversionService.convert("foo = bar\\,quizz", targetType);
+		Map<String, String[]> result = (Map<String, String[]>) conversionService.convert("foo = bar\\,quizz",
+				targetType);
 
 		assertThat(result.values().iterator().next(), Matchers.arrayContaining("bar", "quizz"));
 

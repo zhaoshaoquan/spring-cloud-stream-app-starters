@@ -47,7 +47,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = PmmlProcessorIntegrationTests.PmmlProcessorApplication.class)
 @DirtiesContext
-@IntegrationTest({"server.port=-1", "modelLocation=classpath:iris-flower-classification-naive-bayes-1.pmml.xml"})
+@IntegrationTest({"server.port=-1", "modelLocation=classpath:pmml/iris-flower-classification-naive-bayes-1.pmml.xml"})
 public abstract class PmmlProcessorIntegrationTests {
 
 	@Autowired
