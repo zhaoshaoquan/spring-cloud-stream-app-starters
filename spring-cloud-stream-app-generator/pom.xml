@@ -29,202 +29,110 @@
 						<artifactId>spring-cloud-stream-app-dependencies</artifactId>
 						<version>1.0.0.BUILD-SNAPSHOT</version>
 					</bom>
+					<binders>
+						<kafka />
+						<rabbit />
+					</binders>
 					<generatedApps>
-						<bridge-processor-kafka />
-						<bridge-processor-rabbit />
-						<cassandra-sink-kafka />
-						<cassandra-sink-rabbit />
-						<counter-sink-kafka />
-						<counter-sink-rabbit />
-						<field-value-counter-sink-kafka>
+						<bridge-processor />
+						<cassandra-sink />
+						<counter-sink />
+						<field-value-counter-sink>
 							<starterArtifactSuffix>sink-field-value-counter</starterArtifactSuffix>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.fieldvaluecounter.FieldValueCounterSinkTestConfiguration.class</extraTestConfigClass>
-						</field-value-counter-sink-kafka>
-						<field-value-counter-sink-rabbit>
-							<starterArtifactSuffix>sink-field-value-counter</starterArtifactSuffix>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.fieldvaluecounter.FieldValueCounterSinkTestConfiguration.class</extraTestConfigClass>
-						</field-value-counter-sink-rabbit>
-						<file-source-kafka />
-						<file-source-rabbit />
-						<file-sink-kafka />
-						<file-sink-rabbit />
-						<filter-processor-kafka />
-						<filter-processor-rabbit />
-						<ftp-sink-kafka>
+						</field-value-counter-sink>
+						
+						<file-source />
+						<file-sink />
+						<filter-processor />
+						<ftp-sink>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ftp.FtpSinkTestConfiguration.class</extraTestConfigClass>
-						</ftp-sink-kafka>
-						<ftp-sink-rabbit>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ftp.FtpSinkTestConfiguration.class</extraTestConfigClass>
-						</ftp-sink-rabbit>
-						<ftp-source-kafka>
+						</ftp-sink>
+						<ftp-source>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ftp.FtpSourceTestConfiguration.class</extraTestConfigClass>
-						</ftp-source-kafka>
-						<ftp-source-rabbit>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ftp.FtpSourceTestConfiguration.class</extraTestConfigClass>
-						</ftp-source-rabbit>
-						<gemfire-sink-kafka>
+						</ftp-source>
+						<gemfire-sink>
 							<extraRepository>gemstone-release-cache</extraRepository>
-						</gemfire-sink-kafka>
-						<gemfire-sink-rabbit>
+						</gemfire-sink>
+						<gpfdist-sink />
+						<gemfire-source>
 							<extraRepository>gemstone-release-cache</extraRepository>
-						</gemfire-sink-rabbit>
-						<gpfdist-sink-kafka />
-						<gpfdist-sink-rabbit />
-						<gemfire-source-kafka>
+						</gemfire-source>
+						<cq-gemfire-source>
 							<extraRepository>gemstone-release-cache</extraRepository>
-						</gemfire-source-kafka>
-						<gemfire-source-rabbit>
-							<extraRepository>gemstone-release-cache</extraRepository>
-						</gemfire-source-rabbit>
-						<cq-gemfire-source-kafka>
-							<extraRepository>gemstone-release-cache</extraRepository>
-						</cq-gemfire-source-kafka>
-						<cq-gemfire-source-rabbit>
-							<extraRepository>gemstone-release-cache</extraRepository>
-						</cq-gemfire-source-rabbit>
-						<groovy-filter-processor-kafka>
+						</cq-gemfire-source>
+						<groovy-filter-processor>
 							<starterArtifactSuffix>processor-groovy-filter</starterArtifactSuffix>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.script.ScriptableTestConfiguration.class</extraTestConfigClass>
-						</groovy-filter-processor-kafka>
-						<groovy-filter-processor-rabbit>
-							<starterArtifactSuffix>processor-groovy-filter</starterArtifactSuffix>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.script.ScriptableTestConfiguration.class</extraTestConfigClass>
-						</groovy-filter-processor-rabbit>
-						<groovy-transform-processor-kafka>
+						</groovy-filter-processor>
+						<groovy-transform-processor>
 							<starterArtifactSuffix>processor-groovy-transform</starterArtifactSuffix>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.script.ScriptableTestConfiguration.class</extraTestConfigClass>
-						</groovy-transform-processor-kafka>
-						<groovy-transform-processor-rabbit>
-							<starterArtifactSuffix>processor-groovy-transform</starterArtifactSuffix>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.script.ScriptableTestConfiguration.class</extraTestConfigClass>
-						</groovy-transform-processor-rabbit>
-						<hdfs-sink-kafka />
-						<hdfs-sink-rabbit />
-						<hdfs-dataset-sink-kafka />
-						<hdfs-dataset-sink-rabbit />
-						<httpclient-processor-kafka>
+						</groovy-transform-processor>
+						<hdfs-sink />
+						<hdfs-dataset-sink />
+						<httpclient-processor>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.http.HttpClientProcessorTestConfiguration.class</extraTestConfigClass>
-						</httpclient-processor-kafka>
-						<httpclient-processor-rabbit>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.http.HttpClientProcessorTestConfiguration.class</extraTestConfigClass>
-						</httpclient-processor-rabbit>
-						<http-source-kafka />
-						<http-source-rabbit />
-						<jdbc-sink-kafka />
-						<jdbc-sink-rabbit />
-						<jdbc-source-kafka />
-						<jdbc-source-rabbit />
-						<jms-source-kafka>
+						</httpclient-processor>
+						<http-source />
+						<jdbc-sink />
+						<jdbc-source />
+						<jms-source>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.jms.JmsSourceTestConfiguration.class</extraTestConfigClass>
-						</jms-source-kafka>
-						<jms-source-rabbit>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.jms.JmsSourceTestConfiguration.class</extraTestConfigClass>
-						</jms-source-rabbit>
-						<loggregator-source-kafka>
+						</jms-source>
+						<loggregator-source>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.loggregator.LoggregatorSourceTestConfiguration.class</extraTestConfigClass>
-						</loggregator-source-kafka>
-						<loggregator-source-rabbit>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.loggregator.LoggregatorSourceTestConfiguration.class</extraTestConfigClass>
-						</loggregator-source-rabbit>
-						<log-sink-kafka />
-						<log-sink-rabbit />
-						<pmml-processor-kafka>
+						</loggregator-source>
+						<pmml-processor>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.pmml.PmmlProcessorTestConfiguration.class</extraTestConfigClass>
-						</pmml-processor-kafka>
-						<pmml-processor-rabbit>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.pmml.PmmlProcessorTestConfiguration.class</extraTestConfigClass>
-						</pmml-processor-rabbit>
-						<rabbit-sink-kafka>
+						</pmml-processor>
+						<log-sink />
+						<rabbit-sink>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.rabbit.RabbitSinkTestConfiguration.class</extraTestConfigClass>
-						</rabbit-sink-kafka>
-						<rabbit-sink-rabbit>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.rabbit.RabbitSinkTestConfiguration.class</extraTestConfigClass>
-						</rabbit-sink-rabbit>
-						<rabbit-source-kafka>
+						</rabbit-sink>
+						<rabbit-source>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.rabbit.RabbitSourceTestConfiguration.class</extraTestConfigClass>
-						</rabbit-source-kafka>
-						<rabbit-source-rabbit>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.rabbit.RabbitSourceTestConfiguration.class</extraTestConfigClass>
-						</rabbit-source-rabbit>
-						<redis-sink-kafka>
+						</rabbit-source>
+						<redis-sink>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.redis.RedisSinkTestConfiguration.class</extraTestConfigClass>
-						</redis-sink-kafka>
-						<redis-sink-rabbit>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.redis.RedisSinkTestConfiguration.class</extraTestConfigClass>
-						</redis-sink-rabbit>
-						<router-sink-kafka />
-						<router-sink-rabbit />
-						<scriptable-transform-processor-kafka>
+						</redis-sink>
+						<router-sink />
+						<scriptable-transform-processor>
 							<starterArtifactSuffix>processor-scriptable-transform</starterArtifactSuffix>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.script.ScriptableTestConfiguration.class</extraTestConfigClass>
-						</scriptable-transform-processor-kafka>
-						<scriptable-transform-processor-rabbit>
-							<starterArtifactSuffix>processor-scriptable-transform</starterArtifactSuffix>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.script.ScriptableTestConfiguration.class</extraTestConfigClass>
-						</scriptable-transform-processor-rabbit>
-						<sftp-sink-kafka>
+						</scriptable-transform-processor>
+						<sftp-sink>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.sftp.SftpSinkTestConfiguration.class</extraTestConfigClass>
-						</sftp-sink-kafka>
-						<sftp-sink-rabbit>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.sftp.SftpSinkTestConfiguration.class</extraTestConfigClass>
-						</sftp-sink-rabbit>
-						<sftp-source-kafka>
+						</sftp-sink>
+						<sftp-source>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.sftp.SftpSourceTestConfiguration.class</extraTestConfigClass>
-						</sftp-source-kafka>
-						<sftp-source-rabbit>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.sftp.SftpSourceTestConfiguration.class</extraTestConfigClass>
-						</sftp-source-rabbit>
-						<splitter-processor-kafka />
-						<splitter-processor-rabbit />
-						<syslog-source-kafka>
+						</sftp-source>
+						<splitter-processor />
+						<syslog-source>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSourceTestConfiguration.class</extraTestConfigClass>
-						</syslog-source-kafka>
-						<syslog-source-rabbit>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSourceTestConfiguration.class</extraTestConfigClass>
-						</syslog-source-rabbit>
-						<tcp-sink-kafka>
+						</syslog-source>
+						<tcp-sink>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSinkTestConfiguration.class</extraTestConfigClass>
-						</tcp-sink-kafka>
-						<tcp-sink-rabbit>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSinkTestConfiguration.class</extraTestConfigClass>
-						</tcp-sink-rabbit>
-						<tcp-source-kafka>
+						</tcp-sink>
+						<tcp-source>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSourceTestConfiguration.class</extraTestConfigClass>
-						</tcp-source-kafka>
-						<tcp-source-rabbit>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSourceTestConfiguration.class</extraTestConfigClass>
-						</tcp-source-rabbit>
-						<time-source-kafka />
-						<time-source-rabbit />
-						<transform-processor-kafka />
-						<transform-processor-rabbit />
-						<trigger-source-kafka />
-						<trigger-source-rabbit />
-						<twitterstream-source-kafka>
+						</tcp-source>
+						<time-source />
+						<transform-processor />
+						<trigger-source />
+						<twitterstream-source>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.twitter.TwitterTestConfiguration.class</extraTestConfigClass>
-						</twitterstream-source-kafka>
-						<twitterstream-source-rabbit>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.twitter.TwitterTestConfiguration.class</extraTestConfigClass>
-						</twitterstream-source-rabbit>
-						<websocket-sink-kafka />
-						<websocket-sink-rabbit />
+						</twitterstream-source>
+						<websocket-sink />
 						<!-- Test Modules -->
-						<integration-test-processor-kafka>
+						<integration-test-processor>
 							<starterArtifactSuffix>processor-integration-test</starterArtifactSuffix>
-						</integration-test-processor-kafka>
-						<integration-test-processor-rabbit>
-							<starterArtifactSuffix>processor-integration-test</starterArtifactSuffix>
-						</integration-test-processor-rabbit>
-						<throughput-sink-kafka />
-						<throughput-sink-rabbit />
-						<load-generator-source-kafka>
+						</integration-test-processor>
+						<throughput-sink />
+						<load-generator-source>
 							<starterArtifactSuffix>source-load-generator</starterArtifactSuffix>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.loadgenerator.LoadGeneratorSourceTestConfiguration.class</extraTestConfigClass>
-						</load-generator-source-kafka>
-						<load-generator-source-rabbit>
-							<starterArtifactSuffix>source-load-generator</starterArtifactSuffix>
-							<extraTestConfigClass>org.springframework.cloud.stream.app.test.loadgenerator.LoadGeneratorSourceTestConfiguration.class</extraTestConfigClass>
-						</load-generator-source-rabbit>
+						</load-generator-source>
 					</generatedApps>
 					<extraRepositories>
 						<repository>
