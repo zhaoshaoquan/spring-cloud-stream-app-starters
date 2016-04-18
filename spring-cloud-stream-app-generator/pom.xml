@@ -38,9 +38,11 @@
 						<counter-sink-rabbit />
 						<field-value-counter-sink-kafka>
 							<starterArtifactSuffix>sink-field-value-counter</starterArtifactSuffix>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.fieldvaluecounter.FieldValueCounterSinkTestConfiguration.class</extraTestConfigClass>
 						</field-value-counter-sink-kafka>
 						<field-value-counter-sink-rabbit>
 							<starterArtifactSuffix>sink-field-value-counter</starterArtifactSuffix>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.fieldvaluecounter.FieldValueCounterSinkTestConfiguration.class</extraTestConfigClass>
 						</field-value-counter-sink-rabbit>
 						<file-source-kafka />
 						<file-source-rabbit />
