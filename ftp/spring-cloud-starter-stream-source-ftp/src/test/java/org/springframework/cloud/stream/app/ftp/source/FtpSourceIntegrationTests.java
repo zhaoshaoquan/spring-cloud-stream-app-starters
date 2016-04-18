@@ -35,7 +35,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.cloud.stream.app.test.PropertiesInitializer;
-import org.springframework.cloud.stream.app.test.file.remote.FtpTestSupport;
+import org.springframework.cloud.stream.app.test.ftp.FtpTestSupport;
 import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.cloud.stream.test.binder.MessageCollector;
 import org.springframework.integration.endpoint.SourcePollingChannelAdapter;

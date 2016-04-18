@@ -126,10 +126,18 @@
 						<scriptable-transform-processor-rabbit>
 							<starterArtifactSuffix>processor-scriptable-transform</starterArtifactSuffix>
 						</scriptable-transform-processor-rabbit>
-						<sftp-sink-kafka />
-						<sftp-sink-rabbit />
-						<sftp-source-kafka />
-						<sftp-source-rabbit />
+						<sftp-sink-kafka>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.sftp.SftpSinkTestConfiguration.class</extraTestConfigClass>
+						</sftp-sink-kafka>
+						<sftp-sink-rabbit>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.sftp.SftpSinkTestConfiguration.class</extraTestConfigClass>
+						</sftp-sink-rabbit>
+						<sftp-source-kafka>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.sftp.SftpSourceTestConfiguration.class</extraTestConfigClass>
+						</sftp-source-kafka>
+						<sftp-source-rabbit>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.sftp.SftpSourceTestConfiguration.class</extraTestConfigClass>
+						</sftp-source-rabbit>
 						<splitter-processor-kafka />
 						<splitter-processor-rabbit />
 						<syslog-source-kafka />

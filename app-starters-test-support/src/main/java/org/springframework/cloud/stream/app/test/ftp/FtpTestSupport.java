@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package org.springframework.cloud.stream.app.test.file.remote;
+package org.springframework.cloud.stream.app.test.ftp;
 
 import java.io.File;
 import java.util.Arrays;
@@ -32,6 +32,8 @@ import org.apache.ftpserver.usermanager.impl.TransferRatePermission;
 import org.apache.ftpserver.usermanager.impl.WritePermission;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+
+import org.springframework.cloud.stream.app.test.file.remote.RemoteFileTestSupport;
 
 /**
  * Provides an embedded FTP Server for test cases.

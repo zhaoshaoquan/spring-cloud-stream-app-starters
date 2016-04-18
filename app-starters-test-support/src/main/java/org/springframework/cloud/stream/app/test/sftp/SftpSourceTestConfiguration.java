@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-package org.springframework.cloud.stream.app.test.ftp;
+package org.springframework.cloud.stream.app.test.sftp;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.Properties;
 
-import org.apache.commons.net.ftp.FTPFile;
 import org.mockito.Mockito;
 
 import org.springframework.cloud.stream.app.test.BinderTestPropertiesInitializer;
@@ -31,28 +30,29 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.file.remote.session.Session;
 import org.springframework.integration.file.remote.session.SessionFactory;
 
+import com.jcraft.jsch.ChannelSftp.LsEntry;
+
 /**
  * @author Gary Russell
  *
  */
 @Configuration
-public class FtpSourceTestConfiguration {
+public class SftpSourceTestConfiguration {
 
 	@Bean
 	public static BinderTestPropertiesInitializer loadProps(ConfigurableApplicationContext context) {
 		// minimal properties for the context to load
 		Properties properties = new Properties();
 		properties.put("username", "foo");
-		properties.put("password", "bar");
 		return new BinderTestPropertiesInitializer(context, properties);
 	}
 
 	@Bean
-	public SessionFactory<FTPFile> ftpSessionFactory() {
+	public SessionFactory<LsEntry> ftpSessionFactory() {
 		@SuppressWarnings("unchecked")
-		SessionFactory<FTPFile> ftpSessionFactory = Mockito.mock(SessionFactory.class);
+		SessionFactory<LsEntry> ftpSessionFactory = Mockito.mock(SessionFactory.class);
 		@SuppressWarnings("unchecked")
-		Session<FTPFile> session = mock(Session.class);
+		Session<LsEntry> session = mock(Session.class);
 		when(ftpSessionFactory.getSession()).thenReturn(session);
 		return ftpSessionFactory;
 	}

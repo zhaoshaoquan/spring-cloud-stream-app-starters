@@ -22,7 +22,9 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = SftpSinkKafkaApplication.class)
+@SpringApplicationConfiguration(classes = {
+		org.springframework.cloud.stream.app.test.sftp.SftpSinkTestConfiguration.class,
+		SftpSinkKafkaApplication.class })
 public class SftpSinkKafkaApplicationTests {
 
 	@Test

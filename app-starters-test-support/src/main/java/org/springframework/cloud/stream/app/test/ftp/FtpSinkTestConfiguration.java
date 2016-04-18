@@ -32,14 +32,10 @@ public class FtpSinkTestConfiguration {
 
 	@Bean
 	public static BinderTestPropertiesInitializer loadProps(ConfigurableApplicationContext context) {
+		// minimal properties for the context to load
 		Properties properties = new Properties();
-		properties.put("remoteDir", "ftpTarget");
 		properties.put("username", "foo");
-		properties.put("password", "foo");
-		properties.put("filenamePattern", "*");
-		properties.put("port", 21);
-		properties.put("mode", "FAIL");
-		properties.put("filenameExpression", "payload.name.toUpperCase()");
+		properties.put("password", "bar");
 		return new BinderTestPropertiesInitializer(context, properties);
 	}
 

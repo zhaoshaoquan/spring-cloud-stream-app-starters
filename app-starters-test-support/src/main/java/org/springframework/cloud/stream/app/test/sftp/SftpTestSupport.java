@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package org.springframework.cloud.stream.app.test.file.remote;
+package org.springframework.cloud.stream.app.test.sftp;
 
 import java.io.File;
 import java.util.Arrays;
@@ -29,6 +29,8 @@ import org.apache.sshd.server.keyprovider.SimpleGeneratorHostKeyProvider;
 import org.apache.sshd.server.sftp.SftpSubsystem;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+
+import org.springframework.cloud.stream.app.test.file.remote.RemoteFileTestSupport;
 
 /**
  * Provides an embedded SFTP Server for test cases.
