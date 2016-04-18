@@ -48,7 +48,7 @@ public class SftpSourceTestConfiguration {
 	}
 
 	@Bean
-	public SessionFactory<LsEntry> ftpSessionFactory() {
+	public SessionFactory<LsEntry> sftpSessionFactory() {
 		@SuppressWarnings("unchecked")
 		SessionFactory<LsEntry> ftpSessionFactory = Mockito.mock(SessionFactory.class);
 		@SuppressWarnings("unchecked")

@@ -15,10 +15,15 @@
 
 package org.springframework.cloud.stream.app.sftp;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.integration.file.remote.session.CachingSessionFactory;
+import org.springframework.integration.file.remote.session.SessionFactory;
 import org.springframework.integration.sftp.session.DefaultSftpSessionFactory;
+
+import com.jcraft.jsch.ChannelSftp.LsEntry;
 
 /**
  * SFTP Session factory configuration.
@@ -30,7 +35,8 @@ import org.springframework.integration.sftp.session.DefaultSftpSessionFactory;
 public class SftpSessionFactoryConfiguration {
 
 	@Bean
-	public DefaultSftpSessionFactory sftpSessionFactory(SftpSessionFactoryProperties properties) {
+	@ConditionalOnMissingBean
+	public SessionFactory<LsEntry> sftpSessionFactory(SftpSessionFactoryProperties properties) {
 		DefaultSftpSessionFactory sftpSessionFactory = new DefaultSftpSessionFactory();
 		sftpSessionFactory.setHost(properties.getHost());
 		sftpSessionFactory.setPort(properties.getPort());
@@ -40,7 +46,13 @@ public class SftpSessionFactoryConfiguration {
 		if (properties.getKnownHostsExpression() != null) {
 			sftpSessionFactory.setKnownHosts("#{" + properties.getKnownHostsExpression() + "}");
 		}
-		return sftpSessionFactory;
+		if (properties.getCacheSessions() != null) {
+			CachingSessionFactory<LsEntry> csf = new CachingSessionFactory<>(sftpSessionFactory);
+			return csf;
+		}
+		else {
+			return sftpSessionFactory;
+		}
 	}
 
 }
