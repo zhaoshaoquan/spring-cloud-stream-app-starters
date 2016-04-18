@@ -394,7 +394,6 @@
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-hadoop-boot</artifactId>
 				<version>${spring-data-hadoop.version}</version>
-				<scope>provided</scope>
 				<exclusions>
 					<exclusion>
 						<groupId>org.mortbay.jetty</groupId>
@@ -422,7 +421,6 @@
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-hadoop-store</artifactId>
 				<version>${spring-data-hadoop.version}</version>
-				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.data</groupId>

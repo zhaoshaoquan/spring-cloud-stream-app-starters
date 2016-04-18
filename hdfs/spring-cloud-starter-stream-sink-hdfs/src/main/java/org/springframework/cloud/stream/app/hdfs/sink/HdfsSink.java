@@ -19,6 +19,7 @@ package org.springframework.cloud.stream.app.hdfs.sink;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.messaging.Sink;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.hadoop.store.DataStoreWriter;
 import org.springframework.integration.annotation.ServiceActivator;
 
@@ -30,6 +31,7 @@ import java.io.IOException;
  * @author Thomas Risberg
  */
 @EnableBinding(Sink.class)
+@Import(HdfsSinkConfiguration.class)
 public class HdfsSink {
 
 	DataStoreWriter<String> dataStoreWriter;
