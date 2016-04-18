@@ -102,8 +102,12 @@
 						<hdfs-sink-rabbit />
 						<hdfs-dataset-sink-kafka />
 						<hdfs-dataset-sink-rabbit />
-						<httpclient-processor-kafka />
-						<httpclient-processor-rabbit />
+						<httpclient-processor-kafka>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.http.HttpClientProcessorTestConfiguration.class</extraTestConfigClass>
+						</httpclient-processor-kafka>
+						<httpclient-processor-rabbit>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.http.HttpClientProcessorTestConfiguration.class</extraTestConfigClass>
+						</httpclient-processor-rabbit>
 						<http-source-kafka />
 						<http-source-rabbit />
 						<jdbc-sink-kafka />
