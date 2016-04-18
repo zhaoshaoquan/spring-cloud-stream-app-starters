@@ -57,10 +57,10 @@ public class LoadGeneratorSourceConfiguration extends AbstractEndpoint {
 	@Override
 	protected void doStart() {
 		if (running.compareAndSet(false, true)) {
-			executorService = Executors.newFixedThreadPool(properties.getProducers());
+			this.executorService = Executors.newFixedThreadPool(this.properties.getProducers());
 			for (int i = 0; i < properties.getProducers(); i++) {
-				executorService.execute(new Producer(i, this.channel,
-						properties.getMessageCount(), properties.getMessageSize()));
+				this.executorService.execute(new Producer(i, this.channel,
+						this.properties.getMessageCount(), this.properties.getMessageSize()));
 			}
 		}
 	}

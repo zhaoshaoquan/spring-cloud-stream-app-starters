@@ -179,9 +179,11 @@
 						<throughput-sink-rabbit />
 						<load-generator-source-kafka>
 							<starterArtifactSuffix>source-load-generator</starterArtifactSuffix>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.loadgenerator.LoadGeneratorSourceTestConfiguration.class</extraTestConfigClass>
 						</load-generator-source-kafka>
 						<load-generator-source-rabbit>
 							<starterArtifactSuffix>source-load-generator</starterArtifactSuffix>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.loadgenerator.LoadGeneratorSourceTestConfiguration.class</extraTestConfigClass>
 						</load-generator-source-rabbit>
 					</generatedApps>
 					<extraRepositories>
