@@ -112,10 +112,18 @@
 						<log-sink-rabbit />
 						<pmml-processor-kafka />
 						<pmml-processor-rabbit />
-						<rabbit-sink-kafka />
-						<rabbit-sink-rabbit />
-						<rabbit-source-kafka />
-						<rabbit-source-rabbit />
+						<rabbit-sink-kafka>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.rabbit.RabbitSinkTestConfiguration.class</extraTestConfigClass>
+						</rabbit-sink-kafka>
+						<rabbit-sink-rabbit>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.rabbit.RabbitSinkTestConfiguration.class</extraTestConfigClass>
+						</rabbit-sink-rabbit>
+						<rabbit-source-kafka>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.rabbit.RabbitSourceTestConfiguration.class</extraTestConfigClass>
+						</rabbit-source-kafka>
+						<rabbit-source-rabbit>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.rabbit.RabbitSourceTestConfiguration.class</extraTestConfigClass>
+						</rabbit-source-rabbit>
 						<redis-sink-kafka />
 						<redis-sink-rabbit />
 						<router-sink-kafka />
