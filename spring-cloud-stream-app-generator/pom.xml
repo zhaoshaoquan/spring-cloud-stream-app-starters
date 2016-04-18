@@ -174,8 +174,12 @@
 						<syslog-source-rabbit>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSourceTestConfiguration.class</extraTestConfigClass>
 						</syslog-source-rabbit>
-						<tcp-sink-kafka />
-						<tcp-sink-rabbit />
+						<tcp-sink-kafka>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSinkTestConfiguration.class</extraTestConfigClass>
+						</tcp-sink-kafka>
+						<tcp-sink-rabbit>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSinkTestConfiguration.class</extraTestConfigClass>
+						</tcp-sink-rabbit>
 						<tcp-source-kafka>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSourceTestConfiguration.class</extraTestConfigClass>
 						</tcp-source-kafka>
