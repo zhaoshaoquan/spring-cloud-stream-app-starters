@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 the original author or authors.
+ * Copyright 2015-2016 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,15 +15,21 @@
  */
 package org.springframework.cloud.stream.app.redis.sink;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
-import org.springframework.cloud.stream.annotation.Bindings;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.cloud.stream.test.junit.redis.RedisTestSupport;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -35,15 +41,10 @@ import org.springframework.messaging.support.GenericMessage;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
 /**
  * @author Mark Pollack
  * @author Marius Bogoevici
+ * @author Gary Russell
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = RedisSinkApplicationTests.RedisSinkApplication.class)
@@ -55,7 +56,6 @@ public class RedisSinkApplicationTests {
 	public RedisTestSupport redisAvailableRule = new RedisTestSupport();
 
 	@Autowired
-	@Bindings(RedisSink.class)
 	private Sink sink;
 
 	@Autowired

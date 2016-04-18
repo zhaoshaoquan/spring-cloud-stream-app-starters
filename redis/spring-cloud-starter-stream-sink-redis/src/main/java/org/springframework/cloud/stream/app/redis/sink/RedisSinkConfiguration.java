@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 the original author or authors.
+ * Copyright 2015-2016 the original author or authors.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,11 +16,13 @@
 package org.springframework.cloud.stream.app.redis.sink;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.integration.redis.outbound.RedisPublishingMessageHandler;
 import org.springframework.integration.redis.outbound.RedisQueueOutboundChannelAdapter;
 import org.springframework.integration.redis.outbound.RedisStoreWritingMessageHandler;
@@ -36,9 +38,11 @@ import org.springframework.messaging.MessageHandler;
  *
  * @author Eric Bottard
  * @author Mark Pollack
+ * @author Gary Russell
  */
 @Configuration
 @EnableConfigurationProperties(RedisSinkProperties.class)
+@EnableBinding(Sink.class)
 public class RedisSinkConfiguration {
 
 	@Autowired
@@ -48,20 +52,24 @@ public class RedisSinkConfiguration {
 	private RedisSinkProperties redisSinkProperties;
 
 	@Bean
-	@Qualifier
+	@ServiceActivator(inputChannel = Sink.INPUT)
 	public MessageHandler redisSinkMessageHandler() {
-		if (redisSinkProperties.isKey()) {
-			RedisStoreWritingMessageHandler redisStoreWritingMessageHandler =
-					new RedisStoreWritingMessageHandler(redisConnectionFactory);
-			redisStoreWritingMessageHandler.setKeyExpression(redisSinkProperties.getKeyExpression());
+		if (this.redisSinkProperties.isKey()) {
+			RedisStoreWritingMessageHandler redisStoreWritingMessageHandler = new RedisStoreWritingMessageHandler(
+					this.redisConnectionFactory);
+			redisStoreWritingMessageHandler.setKeyExpression(this.redisSinkProperties.getKeyExpression());
 			return redisStoreWritingMessageHandler;
-		} else if (redisSinkProperties.isQueue()) {
-			return new RedisQueueOutboundChannelAdapter(redisSinkProperties.getQueueExpression(), redisConnectionFactory);
-		} else { // must be topic
-			RedisPublishingMessageHandler redisPublishingMessageHandler =
-					new RedisPublishingMessageHandler(redisConnectionFactory);
-			redisPublishingMessageHandler.setTopicExpression(redisSinkProperties.getTopicExpression());
+		}
+		else if (this.redisSinkProperties.isQueue()) {
+			return new RedisQueueOutboundChannelAdapter(this.redisSinkProperties.getQueueExpression(),
+					this.redisConnectionFactory);
+		}
+		else { // must be topic
+			RedisPublishingMessageHandler redisPublishingMessageHandler = new RedisPublishingMessageHandler(
+					this.redisConnectionFactory);
+			redisPublishingMessageHandler.setTopicExpression(this.redisSinkProperties.getTopicExpression());
 			return redisPublishingMessageHandler;
 		}
 	}
+
 }

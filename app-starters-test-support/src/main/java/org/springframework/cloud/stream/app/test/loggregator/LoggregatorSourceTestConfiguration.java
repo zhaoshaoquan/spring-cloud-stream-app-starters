@@ -21,6 +21,7 @@ import static org.mockito.Mockito.mock;
 import org.cloudfoundry.client.lib.CloudFoundryClient;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * Mock {@link CloudFoundryClient} for generated app tests.
@@ -28,6 +29,7 @@ import org.springframework.context.annotation.Bean;
  * @author Gary Russell
  *
  */
+@Configuration
 public class LoggregatorSourceTestConfiguration {
 
 	@Bean

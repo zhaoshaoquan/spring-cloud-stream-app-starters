@@ -21,6 +21,7 @@ import java.util.Properties;
 import org.springframework.cloud.stream.app.test.BinderTestPropertiesInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * Generated app test configuration for IP (TCP, UDP) sources.
@@ -28,6 +29,7 @@ import org.springframework.context.annotation.Bean;
  * @author Gary Russell
  *
  */
+@Configuration
 public class IpSourceTestConfiguration {
 
 	@Bean

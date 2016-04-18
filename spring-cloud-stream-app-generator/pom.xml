@@ -132,8 +132,12 @@
 						<rabbit-source-rabbit>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.rabbit.RabbitSourceTestConfiguration.class</extraTestConfigClass>
 						</rabbit-source-rabbit>
-						<redis-sink-kafka />
-						<redis-sink-rabbit />
+						<redis-sink-kafka>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.redis.RedisSinkTestConfiguration.class</extraTestConfigClass>
+						</redis-sink-kafka>
+						<redis-sink-rabbit>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.redis.RedisSinkTestConfiguration.class</extraTestConfigClass>
+						</redis-sink-rabbit>
 						<router-sink-kafka />
 						<router-sink-rabbit />
 						<scriptable-transform-processor-kafka>

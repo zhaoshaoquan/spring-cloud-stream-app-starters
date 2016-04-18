@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.cloud.stream.app.test.loadgenerator;
+package org.springframework.cloud.stream.app.test.redis;
 
 import java.util.Properties;
 
@@ -24,19 +24,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Generated app test configuration for Load Generator (0 messages).
+ * Test configuration for the generated redis sink app.
  *
  * @author Gary Russell
  *
  */
 @Configuration
-public class LoadGeneratorSourceTestConfiguration {
+public class RedisSinkTestConfiguration {
 
 	@Bean
-	public static BinderTestPropertiesInitializer loadProps(ConfigurableApplicationContext context) {
+	public BinderTestPropertiesInitializer loadProps(ConfigurableApplicationContext context) {
 		// minimal properties for the context to load
 		Properties properties = new Properties();
-		properties.put("messageCount", 0);
+		properties.put("key", "foo");
 		return new BinderTestPropertiesInitializer(context, properties);
 	}
 

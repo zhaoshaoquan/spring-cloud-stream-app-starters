@@ -15,15 +15,16 @@
 
 package org.springframework.cloud.stream.app.redis.sink;
 
+import java.util.Arrays;
+import java.util.Collections;
+
+import javax.validation.constraints.AssertTrue;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.expression.Expression;
 import org.springframework.expression.common.LiteralExpression;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.util.StringUtils;
-
-import javax.validation.constraints.AssertTrue;
-import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * Used to configure those Redis Sink module options that are not related to connecting to Redis.
@@ -34,7 +35,7 @@ import java.util.Collections;
 @ConfigurationProperties
 public class RedisSinkProperties {
 
-	private SpelExpressionParser parser = new SpelExpressionParser();
+	private final SpelExpressionParser parser = new SpelExpressionParser();
 
 	/**
 	 * A SpEL expression to use for topic.
@@ -128,7 +129,8 @@ public class RedisSinkProperties {
 
 
 	// The javabean property name is what will be reported in case of violation. Make it meaningful
-	@AssertTrue(message = "Exactly one of 'queue', 'queueExpression', 'key', 'keyExpression', 'topic' and 'topicExpression' must be set")
+	@AssertTrue(message = "Exactly one of 'queue', 'queueExpression', 'key', 'keyExpression', "
+			+ "'topic' and 'topicExpression' must be set")
 	public boolean isMutuallyExclusive() {
 		String[] props = new String[]{queue, queueExpression, key, keyExpression, topic, topicExpression};
 		return (props.length - 1) == Collections.frequency(Arrays.asList(props), null);
