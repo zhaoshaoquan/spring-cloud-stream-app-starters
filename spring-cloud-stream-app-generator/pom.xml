@@ -140,12 +140,20 @@
 						</sftp-source-rabbit>
 						<splitter-processor-kafka />
 						<splitter-processor-rabbit />
-						<syslog-source-kafka />
-						<syslog-source-rabbit />
+						<syslog-source-kafka>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSourceTestConfiguration.class</extraTestConfigClass>
+						</syslog-source-kafka>
+						<syslog-source-rabbit>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSourceTestConfiguration.class</extraTestConfigClass>
+						</syslog-source-rabbit>
 						<tcp-sink-kafka />
 						<tcp-sink-rabbit />
-						<tcp-source-kafka />
-						<tcp-source-rabbit />
+						<tcp-source-kafka>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSourceTestConfiguration.class</extraTestConfigClass>
+						</tcp-source-kafka>
+						<tcp-source-rabbit>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSourceTestConfiguration.class</extraTestConfigClass>
+						</tcp-source-rabbit>
 						<time-source-kafka />
 						<time-source-rabbit />
 						<transform-processor-kafka />
