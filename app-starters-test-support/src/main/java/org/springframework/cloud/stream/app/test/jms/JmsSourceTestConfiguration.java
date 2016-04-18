@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.cloud.stream.app.test.rabbit;
+package org.springframework.cloud.stream.app.test.jms;
 
 import java.util.Properties;
 
@@ -24,21 +24,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Generated app test configuration for RabbitMQ Sink.
+ * Generated app test configuration for JMS Source.
  *
  * @author Gary Russell
  *
  */
 @Configuration
-public class RabbitSinkTestConfiguration {
+public class JmsSourceTestConfiguration {
 
 	@Bean
 	public static BinderTestPropertiesInitializer loadProps(ConfigurableApplicationContext context) {
 		// minimal properties for the context to load
 		Properties properties = new Properties();
-		properties.put("routingKey", "foo");
+		properties.put("destination", "foo");
 		return new BinderTestPropertiesInitializer(context, properties);
 	}
-
 
 }

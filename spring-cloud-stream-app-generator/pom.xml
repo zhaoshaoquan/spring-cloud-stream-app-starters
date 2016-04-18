@@ -104,8 +104,12 @@
 						<jdbc-sink-rabbit />
 						<jdbc-source-kafka />
 						<jdbc-source-rabbit />
-						<jms-source-kafka />
-						<jms-source-rabbit />
+						<jms-source-kafka>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.jms.JmsSourceTestConfiguration.class</extraTestConfigClass>
+						</jms-source-kafka>
+						<jms-source-rabbit>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.jms.JmsSourceTestConfiguration.class</extraTestConfigClass>
+						</jms-source-rabbit>
 						<loggregator-source-kafka />
 						<loggregator-source-rabbit />
 						<log-sink-kafka />
