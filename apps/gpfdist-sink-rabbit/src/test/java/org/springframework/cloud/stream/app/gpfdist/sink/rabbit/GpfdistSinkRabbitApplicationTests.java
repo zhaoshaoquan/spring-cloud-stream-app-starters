@@ -24,9 +24,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {
-		org.springframework.cloud.stream.app.test.gpfdist.GpfdistTestConfiguration.class,
-		GpfdistSinkRabbitApplication.class })
+@SpringApplicationConfiguration(classes = GpfdistSinkRabbitApplication.class)
 public class GpfdistSinkRabbitApplicationTests {
 
 	@Test
