@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
 		<artifactId>spring-cloud-stream-app-starters</artifactId>
 		<groupId>org.springframework.cloud.stream.app</groupId>
@@ -35,13 +35,15 @@
 					</binders>
 					<generatedApps>
 						<bridge-processor />
-						<cassandra-sink />
+						<cassandra-sink>
+							<testsIgnored>true</testsIgnored>
+						</cassandra-sink>
 						<counter-sink />
 						<field-value-counter-sink>
 							<starterArtifactSuffix>sink-field-value-counter</starterArtifactSuffix>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.fieldvaluecounter.FieldValueCounterSinkTestConfiguration.class</extraTestConfigClass>
 						</field-value-counter-sink>
-						
+
 						<file-source />
 						<file-sink />
 						<filter-processor />
@@ -53,14 +55,20 @@
 						</ftp-source>
 						<gemfire-sink>
 							<extraRepository>gemstone-release-cache</extraRepository>
+							<testsIgnored>true</testsIgnored>
 						</gemfire-sink>
-						<gpfdist-sink />
 						<gemfire-source>
 							<extraRepository>gemstone-release-cache</extraRepository>
+							<testsIgnored>true</testsIgnored>
 						</gemfire-source>
 						<cq-gemfire-source>
 							<extraRepository>gemstone-release-cache</extraRepository>
+							<testsIgnored>true</testsIgnored>
 						</cq-gemfire-source>
+						<gpfdist-sink >
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.gpfdist.GpfdistTestConfiguration.class</extraTestConfigClass>
+							<testsIgnored>true</testsIgnored>
+						</gpfdist-sink>
 						<groovy-filter-processor>
 							<starterArtifactSuffix>processor-groovy-filter</starterArtifactSuffix>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.script.ScriptableTestConfiguration.class</extraTestConfigClass>
