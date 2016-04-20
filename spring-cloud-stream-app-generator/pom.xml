@@ -54,15 +54,21 @@
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ftp.FtpSourceTestConfiguration.class</extraTestConfigClass>
 						</ftp-source>
 						<gemfire-sink>
-							<extraRepository>gemstone-release-cache</extraRepository>
+							<extraRepositories>
+								<gemstone-release-cache />
+							</extraRepositories>
 							<testsIgnored>true</testsIgnored>
 						</gemfire-sink>
 						<gemfire-source>
-							<extraRepository>gemstone-release-cache</extraRepository>
+							<extraRepositories>
+								<gemstone-release-cache />
+							</extraRepositories>
 							<testsIgnored>true</testsIgnored>
 						</gemfire-source>
 						<cq-gemfire-source>
-							<extraRepository>gemstone-release-cache</extraRepository>
+							<extraRepositories>
+								<gemstone-release-cache />
+							</extraRepositories>
 							<testsIgnored>true</testsIgnored>
 						</cq-gemfire-source>
 						<gpfdist-sink >
