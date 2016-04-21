@@ -26,7 +26,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @SuppressWarnings("unused")
 @ConfigurationProperties
-public class DatasetSinkProperties {
+public class HdfsDatasetSinkProperties {
 
 	/**
 	 * The URI to use to access the Hadoop FileSystem.

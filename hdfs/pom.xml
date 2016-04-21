@@ -13,7 +13,7 @@
 
 	<modules>
 		<module>spring-cloud-starter-stream-sink-hdfs</module>
-		<module>spring-cloud-starter-stream-sink-dataset-hdfs</module>
+		<module>spring-cloud-starter-stream-sink-hdfs-dataset</module>
 	</modules>
 
 </project>

@@ -10,7 +10,7 @@
 		<version>1.0.0.BUILD-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>spring-cloud-starter-stream-sink-dataset-hdfs</artifactId>
+	<artifactId>spring-cloud-starter-stream-sink-hdfs-dataset</artifactId>
 
 	<dependencies>
 

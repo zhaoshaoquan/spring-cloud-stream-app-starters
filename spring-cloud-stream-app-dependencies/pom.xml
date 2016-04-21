@@ -169,7 +169,7 @@
 
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
-				<artifactId>spring-cloud-starter-stream-sink-dataset-hdfs</artifactId>
+				<artifactId>spring-cloud-starter-stream-sink-hdfs-dataset</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
@@ -320,13 +320,6 @@
 			</dependency>
 
 			<!-- Core dependencies needed for the starter libs -->
-
-			<dependency>
-				<groupId>org.springframework.cloud.stream.app</groupId>
-				<artifactId>app-starters-test-support</artifactId>
-				<version>${project.version}</version>
-				<scope>test</scope>
-			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>

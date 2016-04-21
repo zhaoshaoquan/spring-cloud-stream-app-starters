@@ -35,7 +35,7 @@ public class DatasetSinkPropertiesTests {
 		EnvironmentTestUtils.addEnvironment(context, "fsUri:hdfs://localhost:8020");
 		context.register(Conf.class);
 		context.refresh();
-		DatasetSinkProperties properties = context.getBean(DatasetSinkProperties.class);
+		HdfsDatasetSinkProperties properties = context.getBean(HdfsDatasetSinkProperties.class);
 		assertThat(properties.getFsUri(), equalTo("hdfs://localhost:8020"));
 	}
 
@@ -45,7 +45,7 @@ public class DatasetSinkPropertiesTests {
 		EnvironmentTestUtils.addEnvironment(context, "directory:/tmp/test");
 		context.register(Conf.class);
 		context.refresh();
-		DatasetSinkProperties properties = context.getBean(DatasetSinkProperties.class);
+		HdfsDatasetSinkProperties properties = context.getBean(HdfsDatasetSinkProperties.class);
 		assertThat(properties.getDirectory(), equalTo("/tmp/test"));
 	}
 
@@ -55,7 +55,7 @@ public class DatasetSinkPropertiesTests {
 		EnvironmentTestUtils.addEnvironment(context, "namespace:test");
 		context.register(Conf.class);
 		context.refresh();
-		DatasetSinkProperties properties = context.getBean(DatasetSinkProperties.class);
+		HdfsDatasetSinkProperties properties = context.getBean(HdfsDatasetSinkProperties.class);
 		assertThat(properties.getNamespace(), equalTo("test"));
 	}
 
@@ -65,7 +65,7 @@ public class DatasetSinkPropertiesTests {
 		EnvironmentTestUtils.addEnvironment(context, "batchSize:1000");
 		context.register(Conf.class);
 		context.refresh();
-		DatasetSinkProperties properties = context.getBean(DatasetSinkProperties.class);
+		HdfsDatasetSinkProperties properties = context.getBean(HdfsDatasetSinkProperties.class);
 		assertThat(properties.getBatchSize(), equalTo(1000));
 	}
 
@@ -75,7 +75,7 @@ public class DatasetSinkPropertiesTests {
 		EnvironmentTestUtils.addEnvironment(context, "idleTimeout:3000");
 		context.register(Conf.class);
 		context.refresh();
-		DatasetSinkProperties properties = context.getBean(DatasetSinkProperties.class);
+		HdfsDatasetSinkProperties properties = context.getBean(HdfsDatasetSinkProperties.class);
 		assertThat(properties.getIdleTimeout(), equalTo(3000L));
 	}
 
@@ -85,7 +85,7 @@ public class DatasetSinkPropertiesTests {
 		EnvironmentTestUtils.addEnvironment(context, "allowNullValues:true");
 		context.register(Conf.class);
 		context.refresh();
-		DatasetSinkProperties properties = context.getBean(DatasetSinkProperties.class);
+		HdfsDatasetSinkProperties properties = context.getBean(HdfsDatasetSinkProperties.class);
 		assertThat(properties.isAllowNullValues(), equalTo(true));
 	}
 
@@ -95,7 +95,7 @@ public class DatasetSinkPropertiesTests {
 		EnvironmentTestUtils.addEnvironment(context, "format:parquet");
 		context.register(Conf.class);
 		context.refresh();
-		DatasetSinkProperties properties = context.getBean(DatasetSinkProperties.class);
+		HdfsDatasetSinkProperties properties = context.getBean(HdfsDatasetSinkProperties.class);
 		assertThat(properties.getFormat(), equalTo("parquet"));
 	}
 
@@ -105,7 +105,7 @@ public class DatasetSinkPropertiesTests {
 		EnvironmentTestUtils.addEnvironment(context, "partitionPath:year('timestamp')");
 		context.register(Conf.class);
 		context.refresh();
-		DatasetSinkProperties properties = context.getBean(DatasetSinkProperties.class);
+		HdfsDatasetSinkProperties properties = context.getBean(HdfsDatasetSinkProperties.class);
 		assertThat(properties.getPartitionPath(), equalTo("year('timestamp')"));
 	}
 
@@ -115,7 +115,7 @@ public class DatasetSinkPropertiesTests {
 		EnvironmentTestUtils.addEnvironment(context, "writerCacheSize:20");
 		context.register(Conf.class);
 		context.refresh();
-		DatasetSinkProperties properties = context.getBean(DatasetSinkProperties.class);
+		HdfsDatasetSinkProperties properties = context.getBean(HdfsDatasetSinkProperties.class);
 		assertThat(properties.getWriterCacheSize(), equalTo(20));
 	}
 
@@ -125,12 +125,12 @@ public class DatasetSinkPropertiesTests {
 		EnvironmentTestUtils.addEnvironment(context, "compressionType:bzip2");
 		context.register(Conf.class);
 		context.refresh();
-		DatasetSinkProperties properties = context.getBean(DatasetSinkProperties.class);
+		HdfsDatasetSinkProperties properties = context.getBean(HdfsDatasetSinkProperties.class);
 		assertThat(properties.getCompressionType(), equalTo("bzip2"));
 	}
 
 	@Configuration
-	@EnableConfigurationProperties(DatasetSinkProperties.class)
+	@EnableConfigurationProperties(HdfsDatasetSinkProperties.class)
 	static class Conf {
 	}
 

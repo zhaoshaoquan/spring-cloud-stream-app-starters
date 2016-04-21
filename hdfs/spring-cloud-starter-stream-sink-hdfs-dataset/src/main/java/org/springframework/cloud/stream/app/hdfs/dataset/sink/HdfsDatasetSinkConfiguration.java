@@ -77,13 +77,13 @@ import java.util.List;
 @Configuration
 @EnableScheduling
 @EnableBinding(Sink.class)
-@EnableConfigurationProperties(DatasetSinkProperties.class)
+@EnableConfigurationProperties(HdfsDatasetSinkProperties.class)
 public class HdfsDatasetSinkConfiguration {
 
 	protected static Logger logger = LoggerFactory.getLogger(HdfsDatasetSinkConfiguration.class);
 
 	@Autowired
-	private DatasetSinkProperties properties;
+	private HdfsDatasetSinkProperties properties;
 
 	@Bean
 	public MessageChannel toSink() {
