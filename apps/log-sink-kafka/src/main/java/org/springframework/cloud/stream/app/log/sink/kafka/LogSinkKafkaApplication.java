@@ -18,8 +18,11 @@ package org.springframework.cloud.stream.app.log.sink.kafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+
 
 @SpringBootApplication
+@Import(org.springframework.cloud.stream.app.log.sink.LogSinkConfiguration.class)
 public class LogSinkKafkaApplication {
 
 	public static void main(String[] args) {

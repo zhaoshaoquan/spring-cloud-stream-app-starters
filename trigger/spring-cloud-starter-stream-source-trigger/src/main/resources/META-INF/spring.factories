@@ -1,2 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.springframework.cloud.stream.app.trigger.TriggerSourceConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.springframework.cloud.stream.app.trigger.source.TriggerSourceConfiguration
 

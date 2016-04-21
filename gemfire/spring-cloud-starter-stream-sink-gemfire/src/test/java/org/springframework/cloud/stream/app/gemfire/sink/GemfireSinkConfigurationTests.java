@@ -37,7 +37,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * @author David Turanski
  **/
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {GemfireSink.class,
+@SpringApplicationConfiguration(classes = {GemfireSinkConfiguration.class,
 		PropertyPlaceholderAutoConfiguration.class,
 		TestSupportBinderAutoConfiguration.class})
 @IntegrationTest({"regionName=Stocks", "keyExpression='key'",

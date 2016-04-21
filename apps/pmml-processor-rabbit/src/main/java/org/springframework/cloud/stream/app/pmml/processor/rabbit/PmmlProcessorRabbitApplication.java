@@ -18,8 +18,11 @@ package org.springframework.cloud.stream.app.pmml.processor.rabbit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+
 
 @SpringBootApplication
+@Import(org.springframework.cloud.stream.app.pmml.processor.PmmlProcessorConfiguration.class)
 public class PmmlProcessorRabbitApplication {
 
 	public static void main(String[] args) {

@@ -18,8 +18,11 @@ package org.springframework.cloud.stream.app.loggregator.source.kafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+
 
 @SpringBootApplication
+@Import(org.springframework.cloud.stream.app.loggregator.source.LoggregatorSourceConfiguration.class)
 public class LoggregatorSourceKafkaApplication {
 
 	public static void main(String[] args) {

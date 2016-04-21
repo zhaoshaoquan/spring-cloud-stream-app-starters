@@ -42,7 +42,7 @@ import static org.junit.Assert.assertEquals;
 public abstract class TimeSourceIntegrationTests {
 
 	@Autowired
-	@Bindings(TimeSource.class)
+	@Bindings(TimeSourceConfiguration.class)
 	protected Source timeSource;
 
 	@Autowired

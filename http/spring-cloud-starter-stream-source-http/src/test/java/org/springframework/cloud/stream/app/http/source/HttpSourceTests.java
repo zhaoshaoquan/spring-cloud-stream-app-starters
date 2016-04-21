@@ -42,7 +42,7 @@ import static org.junit.Assert.assertThat;
 import static org.springframework.cloud.stream.test.matcher.MessageQueueMatcher.receivesPayloadThat;
 
 /**
- * Tests for HttpSource.
+ * Tests for HttpSourceConfiguration.
  *
  * @author Eric Bottard
  * @author Mark Fisher
@@ -53,7 +53,7 @@ import static org.springframework.cloud.stream.test.matcher.MessageQueueMatcher.
 public abstract class HttpSourceTests {
 
 	@Autowired
-	@Bindings(HttpSource.class)
+	@Bindings(HttpSourceConfiguration.class)
 	protected Source channels;
 
 	@Value("${local.server.port}")

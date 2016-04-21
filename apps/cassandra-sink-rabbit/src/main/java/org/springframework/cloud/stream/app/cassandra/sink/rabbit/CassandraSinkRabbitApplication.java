@@ -18,8 +18,11 @@ package org.springframework.cloud.stream.app.cassandra.sink.rabbit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+
 
 @SpringBootApplication
+@Import(org.springframework.cloud.stream.app.cassandra.sink.CassandraSinkConfiguration.class)
 public class CassandraSinkRabbitApplication {
 
 	public static void main(String[] args) {

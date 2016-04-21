@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.springframework.cloud.stream.app.dataset.hdfs.sink.DatasetSinkConfiguration
+org.springframework.cloud.stream.app.hdfs.dataset.sink.HdfsDatasetSinkConfiguration

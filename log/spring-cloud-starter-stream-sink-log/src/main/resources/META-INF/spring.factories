@@ -1,2 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.springframework.cloud.stream.app.log.LogSink
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.springframework.cloud.stream.app.log.sink.LogSinkConfiguration
 

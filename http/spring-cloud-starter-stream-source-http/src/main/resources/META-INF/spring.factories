@@ -1,2 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.springframework.cloud.stream.app.http.source.HttpSource
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.springframework.cloud.stream.app.http.source.HttpSourceConfiguration
 

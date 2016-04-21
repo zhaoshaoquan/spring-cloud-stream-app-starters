@@ -59,7 +59,7 @@ import static org.junit.Assert.assertTrue;
 public class GemfireSinkIntegrationTests {
 
 	@Autowired
-	@Bindings(GemfireSink.class)
+	@Bindings(GemfireSinkConfiguration.class)
 	protected Sink gemfireSink;
 
 	@Resource(name = "clientRegion")

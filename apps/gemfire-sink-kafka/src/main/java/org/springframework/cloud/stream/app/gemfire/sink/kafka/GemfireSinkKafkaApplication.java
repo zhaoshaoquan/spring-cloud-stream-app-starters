@@ -18,8 +18,11 @@ package org.springframework.cloud.stream.app.gemfire.sink.kafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+
 
 @SpringBootApplication
+@Import(org.springframework.cloud.stream.app.gemfire.sink.GemfireSinkConfiguration.class)
 public class GemfireSinkKafkaApplication {
 
 	public static void main(String[] args) {

@@ -18,8 +18,11 @@ package org.springframework.cloud.stream.app.filter.processor.kafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+
 
 @SpringBootApplication
+@Import(org.springframework.cloud.stream.app.filter.processor.FilterProcessorConfiguration.class)
 public class FilterProcessorKafkaApplication {
 
 	public static void main(String[] args) {

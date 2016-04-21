@@ -18,8 +18,11 @@ package org.springframework.cloud.stream.app.httpclient.processor.rabbit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+
 
 @SpringBootApplication
+@Import(org.springframework.cloud.stream.app.httpclient.processor.HttpclientProcessorConfiguration.class)
 public class HttpclientProcessorRabbitApplication {
 
 	public static void main(String[] args) {

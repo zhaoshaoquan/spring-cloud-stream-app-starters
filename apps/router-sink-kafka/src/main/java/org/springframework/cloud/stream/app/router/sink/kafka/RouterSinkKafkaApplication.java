@@ -18,8 +18,11 @@ package org.springframework.cloud.stream.app.router.sink.kafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+
 
 @SpringBootApplication
+@Import(org.springframework.cloud.stream.app.router.sink.RouterSinkConfiguration.class)
 public class RouterSinkKafkaApplication {
 
 	public static void main(String[] args) {

@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.springframework.cloud.stream.app.gemfire.source.GemfireSource
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.springframework.cloud.stream.app.gemfire.source.GemfireSourceConfiguration

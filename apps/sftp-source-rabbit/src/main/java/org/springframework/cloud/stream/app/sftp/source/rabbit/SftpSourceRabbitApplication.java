@@ -18,8 +18,11 @@ package org.springframework.cloud.stream.app.sftp.source.rabbit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+
 
 @SpringBootApplication
+@Import(org.springframework.cloud.stream.app.sftp.source.SftpSourceConfiguration.class)
 public class SftpSourceRabbitApplication {
 
 	public static void main(String[] args) {

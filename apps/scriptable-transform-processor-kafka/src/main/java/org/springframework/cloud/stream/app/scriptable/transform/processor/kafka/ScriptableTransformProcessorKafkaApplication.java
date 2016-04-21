@@ -18,8 +18,11 @@ package org.springframework.cloud.stream.app.scriptable.transform.processor.kafk
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+
 
 @SpringBootApplication
+@Import(org.springframework.cloud.stream.app.scriptable.transform.processor.ScriptableTransformProcessorConfiguration.class)
 public class ScriptableTransformProcessorKafkaApplication {
 
 	public static void main(String[] args) {

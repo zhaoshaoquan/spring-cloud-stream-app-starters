@@ -18,8 +18,11 @@ package org.springframework.cloud.stream.app.websocket.sink.kafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+
 
 @SpringBootApplication
+@Import(org.springframework.cloud.stream.app.websocket.sink.WebsocketSinkConfiguration.class)
 public class WebsocketSinkKafkaApplication {
 
 	public static void main(String[] args) {

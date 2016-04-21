@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.springframework.cloud.stream.app.loadgenerator.source.LoadGeneratorSourceConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.springframework.cloud.stream.app.load.generator.source.LoadGeneratorSourceConfiguration

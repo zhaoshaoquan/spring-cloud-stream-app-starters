@@ -40,7 +40,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @RunWith(SpringJUnit4ClassRunner.class)
 
 @SpringApplicationConfiguration(classes = {
-		GemfireSource.class,
+		GemfireSourceConfiguration.class,
 		PropertyPlaceholderAutoConfiguration.class,
 		TestSupportBinderAutoConfiguration.class })
 @IntegrationTest({ "regionName=Stocks"})

@@ -65,12 +65,13 @@
 							</extraRepositories>
 							<testsIgnored>true</testsIgnored>
 						</gemfire-source>
-						<cq-gemfire-source>
+						<gemfire-cq-source>
 							<extraRepositories>
 								<gemstone-release-cache />
 							</extraRepositories>
 							<testsIgnored>true</testsIgnored>
-						</cq-gemfire-source>
+							<starterArtifactSuffix>source-gemfire-cq</starterArtifactSuffix>
+						</gemfire-cq-source>
 						<gpfdist-sink >
 							<testsIgnored>true</testsIgnored>
 						</gpfdist-sink>

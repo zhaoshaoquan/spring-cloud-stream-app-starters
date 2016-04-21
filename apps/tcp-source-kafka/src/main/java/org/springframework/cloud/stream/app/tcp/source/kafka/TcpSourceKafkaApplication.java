@@ -18,8 +18,11 @@ package org.springframework.cloud.stream.app.tcp.source.kafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+
 
 @SpringBootApplication
+@Import(org.springframework.cloud.stream.app.tcp.source.TcpSourceConfiguration.class)
 public class TcpSourceKafkaApplication {
 
 	public static void main(String[] args) {

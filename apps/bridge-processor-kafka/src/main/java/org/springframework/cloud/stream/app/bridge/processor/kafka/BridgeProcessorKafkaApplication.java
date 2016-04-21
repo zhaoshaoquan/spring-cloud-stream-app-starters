@@ -18,8 +18,11 @@ package org.springframework.cloud.stream.app.bridge.processor.kafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+
 
 @SpringBootApplication
+@Import(org.springframework.cloud.stream.app.bridge.processor.BridgeProcessorConfiguration.class)
 public class BridgeProcessorKafkaApplication {
 
 	public static void main(String[] args) {
