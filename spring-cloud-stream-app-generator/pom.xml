@@ -90,7 +90,9 @@
 						</httpclient-processor>
 						<http-source />
 						<jdbc-sink />
-						<jdbc-source />
+						<jdbc-source>
+							<extraTestConfigClass>org.springframework.cloud.stream.app.test.jdbc.JdbcSourceTestConfiguration.class</extraTestConfigClass>
+						</jdbc-source>
 						<jms-source>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.jms.JmsSourceTestConfiguration.class</extraTestConfigClass>
 						</jms-source>
