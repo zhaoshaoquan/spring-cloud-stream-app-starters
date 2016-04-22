@@ -32,7 +32,7 @@ import javax.validation.constraints.NotNull;
  * @author Mark Fisher
  */
 @ConfigurationProperties
-public class HttpClientProcessorProperties {
+public class HttpclientProcessorProperties {
 
 	private static final HttpMethod DEFAULT_HTTP_METHOD = HttpMethod.GET;
 

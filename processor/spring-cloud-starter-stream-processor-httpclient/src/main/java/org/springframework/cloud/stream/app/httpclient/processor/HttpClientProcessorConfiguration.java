@@ -51,7 +51,7 @@ import java.util.Map.Entry;
 @Configuration
 @EnableBinding(Processor.class)
 @Import(SpelExpressionConverterConfiguration.class)
-@EnableConfigurationProperties(HttpClientProcessorProperties.class)
+@EnableConfigurationProperties(HttpclientProcessorProperties.class)
 public class HttpclientProcessorConfiguration {
 
 	@Bean
@@ -70,7 +70,7 @@ public class HttpclientProcessorConfiguration {
 		private static final Logger LOG = LoggerFactory.getLogger(HttpClientProcessor.class);
 
 		@Autowired
-		private HttpClientProcessorProperties properties;
+		private HttpclientProcessorProperties properties;
 
 		@Autowired
 		private RestTemplate restTemplate;
