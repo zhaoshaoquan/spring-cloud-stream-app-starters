@@ -43,7 +43,6 @@
     <module>trigger</module>
     <module>twitter</module>
     <module>websocket</module>
-    <module>apps</module>
   </modules>
   <scm>
     <connection>scm:git:git://github.com/spring-cloud/spring-cloud-stream-app-starters.git</connection>
