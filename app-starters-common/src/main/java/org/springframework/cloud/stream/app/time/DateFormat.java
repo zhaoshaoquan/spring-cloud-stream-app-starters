@@ -14,20 +14,19 @@
  * limitations under the License.
  */
 
-package org.springframework.cloud.stream.app.time.source;
-
-import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.RetentionPolicy.*;
-
-import java.lang.annotation.Documented;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-import java.text.SimpleDateFormat;
+package org.springframework.cloud.stream.app.time;
 
 import javax.validation.Constraint;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import javax.validation.Payload;
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+import java.text.SimpleDateFormat;
+
+import static java.lang.annotation.ElementType.*;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
  * The annotated String must be a valid {@link java.text.SimpleDateFormat} pattern.

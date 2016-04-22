@@ -14,6 +14,7 @@
 	<modules>
 		<module>spring-cloud-starter-stream-sink-counter</module>
 		<module>spring-cloud-starter-stream-sink-field-value-counter</module>
+		<module>spring-cloud-starter-stream-sink-aggregate-counter</module>
 	</modules>
 
 </project>

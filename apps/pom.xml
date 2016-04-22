@@ -95,6 +95,8 @@
     <module>twitterstream-source-rabbit</module>
     <module>websocket-sink-kafka</module>
     <module>websocket-sink-rabbit</module>
+    <module>aggregate-counter-sink-kafka</module>
+    <module>aggregate-counter-sink-rabbit</module>
   </modules>
   <build>
     <plugins>
