@@ -27,7 +27,7 @@
 						<name>scs-bom</name>
 						<groupId>org.springframework.cloud.stream.app</groupId>
 						<artifactId>spring-cloud-stream-app-dependencies</artifactId>
-						<version>1.0.0.BUILD-SNAPSHOT</version>
+						<version>${project.version}</version>
 					</bom>
 					<binders>
 						<kafka />
