@@ -21,7 +21,7 @@
 				<configuration>
 					<javaVersion>1.7</javaVersion>
 					<generatedProjectHome>${session.executionRootDirectory}/apps</generatedProjectHome>
-					<generatedProjectVersion>1.0.0.BUILD-SNAPSHOT</generatedProjectVersion>
+					<generatedProjectVersion>${project.version}</generatedProjectVersion>
 					<applicationType>stream</applicationType>
 					<bom>
 						<name>scs-bom</name>
