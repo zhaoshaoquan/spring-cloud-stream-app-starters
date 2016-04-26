@@ -13,7 +13,7 @@ $$websocketLoglevel$$:: $$controls the loglevel of the underlying Netty loghandl
 $$threads$$:: $$controls the number of worker threads used for the Netty event loop$$ *($$String$$, default: `1`)*
 
 == Example
-To verify that the websocket-sink receives messages from other spring-cloud-stream modules, you can use the
+To verify that the websocket-sink receives messages from other spring-cloud-stream apps, you can use the
 following simple end-to-end setup.
 
 
@@ -21,18 +21,13 @@ following simple end-to-end setup.
 The default broker that is used is Redis. Normally can start Redis via `redis-server`.
 
 === Step 2: Deploy a `time-source`
-Deploy a https://github.com/spring-cloud/spring-cloud-stream-modules/tree/master/time-source[time-source]:
 
-```
-java -jar target/time-source***-exec.jar --spring.cloud.stream.bindings.output=ticktock --server.port=9191
-```
-
-=== Step 3: Deploy a `websocket-sink`
+=== Step 3: Deploy a `websocket-sink` (the app that contains this starter jar)
 
 Finally start a websocket-sink in `trace` mode so that you see the messages produced by the `time-source` in the log:
 
 ```
-java -jar target/websocket-sink-***-exec.jar --spring.cloud.stream.bindings.input=ticktock --server.port=9393 \
+java -jar <spring boot application for websocket-sink> --spring.cloud.stream.bindings.input=ticktock --server.port=9393 \
 	--logging.level.org.springframework.cloud.stream.module.websocket=TRACE
 ```
 
@@ -87,10 +82,4 @@ self-signed) certificate.
 
 ```
 $ mvn clean package
-```
-
-== Run
-
-```
-$ java -jar target/websocket-sink-*-exec.jar --spring.cloud.stream.bindings.input=ticktock
 ```

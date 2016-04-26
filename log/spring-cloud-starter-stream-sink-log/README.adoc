@@ -19,8 +19,3 @@ $$name$$:: $$the name of the log category to log to $$ *($$String$$, default: ``
 $ mvn clean package
 ```
 
-== Run
-
-```
-$ java -jar target/log-sink-${version}-exec.jar
-```

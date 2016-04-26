@@ -21,9 +21,3 @@ $$cron$$:: $$the Cron expression for the Cron Trigger$$ *($$String$$, default: `
 ```
 $ mvn clean package
 ```
-
-== Run
-
-```
-$ java -jar target/trigger-source-${version}-exec.jar
-```

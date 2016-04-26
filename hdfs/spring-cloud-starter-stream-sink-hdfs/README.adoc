@@ -33,9 +33,3 @@ NOTE: This module can have it's runtime dependencies provided during startup if 
 ```
 $ mvn clean package
 ```
-
-== Run
-
-```
-$ java -jar target/hdfs-sink-1.0.0.BUILD-SNAPSHOT-exec.jar --server.port=8081 --spring.hadoop.fsUri=hdfs://<hdfs-host>:8020 --spring.cloud.stream.bindings.input=<name-to-bind-to>
-```

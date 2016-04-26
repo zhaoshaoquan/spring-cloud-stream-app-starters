@@ -40,10 +40,4 @@ L4:: data preceded by a four byte (signed) length field (up to 2^31^-1 bytes)
 $> mvn package
 ```
 
-== Run
-
-```
-$> java -jar target/tcp-source-${version}-exec.jar
-```
-
 The "decoder" property determines the message format (default is termination with CRLF).

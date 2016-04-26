@@ -346,8 +346,3 @@ finish and data become visible in a database.
 $ mvn clean package
 ```
 
-== Run
-
-```
-$ java -jar target/gpfdist-sink-${version}-exec.jar --server.port=8081 --spring.cloud.stream.bindings.input=<name-to-bind-to>
-```

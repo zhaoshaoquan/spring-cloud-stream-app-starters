@@ -32,8 +32,3 @@ $$spring.cassandra.username$$:: $$the username for connection$$ *($$String$$, no
 $ mvn clean package
 ```
 
-== Run
-
-```
-$ java -jar target/cassandra-sink-${version}-exec.jar
-```

@@ -19,9 +19,3 @@ $$outputs$$:: How to emit evaluation results in the output message as msgPropert
 ```
 $> mvn package
 ```
-
-== Run
-
-```
-$> java -jar target/pmml-processor-${version}-exec.jar
-```

@@ -18,11 +18,6 @@ IntegrationTestProcessor:: The processor module
 $> mvn package
 ```
 
-== Run
-
-```
-$> java -jar target/http-source-${version}-exec.jar
-```
 
 The following properties can be used to interact with the module:
 

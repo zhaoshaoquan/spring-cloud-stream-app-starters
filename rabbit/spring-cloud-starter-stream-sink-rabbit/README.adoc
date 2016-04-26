@@ -30,9 +30,3 @@ In addition, a custom converter bean can be added to the context and referenced 
 ```
 $ mvn clean package
 ```
-
-== Run
-
-```
-$ java -jar target/rabbit-sink-${version}-exec.jar
-```

@@ -37,8 +37,3 @@ The `ref` option is useful in some cases in which the file contents are large an
 $ mvn clean package
 ```
 
-== Run
-
-```
-$ java -jar target/file-source-${version}-exec.jar
-```

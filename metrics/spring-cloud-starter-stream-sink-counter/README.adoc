@@ -19,9 +19,3 @@ $$store$$:: $$The name of a store used to store the counter.$$ *($$String$$, def
 ```
 $ mvn clean package
 ```
-
-== Run
-
-```
-$ java -jar target/counter-sink-${version}-exec.jar
-```

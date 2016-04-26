@@ -25,9 +25,3 @@ for addition `DataSource` properties and `TriggerProperties` and `MaxMessagesPro
 $> mvn package
 ```
 
-== Run
-
-To start the app execute the following:
-```
-$> java -jar target/jdbc-source-${version}-exec.jar --query='select foo from bar'
-```

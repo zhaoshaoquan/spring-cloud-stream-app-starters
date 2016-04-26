@@ -23,9 +23,3 @@ $$suffix$$:: $$filename extension to use$$ *($$String$$, no default)*
 ```
 $ mvn clean package
 ```
-
-== Run
-
-```
-$ java -jar target/file-sink-${version}-exec.jar
-```

@@ -22,9 +22,3 @@ NOTE: The module also uses Spring Boot's http://docs.spring.io/spring-boot/docs/
 ```
 $ mvn clean package
 ```
-
-== Run
-
-```
-$ java -jar target/jdbc-sink-${version}-exec.jar
-```

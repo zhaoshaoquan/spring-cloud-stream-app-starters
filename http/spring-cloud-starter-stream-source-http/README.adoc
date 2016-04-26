@@ -18,8 +18,3 @@ $$pathPattern$$:: $$An Ant-Style pattern to determine which http requests will b
 $> mvn package
 ```
 
-== Run
-
-```
-$> java -jar target/http-source-${version}-exec.jar
-```

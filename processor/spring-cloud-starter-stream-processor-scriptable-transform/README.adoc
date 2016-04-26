@@ -20,10 +20,4 @@ $$variablesLocation$$:: $$The location of a properties file containing custom sc
 $ mvn clean package
 ```
 
-== Run
-
-```
-$ java -jar target/scriptable-transform-processor-1.0.0.BUILD-SNAPSHOT-exec.jar
-```
-
 

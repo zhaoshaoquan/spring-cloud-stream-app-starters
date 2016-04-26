@@ -45,8 +45,3 @@ $$withMarkers$$:: $$if true emits start of file/end of file marker messages befo
 $ mvn clean package
 ```
 
-== Run
-
-```
-$ java -jar target/ftp-source-${version}-exec.jar
-```

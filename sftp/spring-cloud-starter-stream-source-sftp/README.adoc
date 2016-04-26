@@ -47,9 +47,3 @@ $$withMarkers$$:: $$if true emits start of file/end of file marker messages befo
 ```
 $> mvn package
 ```
-
-== Run
-
-```
-$> java -jar target/sftp-source-${version}-exec.jar
-```

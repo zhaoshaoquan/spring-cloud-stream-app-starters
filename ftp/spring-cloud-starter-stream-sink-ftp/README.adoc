@@ -36,9 +36,3 @@ $$username$$:: $$the username for the FTP connection$$ *($$String$$, no default)
 ```
 $ mvn clean package
 ```
-
-== Run
-
-```
-$ java -jar target/ftp-sink-${version}-exec.jar
-```

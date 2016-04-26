@@ -24,8 +24,3 @@ This module publishes a timestamp on an interval determined by the `fixedDelay` 
 $ mvn clean package
 ```
 
-## Run:
-
-```
-$ java -jar target/time-source-1.0.0.BUILD-SNAPSHOT-exec.jar
-```

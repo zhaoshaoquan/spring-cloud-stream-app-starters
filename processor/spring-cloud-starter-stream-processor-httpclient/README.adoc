@@ -22,9 +22,3 @@ $$replyExpression$$:: A SpEL expression used to compute the final result, applie
 ```
 $> mvn package
 ```
-
-== Run
-
-```
-$> java -jar target/httpclient-processor-${version}-exec.jar
-```

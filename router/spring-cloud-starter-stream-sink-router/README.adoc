@@ -68,9 +68,4 @@ http://docs.spring.io/spring-integration/reference/html/messaging-endpoints-chap
 $ mvn clean package
 ```
 
-== Run
-
-```
-$ java -jar target/router-sink-${version}-exec.jar
-```
 

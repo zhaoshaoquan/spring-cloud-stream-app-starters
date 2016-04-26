@@ -74,9 +74,3 @@ containing the properties of a single book.
 ```
 $> mvn package
 ```
-
-== Running the Application
-
-```
-$> java -jar target/splitter-processor-${version}-exec.jar
-```

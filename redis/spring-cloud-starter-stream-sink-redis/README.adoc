@@ -21,8 +21,3 @@ $$topic$$:: $$name for the topic$$ *($$String$$, no default)*
 ```
 $ mvn clean package
 ```
-
-== Run
-
-```
-$ java -jar target/rabbit-sink-${version}-exec.jar

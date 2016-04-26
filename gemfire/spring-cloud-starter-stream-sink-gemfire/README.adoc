@@ -21,8 +21,3 @@ $$connectType$$:: $$'server' or 'locator'$$ *($$String$$, default: `locator`)*
 $ mvn clean package
 ```
 
-== Run
-
-```
-$ java -DregionName=${regionName} -DkeyExpression=${keyExpression} -jar target/gemfire-sink-${version}-exec.jar
-```

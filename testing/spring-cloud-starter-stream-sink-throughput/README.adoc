@@ -12,8 +12,3 @@ A simple handler that will count messages and log witnessed throughput at a sele
 $ mvn clean package
 ```
 
-== Run
-
-```
-$ java -jar target/throughput-sink-${version}-exec.jar --spring.cloud.stream.bindings.input=<where to bind> --reportEveryMs=<period of time to report in millis>
-```

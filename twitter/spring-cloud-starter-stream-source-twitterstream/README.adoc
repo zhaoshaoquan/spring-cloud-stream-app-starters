@@ -24,9 +24,3 @@ NOTE: `twitterstream` emit JSON in the https://dev.twitter.com/docs/platform-obj
 $ mvn clean package
 ```
 
-== Run
-
-```
-$ java -jar target/twitterstream-source-${version}-exec.jar
-```
-

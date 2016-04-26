@@ -47,8 +47,3 @@ Such messages are discarded (or dead-lettered).
 $> mvn package
 ```
 
-== Run
-
-```
-$> java -jar target/rabbit-source-${version}-exec.jar
-```

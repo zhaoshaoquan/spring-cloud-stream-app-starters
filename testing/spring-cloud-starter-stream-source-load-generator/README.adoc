@@ -18,9 +18,3 @@ $$outputType$$:: $$how this module should emit messages it produces$$ *($$MimeTy
 ```
 $> mvn -s .settings.xml package
 ```
-
-== Run
-
-```
-$> java -jar target/load-generator-source-${version}-exec.jar --spring.cloud.stream.bindings.output=<where to bind> --messageSize=<sizeOfMessage> --messageCount=<number of messages to send>
-```

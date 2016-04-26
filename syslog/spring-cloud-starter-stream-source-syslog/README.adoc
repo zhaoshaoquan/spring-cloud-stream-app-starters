@@ -23,9 +23,4 @@ $$socketTimeout$$:: $$the socket timeout$$ *($$long$$, default `none`)*
 $> mvn package
 ```
 
-== Run
-
-```
-$> java -jar target/syslog-source-${version}-exec.jar
-```
 

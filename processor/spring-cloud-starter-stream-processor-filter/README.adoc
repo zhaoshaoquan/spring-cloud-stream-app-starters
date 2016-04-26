@@ -14,9 +14,3 @@ $$expression$$:: $$a SpEL expression used to transform messages$$ *($$String$$, 
 ```
 $> mvn package
 ```
-
-== Running the Application
-
-```
-$> java -jar target/filter-processor-${version}-exec.jar
-```
