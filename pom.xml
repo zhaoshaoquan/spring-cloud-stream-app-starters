@@ -14,6 +14,14 @@
   <version>1.0.0.BUILD-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+
   <properties>
     <scs-app-maven-plugin.version>1.0.0.M1</scs-app-maven-plugin.version>
     <java.version>1.7</java.version>
