@@ -15,14 +15,14 @@
 
 package org.springframework.cloud.stream.app.annotation;
 
-import org.springframework.cloud.stream.messaging.Source;
-import org.springframework.integration.annotation.InboundChannelAdapter;
-import org.springframework.integration.annotation.Poller;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+
+import org.springframework.cloud.stream.messaging.Source;
+import org.springframework.integration.annotation.InboundChannelAdapter;
+import org.springframework.integration.annotation.Poller;
 
 /**
  * The particular {@link InboundChannelAdapter} annotation case for
