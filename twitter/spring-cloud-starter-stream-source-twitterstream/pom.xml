@@ -16,7 +16,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud.stream.app</groupId>
-			<artifactId>app-starters-common</artifactId>
+			<artifactId>app-starters-twitter-common</artifactId>
 		</dependency>
 
 		<dependency>

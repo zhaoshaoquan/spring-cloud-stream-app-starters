@@ -9,50 +9,20 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>app-starters-common</artifactId>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 	<name>app-starters-common</name>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-stream</artifactId>
-			<version>${spring-cloud-stream.version}</version>
-		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-java-dsl</artifactId>
-			<version>1.1.2.RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-file</artifactId>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-ftp</artifactId>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-ip</artifactId>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-groovy</artifactId>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-sftp</artifactId>
-			<optional>true</optional>
-		</dependency>
-	</dependencies>
+	<modules>
+		<module>app-starters-annotation-common</module>
+		<module>app-starters-file-common</module>
+		<module>app-starters-ftp-common</module>
+		<module>app-starters-metrics-common</module>
+		<module>app-starters-script-common</module>
+		<module>app-starters-sftp-common</module>
+		<module>app-starters-tcp-common</module>
+		<module>app-starters-time-common</module>
+		<module>app-starters-trigger-common</module>
+		<module>app-starters-twitter-common</module>
+	</modules>
 
 </project>

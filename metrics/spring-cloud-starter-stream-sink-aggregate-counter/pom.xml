@@ -21,7 +21,7 @@
 
 		<dependency>
 			<groupId>org.springframework.cloud.stream.app</groupId>
-			<artifactId>app-starters-common</artifactId>
+			<artifactId>app-starters-metrics-common</artifactId>
 		</dependency>
 
 		<dependency>
@@ -47,6 +47,10 @@
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-test</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud.stream.app</groupId>
+			<artifactId>app-starters-time-common</artifactId>
 		</dependency>
 	</dependencies>
 

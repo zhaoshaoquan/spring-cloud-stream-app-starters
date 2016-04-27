@@ -18,7 +18,7 @@ package org.springframework.cloud.stream.app.trigger.source;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.stream.annotation.EnableBinding;
-import org.springframework.cloud.stream.app.SourcePayloadProperties;
+import org.springframework.cloud.stream.app.trigger.SourcePayloadProperties;
 import org.springframework.cloud.stream.app.annotation.PollableSource;
 import org.springframework.cloud.stream.app.trigger.TriggerConfiguration;
 import org.springframework.cloud.stream.messaging.Source;
