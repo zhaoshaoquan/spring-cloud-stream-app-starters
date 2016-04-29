@@ -3,7 +3,7 @@
 	<parent>
 		<artifactId>app-starters-common</artifactId>
 		<groupId>org.springframework.cloud.stream.app</groupId>
-		<version>1.0.0.BUILD-SNAPSHOT</version>
+		<version>1.0.0.M1</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
@@ -32,7 +32,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud.stream.app</groupId>
 			<artifactId>app-starters-file-common</artifactId>
-			<version>1.0.0.BUILD-SNAPSHOT</version>
+			<version>1.0.0.M1</version>
 		</dependency>
 
 	</dependencies>
