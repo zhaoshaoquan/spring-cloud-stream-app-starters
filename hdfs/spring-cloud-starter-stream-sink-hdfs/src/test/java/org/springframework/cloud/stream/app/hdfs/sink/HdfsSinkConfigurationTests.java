@@ -60,7 +60,7 @@ public class HdfsSinkConfigurationTests {
 	private FsShell fsShell;
 
 	@Autowired
-	@Bindings(HdfsSink.class)
+	@Bindings(HdfsSinkConfiguration.class)
 	private Sink sink;
 
 	@BeforeClass

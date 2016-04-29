@@ -16,11 +16,17 @@
 
 package org.springframework.cloud.stream.app.hdfs.sink;
 
+import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.task.TaskExecutor;
+import org.springframework.data.hadoop.store.DataStoreWriter;
+import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
@@ -35,9 +41,11 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
  *
  * @author Thomas Risberg
  */
-@Configuration
+@EnableBinding(Sink.class)
 @EnableConfigurationProperties(HdfsSinkProperties.class)
 public class HdfsSinkConfiguration {
+
+	private DataStoreWriter<String> dataStoreWriter;
 
 	@Bean
 	public TaskScheduler taskScheduler() {
@@ -53,5 +61,19 @@ public class HdfsSinkConfiguration {
 	@Bean
 	public DataStoreWriterFactoryBean dataStoreWriter() {
 		return new DataStoreWriterFactoryBean();
+	}
+
+	@Autowired
+	public void setDataStoreWriter(DataStoreWriter<String> dataStoreWriter) {
+		this.dataStoreWriter = dataStoreWriter;
+	}
+
+	@ServiceActivator(inputChannel=Sink.INPUT)
+	public void hdfsSink(Object payload) {
+		try {
+			dataStoreWriter.write(payload.toString());
+		} catch (IOException e) {
+			throw new IllegalStateException("Error while writing", e);
+		}
 	}
 }
