@@ -24,4 +24,11 @@
 		<module>app-starters-twitter-common</module>
 	</modules>
 
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-java-dsl</artifactId>
+		</dependency>
+	</dependencies>
+
 </project>
