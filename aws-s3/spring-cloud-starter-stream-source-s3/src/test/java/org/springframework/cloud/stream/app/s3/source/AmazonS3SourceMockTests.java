@@ -33,6 +33,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.AfterClass;
@@ -229,18 +230,18 @@ public abstract class AmazonS3SourceMockTests {
 		@Test
 		@Override
 		public void test() throws Exception {
-			Message<?> received = this.messageCollector.forChannel(this.channels.output())
-					.poll(10, TimeUnit.SECONDS);
+			BlockingQueue<Message<?>> messages = this.messageCollector.forChannel(this.channels.output());
+			Message<?> received = messages.poll(10, TimeUnit.SECONDS);
 			assertNotNull(received);
 			assertThat(received, hasPayload("Other"));
 			assertThat(received,
 					hasHeader(FileHeaders.ORIGINAL_FILE, new File(this.config.getLocalDir(), "otherFile")));
 
-			received = this.messageCollector.forChannel(this.channels.output()).poll(10, TimeUnit.SECONDS);
+			received = messages.poll(10, TimeUnit.SECONDS);
 			assertNotNull(received);
 			assertThat(received, hasPayload("Other2"));
 
-			assertNull(this.messageCollector.forChannel(this.channels.output()).poll(10, TimeUnit.MILLISECONDS));
+			assertNull(messages.poll(10, TimeUnit.MILLISECONDS));
 
 			assertEquals(1, this.config.getLocalDir().list().length);
 		}

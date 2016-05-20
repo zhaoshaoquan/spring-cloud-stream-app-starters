@@ -1,0 +1,36 @@
+= Spring Cloud Stream Application Starters AWS Integration Tests
+
+This module contains a test-suite which runs integration tests to ensure compatibility with the Amazon Web Services.
+In order to run the integration tests, the build process has to create different resources on the Amazon Webservice platform (Amazon EC2 instances, Amazon RDS instances, Amazon S3 Buckets, Amazon SQS Queues).
+Creating these resources takes time and costs money, because every instance creation is charged with a one hour usage.
+Therefore Spring Cloud AWS does not execute the integration tests by default.
+
+In order to execute the integration tests you have to create credentials configuration files that configure the necessary parameters to build the environment.
+
+Please create a new file named `aws.credentials.properties` in any desired place and provide the path as a `aws.credentials.path` Maven command argument (see below).
+The `accessKey` and `secretKey` are account/user specific and should never be shared to anyone.
+To retrieve these settings you have to open your account inside the AWS console and retrieve them through the https://portal.aws.amazon.com/gp/aws/securityCredentials[Security Credentials Page].
+_Note:_ In general we recommend that you use an https://aws.amazon.com/iam/[Amazon IAM] user instead of the account itself.
+
+An example file will look like this
+
+-------------------------------------------
+cloud.aws.credentials.accessKey=ilaugsjdlkahgsdlaksdhg
+cloud.aws.credentials.secretKey=aöksjdhöadjs,höalsdhjköalsdjhasd+
+-------------------------------------------
+
+After creating the `aws.credentials.properties` file and storing it outside the project (or inside the project, they are ignored in git) you have to provide the configuration directory when running the build.
+Providing these configuration settings will automatically execute the integration tests.
+
+To build with the integration tests you must execute
+
+-----------------------------------------------------------------------------------------------------
+mvnw -pl :spring-cloud-starter-stream-aws-integration-tests verify -Daws.credentials.path=/Users/foo/config/dir
+-----------------------------------------------------------------------------------------------------
+
+The integration test will create an https://aws.amazon.com/de/cloudformation/[Amazon Web Services CloudFormation] stack and execute the tests.
+The stack is destroyed after executing the tests (either successful or failed) to ensure that there are no unnecessary costs.
+
+== Costs of integration tests
+
+The costs for one integration test run should not be more then 0.40 $ per hour (excl. VAT).

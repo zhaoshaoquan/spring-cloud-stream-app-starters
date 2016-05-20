@@ -53,6 +53,11 @@ Other are for AWS `Region` definition:
 - cloud.aws.region.auto
 - cloud.aws.region.static
 
+And for AWS `Stack`:
+
+- cloud.aws.stack.auto
+- cloud.aws.stack.name
+
 //end::ref-doc[]
 == Build
 

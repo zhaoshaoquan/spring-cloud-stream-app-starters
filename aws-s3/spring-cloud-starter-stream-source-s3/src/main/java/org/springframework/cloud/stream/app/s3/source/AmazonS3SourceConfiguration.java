@@ -18,6 +18,7 @@ package org.springframework.cloud.stream.app.s3.source;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.aws.core.env.ResourceIdResolver;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.app.file.FileConsumerProperties;
 import org.springframework.cloud.stream.app.file.FileUtils;
@@ -50,12 +51,16 @@ public class AmazonS3SourceConfiguration {
 	@Autowired
 	private AmazonS3 amazonS3;
 
+	@Autowired
+	private ResourceIdResolver resourceIdResolver;
+
 	@Bean
 	public S3InboundFileSynchronizer s3InboundFileSynchronizer() {
 		S3InboundFileSynchronizer synchronizer = new S3InboundFileSynchronizer(this.amazonS3);
 		synchronizer.setDeleteRemoteFiles(this.s3SourceProperties.isDeleteRemoteFiles());
 		synchronizer.setPreserveTimestamp(this.s3SourceProperties.isPreserveTimestamp());
-		synchronizer.setRemoteDirectory(this.s3SourceProperties.getRemoteDir());
+		String remoteDir = this.s3SourceProperties.getRemoteDir();
+		synchronizer.setRemoteDirectory(this.resourceIdResolver.resolveToPhysicalResourceId(remoteDir));
 		synchronizer.setRemoteFileSeparator(this.s3SourceProperties.getRemoteFileSeparator());
 		synchronizer.setTemporaryFileSuffix(this.s3SourceProperties.getTmpFileSuffix());
 
