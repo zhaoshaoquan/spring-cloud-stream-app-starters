@@ -79,6 +79,7 @@ import com.amazonaws.services.s3.model.S3ObjectSummary;
 @SpringApplicationConfiguration
 @DirtiesContext
 @TestPropertySource(properties = {
+		"cloud.aws.stack.auto=false",
 		"cloud.aws.credentials.accessKey=" + AmazonS3SourceMockTests.AWS_ACCESS_KEY,
 		"cloud.aws.credentials.secretKey=" + AmazonS3SourceMockTests.AWS_SECRET_KEY,
 		"cloud.aws.region.static=" + AmazonS3SourceMockTests.AWS_REGION,
