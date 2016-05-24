@@ -21,8 +21,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import org.springframework.scheduling.Trigger;
 import org.springframework.scheduling.TriggerContext;
@@ -38,7 +38,7 @@ public class DateTrigger implements Trigger {
 
 	private final List<Date> nextFireDates = new ArrayList<Date>();
 
-	private final Logger logger = LoggerFactory.getLogger(getClass());
+	private final Log logger = LogFactory.getLog(getClass());
 
 	public DateTrigger(Date... dates) {
 		for (Date date : dates) {

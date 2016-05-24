@@ -16,8 +16,8 @@
 
 package org.springframework.cloud.stream.app.counter.sink;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.metrics.CounterService;
@@ -44,7 +44,7 @@ import org.springframework.messaging.Message;
 @Import({ SpelExpressionConverterConfiguration.class, CounterSinkStoreConfiguration.class })
 public class CounterSinkConfiguration {
 
-	private static Logger logger = LoggerFactory.getLogger(CounterSinkConfiguration.class);
+	private static final Log logger = LogFactory.getLog(CounterSinkConfiguration.class);
 
 	@Autowired
 	private CounterService counterService;
@@ -58,7 +58,7 @@ public class CounterSinkConfiguration {
 	@ServiceActivator(inputChannel=Sink.INPUT)
 	public void count(Message<?> message) {
 		String name = computeMetricName(message);
-		logger.debug("Received: {}, about to increment counter named '{}'", message, name);
+		logger.debug(String.format("Received: %s, about to increment counter named '%s'", message, name));
 		counterService.increment(name);
 	}
 

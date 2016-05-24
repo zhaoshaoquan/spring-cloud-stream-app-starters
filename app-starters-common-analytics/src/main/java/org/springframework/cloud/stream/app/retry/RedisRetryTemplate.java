@@ -15,8 +15,8 @@
  */
 package org.springframework.cloud.stream.app.retry;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import org.springframework.data.redis.RedisSystemException;
 import org.springframework.data.redis.core.RedisCallback;
@@ -33,8 +33,7 @@ import org.springframework.retry.RetryOperations;
  */
 public class RedisRetryTemplate<K, V> extends RedisTemplate<K, V> {
 
-
-	private static final Logger logger = LoggerFactory.getLogger(RedisRetryTemplate.class);
+	private static final Log logger = LogFactory.getLog(RedisRetryTemplate.class);
 
 	private volatile RetryOperations retryOperations;
 

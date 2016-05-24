@@ -16,11 +16,18 @@
 
 package org.springframework.cloud.stream.app.hdfs.dataset.sink;
 
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import javax.annotation.PreDestroy;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.fs.CommonConfigurationKeysPublic;
 import org.apache.hadoop.fs.FileSystem;
 import org.kitesdk.data.PartitionStrategy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -59,12 +66,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.util.StringUtils;
 
-import javax.annotation.PreDestroy;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-
 /**
  * Configuration class for the HDFS DatasetSink.
  * <p/>
@@ -80,7 +81,7 @@ import java.util.List;
 @EnableConfigurationProperties(HdfsDatasetSinkProperties.class)
 public class HdfsDatasetSinkConfiguration {
 
-	protected static Logger logger = LoggerFactory.getLogger(HdfsDatasetSinkConfiguration.class);
+	private static final Log logger = LogFactory.getLog(HdfsDatasetSinkConfiguration.class);
 
 	@Autowired
 	private HdfsDatasetSinkProperties properties;
@@ -116,7 +117,7 @@ public class HdfsDatasetSinkConfiguration {
 				Object payload = message.getPayload();
 				if (payload instanceof Collection<?>) {
 					Collection<?> payloads = (Collection<?>) payload;
-					logger.debug("Writing a collection of {} POJOs", payloads.size());
+					logger.debug("Writing a collection of {} POJOs" + payloads.size());
 					datasetOperations.write((Collection<?>) message.getPayload());
 				}
 				else {

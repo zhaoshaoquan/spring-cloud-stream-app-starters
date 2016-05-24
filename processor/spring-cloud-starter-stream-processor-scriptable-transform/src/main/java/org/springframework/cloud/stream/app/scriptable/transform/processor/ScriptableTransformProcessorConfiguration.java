@@ -17,8 +17,8 @@ package org.springframework.cloud.stream.app.scriptable.transform.processor;
 
 import java.util.regex.Matcher;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -54,7 +54,7 @@ public class ScriptableTransformProcessorConfiguration {
 
 	private static final String DOUBLE_DOUBLE_QUOTE = Matcher.quoteReplacement("\"\"");
 
-	private static Logger logger = LoggerFactory.getLogger(ScriptableTransformProcessorConfiguration.class);
+	private static final Log logger = LogFactory.getLog(ScriptableTransformProcessorConfiguration.class);
 
 	@Autowired
 	private ScriptVariableGenerator scriptVariableGenerator;
@@ -67,7 +67,7 @@ public class ScriptableTransformProcessorConfiguration {
 	public MessageProcessor<?> transformer() {
 		String language = this.properties.getLanguage();
 		String script = this.properties.getScript();
-		logger.info("Input script is '{}', language is '{}'", script, language);
+		logger.info(String.format("Input script is '%s', language is '%s'", script, language));
 		Resource scriptResource = new ByteArrayResource(decodeScript(script).getBytes()) {
 
 			// TODO until INT-3976

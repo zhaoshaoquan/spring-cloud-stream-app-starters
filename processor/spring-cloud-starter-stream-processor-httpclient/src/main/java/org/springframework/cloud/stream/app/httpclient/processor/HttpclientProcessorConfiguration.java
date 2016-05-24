@@ -16,8 +16,13 @@
 
 package org.springframework.cloud.stream.app.httpclient.processor;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.net.URI;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.stream.annotation.EnableBinding;
@@ -34,10 +39,6 @@ import org.springframework.integration.annotation.MessageEndpoint;
 import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.messaging.Message;
 import org.springframework.web.client.RestTemplate;
-
-import java.net.URI;
-import java.util.Map;
-import java.util.Map.Entry;
 
 /**
  * A processor app that makes requests to an HTTP resource and emits the
@@ -67,7 +68,7 @@ public class HttpclientProcessorConfiguration {
 	@MessageEndpoint
 	public static class HttpClientProcessor {
 
-		private static final Logger LOG = LoggerFactory.getLogger(HttpClientProcessor.class);
+		private static final Log LOG = LogFactory.getLog(HttpClientProcessor.class);
 
 		@Autowired
 		private HttpclientProcessorProperties properties;

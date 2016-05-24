@@ -20,8 +20,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -42,7 +42,7 @@ import org.springframework.messaging.support.GenericMessage;
 @EnableConfigurationProperties({LoadGeneratorSourceProperties.class})
 public class LoadGeneratorSourceConfiguration extends AbstractEndpoint {
 
-	private static final Logger logger = LoggerFactory.getLogger(LoadGeneratorSourceConfiguration.class);
+	private static final Log logger = LogFactory.getLog(LoadGeneratorSourceConfiguration.class);
 
 	@Autowired
 	private LoadGeneratorSourceProperties properties;
@@ -89,7 +89,7 @@ public class LoadGeneratorSourceConfiguration extends AbstractEndpoint {
 
 		@Override
 		public void run() {
-			logger.info("Producer {} sending {} messages", this.producerId, this.messageCount);
+			logger.info(String.format("Producer %d sending %d messages", this.producerId, this.messageCount));
 			Message<byte[]> message = new GenericMessage<>(new byte[this.messageSize]);
 			for (int i = 0; i < this.messageCount; i++) {
 				channel.output().send(message);

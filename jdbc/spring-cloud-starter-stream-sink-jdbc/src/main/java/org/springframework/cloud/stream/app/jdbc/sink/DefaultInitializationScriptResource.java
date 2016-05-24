@@ -16,11 +16,12 @@
 
 package org.springframework.cloud.stream.app.jdbc.sink;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.core.io.ByteArrayResource;
-
 import java.nio.charset.Charset;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import org.springframework.core.io.ByteArrayResource;
 
 /**
  * An in-memory script crafted for dropping-creating the table we're working with.
@@ -30,7 +31,7 @@ import java.nio.charset.Charset;
  */
 public class DefaultInitializationScriptResource extends ByteArrayResource {
 
-	private static final Logger logger = LoggerFactory.getLogger(DefaultInitializationScriptResource.class);
+	private static final Log logger = LogFactory.getLog(DefaultInitializationScriptResource.class);
 
 	public DefaultInitializationScriptResource(JdbcSinkProperties properties) {
 		super(scriptFor(properties).getBytes(Charset.forName("UTF-8")));
@@ -49,7 +50,8 @@ public class DefaultInitializationScriptResource extends ByteArrayResource {
 			result.append(column).append(" VARCHAR(2000)");
 		}
 		result.append(");\n");
-		logger.debug("Generated the following initializing script for table {}:\n{}", properties.getTableName(), result);
+		logger.debug(String.format("Generated the following initializing script for table %s:\n%s", properties.getTableName(),
+				result.toString()));
 		return result.toString();
 	}
 }

@@ -15,8 +15,8 @@
  */
 package org.springframework.cloud.stream.app.retry;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import org.springframework.retry.RecoveryCallback;
 import org.springframework.retry.RetryContext;
@@ -29,7 +29,7 @@ import org.springframework.retry.RetryContext;
  */
 public class LoggingRecoveryCallback implements RecoveryCallback<Object> {
 
-	private static final Logger logger = LoggerFactory.getLogger(LoggingRecoveryCallback.class);
+	private static final Log logger = LogFactory.getLog(LoggingRecoveryCallback.class);
 
 	@Override
 	public Object recover(RetryContext context) throws Exception {

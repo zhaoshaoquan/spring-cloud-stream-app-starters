@@ -16,9 +16,15 @@
 
 package org.springframework.cloud.stream.app.jdbc.sink;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import javax.annotation.PostConstruct;
+import javax.sql.DataSource;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import org.springframework.beans.DirectFieldAccessor;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,11 +52,7 @@ import org.springframework.messaging.Message;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
-import javax.annotation.PostConstruct;
-import javax.sql.DataSource;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import com.fasterxml.jackson.databind.JsonNode;
 
 /**
  * A module that writes its incoming payload to an RDBMS using JDBC.
@@ -62,7 +64,7 @@ import java.util.Set;
 @EnableConfigurationProperties(JdbcSinkProperties.class)
 public class JdbcSinkConfiguration {
 
-	private static final Logger logger = LoggerFactory.getLogger(JdbcSinkConfiguration.class);
+	private static final Log logger = LogFactory.getLog(JdbcSinkConfiguration.class);
 
 	public static final Object NOT_SET = new Object();
 
