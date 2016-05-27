@@ -55,6 +55,7 @@
 		<module>tcp</module>
 		<module>testing</module>
 		<module>time</module>
+		<module>tasklauncher</module>
 		<module>trigger</module>
 		<module>triggertask</module>
 		<module>twitter</module>
