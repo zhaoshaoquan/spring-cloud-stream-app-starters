@@ -50,18 +50,18 @@ The prebuilt applications follow a naming convention too: `<functionality>-<type
 
 You either get access to the artifacts produced by Spring Cloud Stream Application Starters via Maven, Docker, or building the artifacts yourself.
 
-==== Maven and Docker accesss
+==== Maven and Docker access
 
 Starters are available as Maven artifacts in the https://github.com/spring-projects/spring-framework/wiki/Spring-repository-FAQ[Spring repositories]. You can add them as dependencies to your application, as follows:
 
 [source,xml]
-```
+----
 <dependency>
   <group>org.springframework.cloud.stream.app</group>
   <artifactId>spring-cloud-starter-stream-sink-cassandra</artifactId>
   <version>1.0.0.BUILD-SNAPSHOT</version>
 </dependency>
-```
+----
 
 From this, you can infer the coordinates for other starters found in this guide.
 While the version may vary, the group will always remain `org.springframework.cloud.stream.app` and the artifact id follows the naming convention `spring-cloud-starter-stream-<type>-<functionality>` described <<classification,previously>>.
@@ -70,9 +70,9 @@ Prebuilt applications are available as Maven artifacts too.
 It is not encouraged to use them directly as dependencies, as starters should be used instead.
 Following the typical Maven `<group>:<artifactId>:<version>` convention, they can be referenced for example as:
 
-```
+----
 org.springframework.cloud.stream.app:cassandra-sink-rabbit:1.0.0.BUILD-SNAPSHOT
-```
+----
 
 Just as with the starters, you can infer the coordinates for other prebuilt applications found in the guide.
 The group will be always `org.springframework.cloud.stream.app`.
@@ -81,9 +81,10 @@ The artifact id follows the format `<functionality>-<type>-<binder>` <<classific
 
 The Docker versions of the applications are available in Docker Hub, at `https://hub.docker.com/r/springcloudstream/`. Naming and versioning follows the same general conventions as Maven, e.g.
 
-```
+[source,bash]
+----
 docker pull springcloudstream/cassandra-sink-kafka
-```
+----
 
 will pull the _latest_ Docker image of the _Cassandra sink_ with the Kafka binder.
 
@@ -96,9 +97,10 @@ First, you need to generate the prebuilt applications.
 This is done by running the application generation Maven plugin.
 You can do so by simply invoking the corresponding script in the root of the project.
 
-```
+[source,bash]
+----
 ./generate.sh
-```
+----
 
 For the each of the prebuilt applications, the script will generate the following items:
 
