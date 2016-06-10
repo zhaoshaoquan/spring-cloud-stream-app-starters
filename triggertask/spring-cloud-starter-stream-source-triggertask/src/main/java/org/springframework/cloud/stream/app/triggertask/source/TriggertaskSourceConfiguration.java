@@ -28,10 +28,13 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.app.annotation.PollableSource;
 import org.springframework.cloud.stream.app.trigger.TriggerConfiguration;
+import org.springframework.cloud.stream.app.trigger.TriggerProperties;
+import org.springframework.cloud.stream.app.trigger.TriggerPropertiesMaxMessagesDefaultUnlimited;
 import org.springframework.cloud.stream.app.triggertask.source.arguments.CommandLineArgumentTransformer;
 import org.springframework.cloud.stream.app.triggertask.source.arguments.PassThroughCommandLineArgumentTransformer;
 import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.cloud.task.launcher.TaskLaunchRequest;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.util.StringUtils;
 
@@ -70,6 +73,11 @@ public class TriggertaskSourceConfiguration {
 						commandLineArgumentTransformer.transform(
 								taskPayloadProperties.getCommandLineArgs())),
 				parseProperties(taskPayloadProperties.getProperties()));
+	}
+
+	@Bean
+	public TriggerProperties triggerProperties() {
+		return new TriggerPropertiesMaxMessagesDefaultUnlimited();
 	}
 
 	/**

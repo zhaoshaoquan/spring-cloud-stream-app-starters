@@ -16,8 +16,15 @@
 
 package org.springframework.cloud.stream.app.triggertask.source;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.IntegrationTest;
@@ -29,13 +36,6 @@ import org.springframework.cloud.stream.test.binder.MessageCollector;
 import org.springframework.cloud.task.launcher.TaskLaunchRequest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Triggertask source tests.
@@ -141,7 +141,7 @@ public abstract class TriggertaskSourceTests {
 		}
 	}
 
-	@IntegrationTest({CRON_DELAY, URI_KEY + CRON_URI})
+	@IntegrationTest({"trigger.cron = 0/2 * * * * *", CRON_DELAY, URI_KEY + CRON_URI})
 	public static class CronTriggerTest extends TriggertaskSourceTests {
 
 		@Test
