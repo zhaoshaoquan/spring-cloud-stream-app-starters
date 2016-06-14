@@ -48,7 +48,8 @@ import org.springframework.util.StringUtils;
  * @author Gary Russell
  */
 @EnableBinding(Source.class)
-@EnableConfigurationProperties({FtpSourceProperties.class, FileConsumerProperties.class})
+@EnableConfigurationProperties({FtpSourceProperties.class, FileConsumerProperties.class,
+		TriggerPropertiesMaxMessagesDefaultUnlimited.class})
 @Import({TriggerConfiguration.class, FtpSessionFactoryConfiguration.class})
 public class FtpSourceConfiguration {
 
@@ -58,11 +59,6 @@ public class FtpSourceConfiguration {
 
 	@Autowired
 	Source source;
-
-	@Bean
-	public TriggerProperties triggerProperties() {
-		return new TriggerPropertiesMaxMessagesDefaultUnlimited();
-	}
 
 	@Bean
 	public IntegrationFlow ftpInboundFlow(SessionFactory<FTPFile> ftpSessionFactory, FtpSourceProperties properties,

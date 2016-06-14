@@ -16,6 +16,8 @@
 
 package org.springframework.cloud.stream.app.time.source;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.app.annotation.PollableSource;
@@ -26,24 +28,17 @@ import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 
-import java.util.Date;
-
 /**
  * @author Dave Syer
  * @author Glenn Renfro
  * @author Marius Bogoevici
  */
 @EnableBinding(Source.class)
-@Import(TriggerConfiguration.class)
+@Import({TriggerConfiguration.class, TriggerPropertiesMaxMessagesDefaultOne.class})
 public class TimeSourceConfiguration {
 
 	@Autowired
 	private TriggerProperties triggerProperties;
-
-	@Bean
-	public TriggerProperties triggerProperties() {
-		return new TriggerPropertiesMaxMessagesDefaultOne();
-	}
 
 	@PollableSource
 	public String publishTime() {

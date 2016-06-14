@@ -47,7 +47,7 @@ import org.springframework.integration.scheduling.PollerMetadata;
  * @author Artem Bilan
  */
 @EnableBinding(Source.class)
-@EnableConfigurationProperties({ MailSourceProperties.class })
+@EnableConfigurationProperties({ MailSourceProperties.class, TriggerPropertiesMaxMessagesDefaultOne.class })
 @Import({ TriggerConfiguration.class })
 public class MailSourceConfiguration {
 
@@ -57,11 +57,6 @@ public class MailSourceConfiguration {
 
 	@Autowired
 	private MailSourceProperties properties;
-
-	@Bean
-	public TriggerProperties triggerProperties() {
-		return new TriggerPropertiesMaxMessagesDefaultOne();
-	}
 
 	@Bean
 	public IntegrationFlow mailInboundFlow() {

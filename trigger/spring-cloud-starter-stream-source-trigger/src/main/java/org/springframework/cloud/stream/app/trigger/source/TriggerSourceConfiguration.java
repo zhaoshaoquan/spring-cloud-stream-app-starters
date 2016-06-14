@@ -36,17 +36,12 @@ import org.springframework.context.annotation.Import;
  * @author Gary Russell
  */
 @EnableBinding(Source.class)
-@EnableConfigurationProperties(SourcePayloadProperties.class)
+@EnableConfigurationProperties({SourcePayloadProperties.class, TriggerPropertiesMaxMessagesDefaultOne.class})
 @Import(TriggerConfiguration.class)
 public class TriggerSourceConfiguration {
 
 	@Autowired
 	private SourcePayloadProperties payloadProperties;
-
-	@Bean
-	public TriggerProperties triggerProperties() {
-		return new TriggerPropertiesMaxMessagesDefaultOne();
-	}
 
 	@PollableSource
 	public Object triggerSource() {

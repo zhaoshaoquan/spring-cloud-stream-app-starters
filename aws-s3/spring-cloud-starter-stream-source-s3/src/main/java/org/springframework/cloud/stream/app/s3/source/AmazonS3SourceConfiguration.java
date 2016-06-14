@@ -43,7 +43,8 @@ import com.amazonaws.services.s3.AmazonS3;
  * @author Artem Bilan
  */
 @EnableBinding(Source.class)
-@EnableConfigurationProperties({ AmazonS3SourceProperties.class, FileConsumerProperties.class })
+@EnableConfigurationProperties({ AmazonS3SourceProperties.class, FileConsumerProperties.class,
+		TriggerPropertiesMaxMessagesDefaultUnlimited.class})
 @Import({ TriggerConfiguration.class, AmazonS3Configuration.class })
 public class AmazonS3SourceConfiguration {
 
@@ -55,11 +56,6 @@ public class AmazonS3SourceConfiguration {
 
 	@Autowired
 	private ResourceIdResolver resourceIdResolver;
-
-	@Bean
-	public TriggerProperties triggerProperties() {
-		return new TriggerPropertiesMaxMessagesDefaultUnlimited();
-	}
 
 	@Bean
 	public S3InboundFileSynchronizer s3InboundFileSynchronizer() {
