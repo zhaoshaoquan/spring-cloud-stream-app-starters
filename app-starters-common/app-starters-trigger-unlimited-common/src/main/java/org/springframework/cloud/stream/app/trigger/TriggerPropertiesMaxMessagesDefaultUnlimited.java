@@ -15,35 +15,36 @@
  */
 package org.springframework.cloud.stream.app.trigger;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.util.StringUtils;
-
-import javax.validation.ValidationException;
-import javax.validation.constraints.AssertFalse;
-import javax.validation.constraints.Min;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import javax.validation.constraints.AssertFalse;
+import javax.validation.constraints.Min;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cloud.stream.app.time.DateFormat;
+import org.springframework.util.StringUtils;
+
 @ConfigurationProperties("trigger")
 public class TriggerPropertiesMaxMessagesDefaultUnlimited implements TriggerProperties {
 
     /***
-     * Maximum messages per poll.  Defaults to infinity (-1)
+     * Maximum messages per poll, -1 means infinity.
      */
     private long maxMessages = -1;
 
     /**
-     * Fixed delay for periodic triggers. Default is 1 TimeUnit.
+     * Fixed delay for periodic triggers.
      */
     private int fixedDelay = 1;
     /**
-     * Initial delay for periodic triggers. Default is 0.
+     * Initial delay for periodic triggers.
      */
     private int initialDelay = 0;
     /**
-     * The TimeUnit to apply to delay values. Default is TimeUnit.SECONDS
+     * The TimeUnit to apply to delay values.
      */
     private TimeUnit timeUnit = TimeUnit.SECONDS;
     /**
@@ -114,10 +115,10 @@ public class TriggerPropertiesMaxMessagesDefaultUnlimited implements TriggerProp
     public Date getDate() {
         if (StringUtils.hasText(this.date)) {
             try {
-                return this.getDateFormat().parse(this.date);
+                return new SimpleDateFormat(this.dateFormat).parse(this.date);
             }
             catch (ParseException e) {
-                throw new ValidationException("Invalid date value :" + this.date);
+                throw new IllegalArgumentException(e);
             }
         }
         else {
@@ -131,16 +132,9 @@ public class TriggerPropertiesMaxMessagesDefaultUnlimited implements TriggerProp
     }
 
 
-    public SimpleDateFormat getDateFormat() {
-        if (!StringUtils.hasText(this.dateFormat)) {
-            throw new ValidationException("'dateFormat' must not be empty.");
-        }
-        try {
-            return new SimpleDateFormat(this.dateFormat);
-        }
-        catch (IllegalArgumentException e) {
-            throw new ValidationException("Invalid Date format for the string: " + this.dateFormat);
-        }
+    @DateFormat
+    public String getDateFormat() {
+        return dateFormat;
     }
 
 
