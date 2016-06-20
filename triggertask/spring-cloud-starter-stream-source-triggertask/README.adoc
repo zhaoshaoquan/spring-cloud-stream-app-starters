@@ -1,7 +1,7 @@
 //tag::ref-doc[]
 = TriggerTask Source
 
-The TriggerTask app sends a TaskLaunchRequest based on a fixed delay, date or cron expression.  The user is allowed
+The TriggerTask app sends a `TaskLaunchRequest` based on a fixed delay, date or cron expression.  The user is allowed
 to set the command line arguments as well as the
 http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html[Spring Boot properties]
 that are used by the task.
@@ -19,6 +19,19 @@ $$timeUnit$$:: $$time unit to apply for delay$$ *($$String$$, default: `SECONDS`
 $$date$$:: $$the date value for the trigger$$ *($$String$$)*
 $$dateFormat$$:: $$format for the date value$$ *($$String$$)*
 $$cron$$:: $$the Cron expression for the Cron Trigger$$ *($$String$$, default: `SECONDS`)*
+
+== Using the triggertask
+A trigger task is a source that  dispatches `TaskLaunchRequest` messages that will eventually be consumed by a
+tasklauncher-* sink. The tasklauncher-* sink will then deploy a task and launch it.  An example of this using Spring
+Cloud Data Flow would look like this:
+
+`stream create foo --definition "triggertask --uri=maven://org.springframework.cloud.task.app:timestamp-task:jar:1.0.0.BUILD-SNAPSHOT --fixed-delay=5 | tasklauncher-local"`
+
+In the case above the tasklauncher-local will receive the `TaskLaunchRequest` and launch the task enumerated in the --uri
+property using the Spring Cloud Local Deployer.
+
+The only required property for the triggertask is the --uri which specifies the artifact that will be launched by the
+tasklauncher-* that you have selected.
 
 //end::ref-doc[]
 == Build
