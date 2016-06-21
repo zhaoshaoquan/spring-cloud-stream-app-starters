@@ -1,0 +1,120 @@
+---
+# The name of your project
+title: Spring Cloud Stream Application Starters
+
+badges:
+
+  # Specify your project's twitter handle, if any. Delete if none.
+  twitter: SpringCloudOSS
+
+  # Customize your project's badges. Delete any entries that do not apply.
+  custom:
+    - name: Source (GitHub)
+      url:  https://github.com/spring-cloud/spring-cloud-stream-app-starters
+      icon: github
+
+    - name: Issues (Waffle)
+      url:  https://waffle.io/spring-cloud/spring-cloud-stream-app-starters
+      icon: tracking
+
+    - name: CI (Bamboo)
+      url:  https://build.spring.io/browse/SCS-APPS
+      icon: ci
+    
+    - name: StackOverflow
+      url:  http://stackoverflow.com/questions/tagged/spring-cloud-stream
+      icon: stackoverflow
+
+---
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<!-- Specify the parent of this project (or delete if none) to influence the rendering of the breadcrumb -->
+{% capture parent_link %}
+[Spring Cloud]({{ site.projects_site_url }}/spring-cloud)
+{% endcapture %}
+
+{% capture billboard_description %}
+
+Spring Cloud Stream Application Starters are [Spring Boot](http://projects.spring.io/spring-boot/) 
+based [Spring Integration](http://projects.spring.io/spring-integration/) applications that provide 
+integration with external systems. Spring Cloud Stream Applications can be used with [Spring 
+Cloud Data Flow](http://cloud.spring.io/spring-cloud-dataflow/) to create, deploy, and orchestrate 
+message-driven data microservices.
+
+{% endcapture %}
+
+{% capture main_content %}
+
+Spring Cloud Stream Application Starters are standalone executable applications that communicate over 
+messaging middleware such as Apache Kafka and RabbitMQ. These applications can run independently on 
+variety of runtime platforms including: Cloud Foundry, Apache Yarn, Apache Mesos, Kubernetes, Docker, 
+or even on your laptop.
+
+## Features
+
+* Run standalone as Spring Boot applications
+* Compose data microservices as streaming pipelines in Spring Cloud Data Flow
+* Consume data microservice applications as maven or docker artifacts
+* Override configuration parameters via command-line, environment variables, or YAML file
+* Provide infrastructure to test the applications in isolation
+
+## Available Applications
+
+| __Source__ | __Processor__ | __Sink__ |
+| ------- | --------- | ---- | ---- |
+| aws-s3 | bridge | aggregate-counter |
+| file | filter | cassandra |
+| ftp | groovy-filter | counter |
+| http | groovy-transform | field-value-counter |
+| jdbc | httpclient | file | 
+| jms | pmml | ftp |
+| load-generator | scriptable-transform | gemfire |
+| rabbit | splitter | gpfdist |
+| sftp | transform | hdfs |
+| tcp | | jdbc |
+| time | | log |
+| trigger | | rabbit |
+| twitterstream | | redis |
+| | | router |
+| | | tcp |
+| | | throughput |
+| | | websocket |
+
+<span id="quick-start"></span>
+
+## Quick Start
+
+Step 1 - Clone [Spring Cloud Stream Application Starters](https://github.com/spring-cloud/spring-cloud-stream-app-starters.git) repository
+
+Step 2 - [Build and Install Apps](https://github.com/spring-cloud/spring-cloud-stream-app-starters#spring-cloud-stream-app-starters-stream---)
+
+Step 3 - Start Kafka
+
+Step 4 - Run **Time Source** and Bind to *ticktock* Topic
+```
+java -jar apps/time-source-kafka/target/time-source-kafka-***.jar --spring.cloud.stream.bindings.output.destination=ticktock
+```
+
+Step 5 - Run **Log Sink** and Bind to *ticktock* Topic
+```
+java -jar apps/log-sink-kafka/target/log-sink-kafka-***.jar --spring.cloud.stream.bindings.input.destination=ticktock
+```
+
+Step 6 - Verify *ticktock* Logs in Console
+
+{% endcapture %}
+
+{% capture related_resources %}
+
+### Related Projects
+
+* [Spring Cloud Stream](http://cloud.spring.io/spring-cloud-stream/)
+* [Spring Cloud Data Flow](http://cloud.spring.io/spring-cloud-dataflow/)
+* [Spring Cloud Task](https://github.com/spring-cloud/spring-cloud-task/)
+
+{% endcapture %}
+
+
+{% include project_page.html %}
+</html>
