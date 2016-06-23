@@ -23,15 +23,35 @@ import java.util.List;
  * Shared boot configuration properties for "spring.net.hostdiscovery".
  *
  * @author Janne Valkealahti
+ * @author Sabby Anandan
  *
  */
 @ConfigurationProperties(value = "spring.net.hostdiscovery")
 public class HostInfoDiscoveryProperties {
 
+	/**
+	 * Used to match ip address from a network using a cidr notation
+	 */
 	private String matchIpv4;
+
+	/**
+	 * The new match interface regex pattern. Default value is is empty
+	 */
 	private String matchInterface;
+
+	/**
+	 * The new preferred interface list
+	 */
 	private List<String> preferInterface;
+
+	/**
+	 * The new point to point flag. Default value is FALSE
+	 */
 	private boolean pointToPoint = false;
+
+	/**
+	 * The new loopback flag. Default value is FALSE
+	 */
 	private boolean loopback = false;
 
 	public String getMatchIpv4() {

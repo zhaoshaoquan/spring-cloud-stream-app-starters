@@ -24,34 +24,134 @@ import org.springframework.core.io.Resource;
  * Config options for gpfdist sink.
  *
  * @author Janne Valkealahti
+ * @author Sabby Anandan
  */
 @ConfigurationProperties("gpfdist")
 public class GpfdistSinkProperties {
 
+	/**
+	 * Port of gpfdist server. Default port `0` indicates that a random port is chosen. (Integer, default: 0)
+	 */
 	private int gpfdistPort = 0;
+
+	/**
+	 * Flush item count (int, default: 100)
+	 */
 	private int flushCount = 100;
+
+	/**
+	 * Flush item time (int, default: 2)
+	 */
 	private int flushTime = 2;
+
+	/**
+	 * Timeout in seconds for segment inactivity. (Integer, default: 4)
+	 */
 	private int batchTimeout = 4;
+
+	/**
+	 * Number of windowed batch each segment takest (int, default: 100)
+	 */
 	private int batchCount = 100;
+
+	/**
+	 * Time in seconds for each load operation to sleep in between operations (int, default: 10)
+	 */
 	private int batchPeriod = 10;
+
+	/**
+	 * Database name (String, default: gpadmin)
+	 */
 	private String dbName = "gpadmin";
+
+	/**
+	 * Database user (String, default: gpadmin)
+	 */
 	private String dbUser = "gpadmin";
+
+	/**
+	 * Database password (String, default: gpadmin)
+	 */
 	private String dbPassword = "gpadmin";
+
+	/**
+	 * Database host (String, default: localhost)
+	 */
 	private String dbHost = "localhost";
+
+	/**
+	 * Database port (int, default: 5432)
+	 */
 	private int dbPort = 5432;
+
+	/**
+	 * Path to yaml control file (String, no default)
+	 */
 	private Resource controlFile;
+
+	/**
+	 * Data line delimiter (String, default: newline character)
+	 */
 	private String delimiter = "\n";
+
+	/**
+	 * Data record column delimiter. *(Character, default: no default)
+	 */
 	private Character columnDelimiter;
+
+	/**
+	 * Mode, either insert or update (String, no default)
+	 */
 	private String mode;
+
+	/**
+	 * Match columns with update (String, no default)
+	 */
 	private String matchColumns;
+
+	/**
+	 * Update columns with update (String, no default)
+	 */
 	private String updateColumns;
+
+	/**
+	 * Target database table (String, no default)
+	 */
 	private String table;
+
+	/**
+	 * Enable transfer rate interval (int, default: 0)
+	 */
 	private int rateInterval = 0;
+
+	/**
+	 * Sql to run before load (String, no default)
+	 */
 	private String sqlBefore;
+
+	/**
+	 * Sql to run after load (String, no default)
+	 */
 	private String sqlAfter;
+
+	/**
+	 * Tablename to log errors. (String, default: ``)
+	 */
 	private String errorTable;
+
+	/**
+	 * Error reject limit. (String, default: ``)
+	 */
 	private String segmentRejectLimit;
+
+	/**
+	 * Error reject type, either `rows` or `percent`. (String, default: ``)
+	 */
 	private SegmentRejectType segmentRejectType;
+
+	/**
+	 * Null string definition. (String, default: ``)
+	 */
 	private String nullString;
 
 	public int getGpfdistPort() {
