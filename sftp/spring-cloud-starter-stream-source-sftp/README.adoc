@@ -19,28 +19,40 @@ The payload of these 2 additional marker messages is of type `FileSplitter.FileM
 
 The **$$sftp$$** $$source$$ has the following options:
 
-$$allowUnknownKeys$$:: $$true to allow connecting to a host with an unknown or changed key$$ *($$boolean$$, default: `false`)*
-$$autoCreateLocalDir$$:: $$if local directory must be auto created if it does not exist$$ *($$boolean$$, default: `true`)*
-$$deleteRemoteFiles$$:: $$delete remote files after transfer$$ *($$boolean$$, default: `false`)*
-$$fixedDelay$$:: $$fixed delay in SECONDS to poll the remote directory$$ *($$int$$, default: `1`)*
-$$host$$:: $$the remote host to connect to$$ *($$String$$, default: `localhost`)*
-$$initialDelay$$:: $$an initial delay when using a fixed delay trigger, expressed in TimeUnits (seconds by default)$$ *($$int$$, default: `0`)*
-$$knownHostsExpression$$:: $$a SpEL expression location of known hosts file; required if 'allowUnknownKeys' is false; examples: systemProperties["user.home"]+"/.ssh/known_hosts", "/foo/bar/known_hosts"$$ *($$String$$, no default)*
-$$localDir$$:: $$set the local directory the remote files are transferred to$$ *($$String$$, default: ``)*
-$$maxMessages$$:: $$the maximum messages per poll; -1 for unlimited$$ *($$long$$, default: `-1`)*
-$$mode$$:: $$specifies how the file is being read. By default the content of a file is provided as byte array$$ *($$FileReadingMode$$, default: `contents`, possible values: `ref,lines,contents`)*
-$$passPhrase$$:: $$the passphrase to use$$ *($$String$$, default: ``)*
-$$password$$:: $$the password for the provided user$$ *($$String$$, default: ``)*
-$$pattern$$:: $$simple filename pattern to apply to the filter$$ *($$String$$, no default)*
-$$port$$:: $$the remote port to connect to$$ *($$int$$, default: `22`)*
-$$privateKey$$:: $$the private key location (a valid Spring Resource URL)$$ *($$String$$, default: ``)*
-$$regexPattern$$:: $$filename regex pattern to apply to the filter$$ *($$String$$, no default)*
-$$remoteDir$$:: $$the remote directory to transfer the files from$$ *($$String$$, no default)*
-$$timeUnit$$:: $$the time unit for the fixed and initial delays$$ *($$String$$, default: `SECONDS`)*
-$$tmpFileSuffix$$:: $$extension to use when downloading files$$ *($$String$$, default: `.tmp`)*
-$$user$$:: $$the username to use$$ *($$String$$, no default)*
-$$withMarkers$$:: $$if true emits start of file/end of file marker messages before/after the data. Only valid with FileReadingMode 'lines'$$ *($$Boolean$$, no default)*
-$$markersJson$$:: $$if `true` emits file markers as JSON String. Only applied when FileReadingMode is 'lines'$$ *($$boolean$$, default: `true`)*
+//tag::configuration-properties[]
+$$file.consumer.markers-json$$:: $$When 'fileMarkers == true', specify if they should be produced
+ as FileSplitter.FileMarker objects or JSON.$$ *($$Boolean$$, default: `true`)*
+$$file.consumer.mode$$:: $$The FileReadingMode to use for file reading sources.
+ Values are 'ref' - The File object,
+ 'lines' - a message per line, or
+ 'contents' - the contents as bytes.$$ *($$FileReadingMode$$, default: `<none>`, possible values: `ref`,`lines`,`contents`)*
+$$file.consumer.with-markers$$:: $$Set to true to emit start of file/end of file marker messages before/after the data.
+ 	Only valid with FileReadingMode 'lines'.$$ *($$Boolean$$, default: `<none>`)*
+$$sftp.auto-create-local-dir$$:: $$<documentation missing>$$ *($$Boolean$$, default: `<none>`)*
+$$sftp.delete-remote-files$$:: $$<documentation missing>$$ *($$Boolean$$, default: `<none>`)*
+$$sftp.factory.allow-unknown-keys$$:: $$True to allow an unknown or changed key.$$ *($$Boolean$$, default: `false`)*
+$$sftp.factory.cache-sessions$$:: $$<documentation missing>$$ *($$Boolean$$, default: `<none>`)*
+$$sftp.factory.host$$:: $$<documentation missing>$$ *($$String$$, default: `<none>`)*
+$$sftp.factory.known-hosts-expression$$:: $$A SpEL expression resolving to the location of the known hosts file.$$ *($$String$$, default: `<none>`)*
+$$sftp.factory.pass-phrase$$:: $$Passphrase for user's private key.$$ *($$String$$, default: `<empty string>`)*
+$$sftp.factory.password$$:: $$<documentation missing>$$ *($$String$$, default: `<none>`)*
+$$sftp.factory.port$$:: $$The port of the server.$$ *($$Integer$$, default: `22`)*
+$$sftp.factory.private-key$$:: $$Resource location of user's private key.$$ *($$String$$, default: `<empty string>`)*
+$$sftp.factory.username$$:: $$<documentation missing>$$ *($$String$$, default: `<none>`)*
+$$sftp.filename-pattern$$:: $$<documentation missing>$$ *($$String$$, default: `<none>`)*
+$$sftp.filename-regex$$:: $$<documentation missing>$$ *($$Pattern$$, default: `<none>`)*
+$$sftp.local-dir$$:: $$<documentation missing>$$ *($$File$$, default: `<none>`)*
+$$sftp.preserve-timestamp$$:: $$<documentation missing>$$ *($$Boolean$$, default: `<none>`)*
+$$sftp.remote-dir$$:: $$<documentation missing>$$ *($$String$$, default: `<none>`)*
+$$sftp.remote-file-separator$$:: $$<documentation missing>$$ *($$String$$, default: `<none>`)*
+$$sftp.tmp-file-suffix$$:: $$<documentation missing>$$ *($$String$$, default: `<none>`)*
+$$trigger.cron$$:: $$Cron expression value for the Cron Trigger.$$ *($$String$$, default: `<none>`)*
+$$trigger.date-format$$:: $$Format for the date value.$$ *($$String$$, default: `<none>`)*
+$$trigger.fixed-delay$$:: $$Fixed delay for periodic triggers.$$ *($$Integer$$, default: `1`)*
+$$trigger.initial-delay$$:: $$Initial delay for periodic triggers.$$ *($$Integer$$, default: `0`)*
+$$trigger.max-messages$$:: $$Maximum messages per poll, -1 means infinity.$$ *($$Long$$, default: `-1`)*
+$$trigger.time-unit$$:: $$The TimeUnit to apply to delay values.$$ *($$TimeUnit$$, default: `SECONDS`, possible values: `NANOSECONDS`,`MICROSECONDS`,`MILLISECONDS`,`SECONDS`,`MINUTES`,`HOURS`,`DAYS`)*
+//end::configuration-properties[]
 
 //end::ref-doc[]
 == Build

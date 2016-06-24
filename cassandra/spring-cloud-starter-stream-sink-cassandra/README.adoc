@@ -7,23 +7,25 @@ This sink application writes the content of each message it receives into Cassan
 
 The **$$cassandra$$** $$sink$$ has the following options:
 
-$$ingestQuery$$:: $$the ingest Cassandra query$$ *($$String$$, no default)*
-$$queryType$$:: $$the queryType for Cassandra Sink$$ *($$Type$$, default: `INSERT`, possible values: `INSERT,UPDATE,DELETE,STATEMENT`)*
-$$statementExpression$$:: $$the expression in Cassandra query DSL style$$ *($$String$$, no default)*
-$$consistencyLevel$$:: $$the consistencyLevel option of WriteOptions$$ *($$ConsistencyLevel$$, no default, possible values: `ANY,ONE,TWO,THREE,QUOROM,LOCAL_QUOROM,EACH_QUOROM,ALL,LOCAL_ONE,SERIAL,LOCAL_SERIAL`)*
-$$retryPolicy$$:: $$the retryPolicy  option of WriteOptions$$ *($$RetryPolicy$$, no default, possible values: `DEFAULT,DOWNGRADING_CONSISTENCY,FALLTHROUGH,LOGGING`)*
-$$ttl$$:: $$the time-to-live option of WriteOptions$$ *($$int$$, default: `0`)*
-$$cassandra.cluster.contactPoints$$:: $$the comma-delimited string of the hosts to connect to Cassandra$$ *($$String$$, default: `localhost`)*
-$$cassandra.cluster.port$$:: $$the port to use to connect to the Cassandra host$$ *($$int$$, default: `9042`)*
-$$cassandra.cluster.keyspace$$:: $$the keyspace name to connect to$$ *($$String$$, default: `<stream name>`)*
-$$cassandra.cluster.username$$:: $$the username for connection$$ *($$String$$, no default)*
-$$cassandra.cluster.password$$:: $$the password for connection$$ *($$String$$, no default)*
-$$cassandra.cluster.initScript$$:: $$the path to file with CQL scripts (delimited by ';') to initialize keyspace schema$$ *($$String$$, no default)*
-$$cassandra.cluster.schemaAction$$:: $$schema action to perform$$ *($$SchemaAction$$, default: `NONE`, possible values: `CREATE,NONE,RECREATE,RECREATE_DROP_UNUSED`)*
-$$cassandra.cluster.createKeyspace$$:: $$The flag to create (or not) keyspace on application startup$$ *($$Boolean$$, default: `false`)*
-$$cassandra.cluster.entityBasePackages$$:: $$the base packages to scan for entities annotated with Table annotations$$ *($$String[]$$, default: `[]`)*
-$$cassandra.cluster.compressionType$$:: $$the compression to use for the transport$$ *($$CompressionType$$, default: `NONE`, possible values: `NONE,SNAPPY`)*
-$$cassandra.cluster.metricsEnabled$$:: $$enable/disable metrics collection for the created cluster$$ *($$boolean$$, default: `true`)*
+//tag::configuration-properties[]
+$$cassandra.cluster.compression-type$$:: $$The compression to use for the transport.$$ *($$CompressionType$$, default: `<none>`, possible values: `NONE`,`SNAPPY`)*
+$$cassandra.cluster.contact-points$$:: $$The comma-delimited string of the hosts to connect to Cassandra.$$ *($$String$$, default: `<none>`)*
+$$cassandra.cluster.create-keyspace$$:: $$The flag to create (or not) keyspace on application startup.$$ *($$Boolean$$, default: `false`)*
+$$cassandra.cluster.entity-base-packages$$:: $$The base packages to scan for entities annotated with Table annotations.$$ *($$String[]$$, default: `[]`)*
+$$cassandra.cluster.init-script$$:: $$The resource with CQL scripts (delimited by ';') to initialize keyspace schema.$$ *($$Resource$$, default: `<none>`)*
+$$cassandra.cluster.keyspace$$:: $$The keyspace name to connect to.$$ *($$String$$, default: `<none>`)*
+$$cassandra.cluster.metrics-enabled$$:: $$Enable/disable metrics collection for the created cluster.$$ *($$Boolean$$, default: `<none>`)*
+$$cassandra.cluster.password$$:: $$The password for connection.$$ *($$String$$, default: `<none>`)*
+$$cassandra.cluster.port$$:: $$The port to use to connect to the Cassandra host.$$ *($$Integer$$, default: `<none>`)*
+$$cassandra.cluster.schema-action$$:: $$The schema action to perform.$$ *($$SchemaAction$$, default: `<none>`, possible values: `NONE`,`CREATE`,`RECREATE`,`RECREATE_DROP_UNUSED`)*
+$$cassandra.cluster.username$$:: $$The username for connection.$$ *($$String$$, default: `<none>`)*
+$$cassandra.consistency-level$$:: $$The consistencyLevel option of WriteOptions.$$ *($$ConsistencyLevel$$, default: `<none>`, possible values: `ANY`,`ONE`,`TWO`,`THREE`,`QUOROM`,`LOCAL_QUOROM`,`EACH_QUOROM`,`ALL`,`LOCAL_ONE`,`SERIAL`,`LOCAL_SERIAL`)*
+$$cassandra.ingest-query$$:: $$The ingest Cassandra query.$$ *($$String$$, default: `<none>`)*
+$$cassandra.query-type$$:: $$The queryType for Cassandra Sink.$$ *($$Type$$, default: `<none>`)*
+$$cassandra.retry-policy$$:: $$The retryPolicy option of WriteOptions.$$ *($$RetryPolicy$$, default: `<none>`, possible values: `DEFAULT`,`DOWNGRADING_CONSISTENCY`,`FALLTHROUGH`,`LOGGING`)*
+$$cassandra.statement-expression$$:: $$The expression in Cassandra query DSL style.$$ *($$Expression$$, default: `<none>`)*
+$$cassandra.ttl$$:: $$The time-to-live option of WriteOptions.$$ *($$Integer$$, default: `0`)*
+//end::configuration-properties[]
 
 //end::ref-doc[]
 
