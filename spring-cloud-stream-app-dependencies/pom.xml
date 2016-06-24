@@ -350,16 +350,6 @@
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
-				<artifactId>app-starters-metrics-common</artifactId>
-				<version>1.0.0.BUILD-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud.stream.app</groupId>
-				<artifactId>app-starters-script-common</artifactId>
-				<version>1.0.0.BUILD-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>app-starters-time-common</artifactId>
 				<version>1.0.0.BUILD-SNAPSHOT</version>
 			</dependency>
