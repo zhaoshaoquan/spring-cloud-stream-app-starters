@@ -3,7 +3,7 @@
 	<parent>
 		<artifactId>spring-cloud-stream-app-starters</artifactId>
 		<groupId>org.springframework.cloud.stream.app</groupId>
-		<version>1.0.0.BUILD-SNAPSHOT</version>
+		<version>1.0.0.RC1</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
@@ -135,7 +135,7 @@
 						<syslog-source>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSourceTestConfiguration.class</extraTestConfigClass>
 						</syslog-source>
-						<task-launcher-local-sink/>
+						<task-launcher-local-sink />
 						<tcp-sink>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.ip.IpSinkTestConfiguration.class</extraTestConfigClass>
 						</tcp-sink>
@@ -145,7 +145,7 @@
 						<time-source />
 						<transform-processor />
 						<trigger-source />
-						<triggertask-source/>
+						<triggertask-source />
 						<twitterstream-source>
 							<extraTestConfigClass>org.springframework.cloud.stream.app.test.twitter.TwitterTestConfiguration.class</extraTestConfigClass>
 						</twitterstream-source>
