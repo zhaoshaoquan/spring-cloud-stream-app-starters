@@ -64,7 +64,7 @@ or even on your laptop.
 
 | __Source__ | __Processor__ | __Sink__ |
 | ------- | --------- | ---- | ---- |
-| aws-s3 | bridge | aggregate-counter |
+| s3 | bridge | aggregate-counter |
 | file | filter | cassandra |
 | ftp | groovy-filter | counter |
 | http | groovy-transform | field-value-counter |
@@ -81,6 +81,7 @@ or even on your laptop.
 | | | tcp |
 | | | throughput |
 | | | websocket |
+
 
 <span id="quick-start"></span>
 
@@ -103,6 +104,17 @@ java -jar apps/log-sink-kafka/target/log-sink-kafka-***.jar --spring.cloud.strea
 ```
 
 Step 6 - Verify *ticktock* Logs in Console
+
+## Stream App Starters and Spring Cloud Data Flow _(**)_
+
+| __Artifact Type__ | __Stable Release__ | __SNAPSHOT Release__ |
+| ------------------ | ------------------ | ------------------ |
+| RabbitMQ + Maven | [http://bit.ly/1-0-0-RC1-stream-applications-rabbit-maven](http://bit.ly/1-0-0-RC1-stream-applications-rabbit-maven) | [http://bit.ly/stream-applications-rabbit-maven](http://bit.ly/stream-applications-rabbit-maven) |
+| RabbitMQ + Docker | [http://bit.ly/1-0-0-RC1-stream-applications-rabbit-docker](http://bit.ly/1-0-0-RC1-stream-applications-rabbit-docker) | [http://bit.ly/stream-applications-rabbit-docker](http://bit.ly/stream-applications-rabbit-docker) |
+| Apache Kafka + Maven | [http://bit.ly/1-0-0-RC1-stream-applications-kafka-maven](http://bit.ly/1-0-0-RC1-stream-applications-kafka-maven) | [http://bit.ly/stream-applications-kafka-maven](http://bit.ly/stream-applications-kafka-maven) |
+| Apache Kafka + Docker | [http://bit.ly/1-0-0-RC1-stream-applications-kafka-docker](http://bit.ly/1-0-0-RC1-stream-applications-kafka-docker) | [http://bit.ly/stream-applications-kafka-docker](http://bit.ly/stream-applications-kafka-docker) |
+
+_(**) find out how to use the app-starters in Spring Cloud Data Flow by reviewing the [app-registration](http://docs.spring.io/spring-cloud-dataflow/docs/current-SNAPSHOT/reference/htmlsingle/#spring-cloud-dataflow-register-apps) section in the reference guide_
 
 {% endcapture %}
 
