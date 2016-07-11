@@ -23,4 +23,17 @@
 			<artifactId>app-starters-test-support</artifactId>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<!-- Due to licensing issues, do not deploy when we release -->
+					<!-- Users interested in this app should build from source -->
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
