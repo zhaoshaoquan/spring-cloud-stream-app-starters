@@ -18,7 +18,8 @@ $$trigger.max-messages$$:: $$Maximum messages per poll, -1 means infinity.$$ *($
 $$trigger.source.payload$$:: $$The expression for the payload of the Source module.$$ *($$Expression$$, default: `$$<none>$$`)*
 $$trigger.time-unit$$:: $$The TimeUnit to apply to delay values.$$ *($$TimeUnit$$, default: `$$<none>$$`, possible values: `NANOSECONDS`,`MICROSECONDS`,`MILLISECONDS`,`SECONDS`,`MINUTES`,`HOURS`,`DAYS`)*
 $$triggertask.command-line-args$$:: $$Space delimited key=value pairs to be used as commandline variables for the task.$$ *($$String$$, default: `$$<empty string>$$`)*
-$$triggertask.properties$$:: $$Comma delimited key=value pairs to be used as properties for the task.$$ *($$String$$, default: `$$<empty string>$$`)*
+$$triggertask.deployment-properties$$:: $$Comma delimited key=value pairs to be used as deploymentProperties for the task.$$ *($$String$$, default: `$$<empty string>$$`)*
+$$triggertask.environment-properties$$:: $$Comma delimited key=value pairs to be used as environmentProperties for the task.$$ *($$String$$, default: `$$<empty string>$$`)*
 $$triggertask.uri$$:: $$The uri to the task artifact.$$ *($$String$$, default: `$$<empty string>$$`)*
 //end::configuration-properties[]
 
