@@ -253,7 +253,7 @@ public class DemoApplication {
 * The patched copy of `jdbc-sink` application now includes `mysql` driver in it
 * This application can be run as standalone _uberjars_
 
-=== Developing custom applications and generating artifacts using the existing tooling
+=== Contributing Stream Application Starters and Generating Artifacts
 
 In this section, we will explain how to develop a custom source/sink/processor application and then generate
 maven and docker artifacts for it with the necessary middleware bindings using the existing tooling provided by the
@@ -263,10 +263,10 @@ source application for a technology named foobar.
 * Create a new top level module named spring-cloud-starter-stream-source-foobar
 
 Please follow the instructions above for designing a proper Spring Cloud Stream Source. You may also look into the existing
-starters for how to structure a new one. Ensure that you name the main `@Configuration` class of your starter as
-`FoobarSourceConfiguration` as this is the default convention used by the app generation later. Please also make sure
-that the package for this `@Configuration` is `org.springfamework.cloud.stream.app.foobar.source`. If you have a different
-class/package name, see below for how to override that in the app generator. The functionality name for which you create
+starters for how to structure a new one. The default naming for the main `@Configuration` class is
+`FoobarSourceConfiguration` and the default package for this `@Configuration`
+is `org.springfamework.cloud.stream.app.foobar.source`. If you have a different class/package name, see below for
+overriding that in the app generator. The technology/functionality name for which you create
 a starter can be a hyphenated stream of strings such as in `scriptable-transform` which is a processor type in the
 module `spring-cloud-starter-stream-processor-scriptable-transform`.
 
@@ -305,8 +305,10 @@ dependecy management section. For example,
 * At this point, you are ready to generate the binder based spring boot apps for foobar-source. Go to the
 `spring-cloud-stream-app-generator` module and start editing as below.
 
-If you have a very basic source starter, all you have to do is to add the following to the list of apps need to be
-generated in the `generatedApps` tag of the configuration section of `spring-cloud-stream-app-maven` plugin.
+The minimal configuration needed to generate the app is to add to plugin configuration in
+spring-cloud-stream-app-generator/pom.xml. There are other plugin options that customize the generated applications
+which are described in the plugin documentation (https://github.com/spring-cloud/spring-cloud-stream-app-maven-plugin).
+A few plugin features are described below.
 
 [source,xml]
 ----
@@ -334,7 +336,7 @@ this is how you can tell the plugin to override the default.
 
 * Go to the root of the repository and execute the script: `./generateApps.sh`
 
-This would generate the binder based foobar source apps in a directory named `apps` at the root of the repository.
+This will generate the binder based foobar source apps in a directory named `apps` at the root of the repository.
 If you want to change the location where the apps are generated, for instance /tmp/scs-apps, you can do it in the
 configuration section of the plugin.
 
@@ -405,8 +407,7 @@ is generated. If you added more binders as described above, you would see that a
 
 If you only care about the foobar-source apps and nothing else, you can cd into those particular foo-bar-[binder]
 directories and import them directly into your IDE of choice. Each of them is a self contained spring boot application project.
-For all the generated apps, the parent is `spring-boot-starter-parent`. There is no way to change that around as ultimately these
-are spring boot based applications and that parent would bring many necessary spring components into your application.
+For all the generated apps, the parent is `spring-boot-starter-parent` as required by the underlying Spring Initializr library.
 
 You can cd into these custom foobar-source directories and do the following to build the apps:
 
@@ -416,7 +417,7 @@ You can cd into these custom foobar-source directories and do the following to b
 
 This would install the foo-source-kafka into your local maven cache (~/.m2 by default).
 
-The app generation phase above would add an integration test to the app project that is making sure that all the spring
+The app generation phase adds an integration test to the app project that is making sure that all the spring
 components and contexts are loaded properly. However, these tests are not run by default when you do a `mvn install`.
 You can force the running of these tests by doing the following:
 
@@ -457,10 +458,10 @@ following:
 
 `mvn clean package docker:build`
 
-This would create the docker image under the `target/docker/springcloudstream` directory. Please ensure that the Docker
+This creates the docker image under the `target/docker/springcloudstream` directory. Please ensure that the Docker
 container is up and running and DOCKER_HOST environment variable is properly set before you try `docker:build`.
 
-All the generated apps from the repository are uploaded to the docker hub at: https://hub.docker.com/u/springcloudstream/
+All the generated apps from the repository are uploaded to https://hub.docker.com/u/springcloudstream/[Docker Hub]
 
 However, for a custom app that you build, this won't be uploaded to docker hub under `springcloudstream` repository.
 If you think that there is a general need for this app, you should try contributing this starter to the main repository
