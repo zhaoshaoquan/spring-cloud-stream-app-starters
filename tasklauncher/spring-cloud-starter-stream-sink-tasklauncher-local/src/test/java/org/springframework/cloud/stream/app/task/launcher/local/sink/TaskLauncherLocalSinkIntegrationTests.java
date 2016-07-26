@@ -18,6 +18,7 @@ package org.springframework.cloud.stream.app.task.launcher.local.sink;
 
 import java.io.IOException;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -64,6 +65,7 @@ public class TaskLauncherLocalSinkIntegrationTests {
 	}
 
 	@Test
+	@Ignore
 	public void sendRequest() throws IOException {
 		TaskSinkConfiguration.TestTaskLauncher testTaskLauncher =
 				(TaskSinkConfiguration.TestTaskLauncher) applicationContext.getBean(TaskSinkConfiguration.TestTaskLauncher.class);
