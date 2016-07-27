@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>spring-cloud-stream-app-starters</artifactId>
 		<groupId>org.springframework.cloud.stream.app</groupId>
-		<version>1.0.0.BUILD-SNAPSHOT</version>
+		<version>1.0.0.RELEASE</version>
 	</parent>
 	<artifactId>spring-cloud-stream-app-starters-docs</artifactId>
 	<name>spring-cloud-stream-app-starters-docs</name>
@@ -53,7 +53,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud.stream.app</groupId>
 			<artifactId>spring-cloud-starter-stream-sink-s3</artifactId>
-			<version>${project.version}</version>
+			<version>1.0.0.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud.stream.app</groupId>
@@ -311,7 +311,7 @@
 						<version>2.0.15</version>
 						<configuration>
 							<sourceDirectory>${basedir}/target/generated-docs</sourceDirectory>
-							<imgSrcPath></imgSrcPath>
+							<imgSrcPath />
 							<graphicsize.extension>0</graphicsize.extension>
 							<includes>index.xml</includes>
 							<xincludeSupported>true</xincludeSupported>
@@ -323,7 +323,7 @@
 							<highlightXslthlConfig>${basedir}/src/main/docbook/xsl/xslthl-config.xml</highlightXslthlConfig>
 							<preProcess>
 								<copy todir="${basedir}/target/generated-docs/images">
-									<fileset dir="${basedir}/src/main/docbook/images"/>
+									<fileset dir="${basedir}/src/main/docbook/images" />
 								</copy>
 							</preProcess>
 						</configuration>
@@ -359,10 +359,10 @@
 											</fileset>
 										</copy>
 										<copy todir="${basedir}/target/contents/reference/htmlsingle/images">
-											<fileset dir="${basedir}/target/generated-docs/images"/>
+											<fileset dir="${basedir}/target/generated-docs/images" />
 										</copy>
 										<copy todir="${basedir}/target/contents/reference/htmlsingle/css">
-											<fileset dir="${basedir}/src/main/docbook/css"/>
+											<fileset dir="${basedir}/src/main/docbook/css" />
 										</copy>
 									</postProcess>
 								</configuration>
@@ -384,10 +384,10 @@
 											</fileset>
 										</copy>
 										<copy todir="${basedir}/target/contents/reference/html/images">
-											<fileset dir="${basedir}/target/generated-docs/images"/>
+											<fileset dir="${basedir}/target/generated-docs/images" />
 										</copy>
 										<copy todir="${basedir}/target/contents/reference/html/css">
-											<fileset dir="${basedir}/src/main/docbook/css"/>
+											<fileset dir="${basedir}/src/main/docbook/css" />
 										</copy>
 									</postProcess>
 								</configuration>
@@ -422,8 +422,8 @@
 									<targetDirectory>${basedir}/target/docbook/epub</targetDirectory>
 									<preProcess>
 										<copy todir="${basedir}/target/docbook/epub/images">
-											<fileset dir="${basedir}/src/main/docbook/images"/>
-											<fileset dir="${basedir}/src/main/asciidoc/images"/>
+											<fileset dir="${basedir}/src/main/docbook/images" />
+											<fileset dir="${basedir}/src/main/asciidoc/images" />
 										</copy>
 									</preProcess>
 									<postProcess>
