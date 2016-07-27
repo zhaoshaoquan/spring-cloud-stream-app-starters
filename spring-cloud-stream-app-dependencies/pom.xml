@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.springframework.cloud.stream.app</groupId>
 	<artifactId>spring-cloud-stream-app-dependencies</artifactId>
-	<version>1.0.0.RELEASE</version>
+	<version>1.0.1.BUILD-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>spring-cloud-stream-app-dependencies</name>
 	<description>Spring Cloud Stream App BOM</description>
@@ -62,248 +62,248 @@
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-aggregate-counter</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-processor-bridge</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-processor-filter</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-processor-groovy-filter</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-processor-groovy-transform</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-processor-httpclient</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-processor-pmml</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-processor-scriptable-transform</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-processor-splitter</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-processor-transform</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-cassandra</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-counter</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-field-value-counter</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-file</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-file</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-ftp</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-ftp</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-gemfire</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-gemfire</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-gemfire-cq</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-http</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-jdbc</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-hdfs</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-hdfs-dataset</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-jdbc</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-jms</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-log</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-loggregator</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-mongodb</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-rabbit</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-rabbit</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-redis</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-router</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-s3</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-s3</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-sftp</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-sftp</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-syslog</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-task-launcher-local</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-tcp</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-tcp</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-tcp-client</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-processor-tcp-client</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-time</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-trigger</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-triggertask</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-twitterstream</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-websocket</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-mail</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
@@ -320,27 +320,27 @@
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-source-load-generator</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-processor-integration-test</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-throughput</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-sink-gpfdist</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>app-starters-test-support</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 				<scope>test</scope>
 			</dependency>
 
@@ -349,62 +349,62 @@
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>app-starters-annotation-common</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>app-starters-file-common</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>app-starters-ftp-common</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>app-starters-s3-common</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>app-starters-sftp-common</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>app-starters-tcp-common</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>app-starters-time-common</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>app-starters-trigger-common</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>app-starters-trigger-one-common</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>app-starters-trigger-unlimited-common</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>app-starters-twitter-common</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>spring-cloud-starter-stream-common-gemfire</artifactId>
-				<version>1.0.0.RELEASE</version>
+				<version>1.0.1.BUILD-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
