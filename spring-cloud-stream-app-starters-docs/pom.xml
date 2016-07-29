@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>spring-cloud-stream-app-starters</artifactId>
 		<groupId>org.springframework.cloud.stream.app</groupId>
-		<version>1.0.2.RELEASE</version>
+		<version>1.0.3.BUILD-SNAPSHOT</version>
 	</parent>
 	<artifactId>spring-cloud-stream-app-starters-docs</artifactId>
 	<name>spring-cloud-stream-app-starters-docs</name>
@@ -53,7 +53,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud.stream.app</groupId>
 			<artifactId>spring-cloud-starter-stream-sink-s3</artifactId>
-			<version>1.0.2.RELEASE</version>
+			<version>1.0.3.BUILD-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud.stream.app</groupId>
