@@ -64,23 +64,26 @@ or even on your laptop.
 
 | __Source__ | __Processor__ | __Sink__ |
 | ------- | --------- | ---- | ---- |
-| s3 | bridge | aggregate-counter |
-| file | filter | cassandra |
-| ftp | groovy-filter | counter |
-| http | groovy-transform | field-value-counter |
-| jdbc | httpclient | file | 
-| jms | pmml | ftp |
-| load-generator | scriptable-transform | gemfire |
-| rabbit | splitter | gpfdist |
-| sftp | transform | hdfs |
-| tcp | | jdbc |
-| time | | log |
-| trigger | | rabbit |
-| twitterstream | | redis |
-| | | router |
-| | | tcp |
-| | | throughput |
-| | | websocket |
+| file | bridge | aggregate-counter |
+| ftp | filter | cassandra |
+| gemfire | groovy-filter | counter |
+| gemfire-cq | groovy-transform | field-value-counter |
+| http | httpclient | file |
+| jdbc | pmml | ftp |
+| jms | scriptable-transform | gemfire |
+| load-generator | splitter | gpfdist |
+| mail  | tcp-client | hdfs |
+| mongodb | transform | hdfs-dataset |
+| rabbit | | jdbc |
+| s3 | | log |
+| sftp | | rabbit |
+| syslog | | redis-pubsub |
+| tcp | | router |
+| tcp-client | | s3 |
+| time | | tcp |
+| trigger | | throughput |
+| triggertask | | websocket |
+| twitterstream | | |
 
 
 <span id="quick-start"></span>
@@ -109,10 +112,10 @@ Step 6 - Verify *ticktock* Logs in Console
 
 | __Artifact Type__ | __Stable Release__ | __SNAPSHOT Release__ |
 | ------------------ | ------------------ | ------------------ |
-| RabbitMQ + Maven | [http://bit.ly/1-0-0-RC1-stream-applications-rabbit-maven](http://bit.ly/1-0-0-RC1-stream-applications-rabbit-maven) | [http://bit.ly/stream-applications-rabbit-maven](http://bit.ly/stream-applications-rabbit-maven) |
-| RabbitMQ + Docker | [http://bit.ly/1-0-0-RC1-stream-applications-rabbit-docker](http://bit.ly/1-0-0-RC1-stream-applications-rabbit-docker) | [http://bit.ly/stream-applications-rabbit-docker](http://bit.ly/stream-applications-rabbit-docker) |
-| Apache Kafka + Maven | [http://bit.ly/1-0-0-RC1-stream-applications-kafka-maven](http://bit.ly/1-0-0-RC1-stream-applications-kafka-maven) | [http://bit.ly/stream-applications-kafka-maven](http://bit.ly/stream-applications-kafka-maven) |
-| Apache Kafka + Docker | [http://bit.ly/1-0-0-RC1-stream-applications-kafka-docker](http://bit.ly/1-0-0-RC1-stream-applications-kafka-docker) | [http://bit.ly/stream-applications-kafka-docker](http://bit.ly/stream-applications-kafka-docker) |
+| RabbitMQ + Maven | [http://bit.ly/1-0-2-GA-stream-applications-rabbit-maven](http://bit.ly/1-0-2-GA-stream-applications-rabbit-maven) | [http://bit.ly/stream-applications-rabbit-maven](http://bit.ly/stream-applications-rabbit-maven) |
+| RabbitMQ + Docker | [http://bit.ly/1-0-2-GA-stream-applications-rabbit-docker](http://bit.ly/1-0-2-GA-stream-applications-rabbit-docker) | [http://bit.ly/stream-applications-rabbit-docker](http://bit.ly/stream-applications-rabbit-docker) |
+| Apache Kafka + Maven | [http://bit.ly/1-0-2-GA-stream-applications-kafka-maven](http://bit.ly/1-0-2-GA-stream-applications-kafka-maven) | [http://bit.ly/stream-applications-kafka-maven](http://bit.ly/stream-applications-kafka-maven) |
+| Apache Kafka + Docker | [http://bit.ly/1-0-2-GA-stream-applications-kafka-docker](http://bit.ly/1-0-2-GA-stream-applications-kafka-docker) | [http://bit.ly/stream-applications-kafka-docker](http://bit.ly/stream-applications-kafka-docker) |
 
 _(**) find out how to use the app-starters in Spring Cloud Data Flow by reviewing the [app-registration](http://docs.spring.io/spring-cloud-dataflow/docs/current-SNAPSHOT/reference/htmlsingle/#spring-cloud-dataflow-register-apps) section in the reference guide_
 
