@@ -78,7 +78,7 @@ public class TriggerConfiguration {
 	static class PeriodicTriggerCondition extends NoneNestedConditions {
 
 		PeriodicTriggerCondition() {
-			super(ConfigurationPhase.PARSE_CONFIGURATION);
+			super(ConfigurationPhase.REGISTER_BEAN);
 		}
 
 		@ConditionalOnProperty(TriggerConstants.CRON_TRIGGER_OPTION)
