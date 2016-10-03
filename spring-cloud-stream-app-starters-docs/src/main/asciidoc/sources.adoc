@@ -2,7 +2,6 @@
 == Sources
 
 :leveloffset: +2
-:app-starters-root:  https://raw.githubusercontent.com/spring-cloud/spring-cloud-stream-app-starters/master
 
 [[spring-cloud-stream-modules-file-source]]
 include::{app-starters-root}/file/spring-cloud-starter-stream-source-file/README.adoc[tags=ref-doc]

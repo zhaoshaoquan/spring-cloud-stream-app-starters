@@ -2,7 +2,6 @@
 == Processors
 
 :leveloffset: +2
-:app-starters-root:  https://raw.githubusercontent.com/spring-cloud/spring-cloud-stream-app-starters/master
 
 [[spring-cloud-stream-modules-bridge-processor]]
 include::{app-starters-root}/processor/spring-cloud-starter-stream-processor-bridge/README.adoc[tags=ref-doc]
