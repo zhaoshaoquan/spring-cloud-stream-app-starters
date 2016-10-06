@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.springframework.cloud.stream.app</groupId>
 		<artifactId>spring-cloud-stream-app-starters</artifactId>
-		<version>1.0.3.RELEASE</version>
+		<version>1.0.4.BUILD-SNAPSHOT</version>
 	</parent>
 	<groupId>org.springframework.cloud.stream.app.plugin</groupId>
 	<artifactId>spring-cloud-stream-app-documentation-maven-plugin</artifactId>
