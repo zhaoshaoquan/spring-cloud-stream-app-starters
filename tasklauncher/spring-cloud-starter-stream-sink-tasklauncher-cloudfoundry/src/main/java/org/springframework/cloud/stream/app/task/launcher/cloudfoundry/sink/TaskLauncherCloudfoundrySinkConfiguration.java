@@ -16,13 +16,9 @@
 
 package org.springframework.cloud.stream.app.task.launcher.cloudfoundry.sink;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.cloud.deployer.spi.cloudfoundry.CloudFoundryConnectionProperties;
-import org.springframework.cloud.deployer.spi.cloudfoundry.CloudFoundryDeploymentProperties;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.cloud.task.launcher.annotation.EnableTaskLauncher;
-import org.springframework.context.annotation.Bean;
 
 /**
  * Configuration class for the TaskLauncherSink.
@@ -33,31 +29,4 @@ import org.springframework.context.annotation.Bean;
 @EnableTaskLauncher
 public class TaskLauncherCloudfoundrySinkConfiguration {
 
-	/**
-	 * Sets the prefix for the taskDeploymentProperties to "deployer"
-	 * instead of the full "spring.cloud.deployer.cloudfoundry" prefix.  This
-	 * also prevents a conflict with Spring Cloud Data Flow's usage of
-	 * the deployer prefix.
-	 *
-	 * @return Instance of the CloudFoundryDeploymentProperties.
-	 */
-	@Bean(name = "taskDeploymentProperties")
-	@ConfigurationProperties(prefix = "deployer")
-	public CloudFoundryDeploymentProperties taskDeploymentProperties() {
-		return new CloudFoundryDeploymentProperties();
-	}
-
-	/**
-	 * Sets the prefix for the CloudFoundryConnectionProperties to "deployer"
-	 * instead of the full "spring.cloud.deployer.cloudfoundry" prefix.  This
-	 * also prevents a conflict with Spring Cloud Data Flow's usage of
-	 * the deployer prefix.
-	 *
-	 * @return Instance of the CloudFoundryConnectionProperties.
-	 */
-	@Bean
-	@ConfigurationProperties(prefix = "deployer")
-	public CloudFoundryConnectionProperties cloudFoundryConnectionProperties() {
-		return new CloudFoundryConnectionProperties();
-	}
 }

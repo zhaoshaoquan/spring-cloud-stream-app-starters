@@ -48,10 +48,10 @@ public abstract class TaskLauncherCloudfoundrySinkTests {
 	@Autowired
 	protected CloudFoundryDeploymentProperties taskDeploymentProperties;
 
-	@IntegrationTest({ "deployer.url = http://hello", "deployer.password = bar",
-			"deployer.username = foo", "deployer.space = space",
-			"deployer.org = org", "deployer.domain=baz",
-			"deployer.services=mydb", "deployer.taskTimeout=123"})
+	@IntegrationTest({ "spring.cloud.deployer.cloudfoundry.url = http://hello", "spring.cloud.deployer.cloudfoundry.password = bar",
+			"spring.cloud.deployer.cloudfoundry.username = foo", "spring.cloud.deployer.cloudfoundry.space = space",
+			"spring.cloud.deployer.cloudfoundry.org = org", "spring.cloud.deployer.cloudfoundry.domain=baz",
+			"spring.cloud.deployer.cloudfoundry.services=mydb", "spring.cloud.deployer.cloudfoundry.taskTimeout=123"})
 	public static class PropertiesPopulatedTests extends TaskLauncherCloudfoundrySinkTests {
 
 		@Test
