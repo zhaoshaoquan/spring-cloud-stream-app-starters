@@ -92,20 +92,20 @@ or even on your laptop.
 
 ## Quick Start
 
-Step 1 - Clone [Spring Cloud Stream Application Starters](https://github.com/spring-cloud/spring-cloud-stream-app-starters.git) repository
+Step 1 - Download the latest Kafka 10 based _time-source_ application from [here](http://repo.spring.io/libs-release/org/springframework/cloud/stream/app/time-source-kafka-10) [eg: /1.1.1.RELEASE/time-source-kafka-10-1.1.1.RELEASE.jar]
 
-Step 2 - [Build and Install Apps](https://github.com/spring-cloud/spring-cloud-stream-app-starters#spring-cloud-stream-app-starters-stream---)
+Step 2 - Download the latest Kafka 10 based _log-sink_ application from [here](http://repo.spring.io/libs-release/org/springframework/cloud/stream/app/log-sink-kafka-10) [eg: /1.1.1.RELEASE/log-sink-kafka-10-1.1.1.RELEASE.jar]
 
-Step 3 - Start Kafka
+Step 3 - Start Kafka 0.10.1.0
 
 Step 4 - Run **Time Source** and Bind to *ticktock* Topic
 ```
-java -jar apps/time-source-kafka/target/time-source-kafka-***.jar --spring.cloud.stream.bindings.output.destination=ticktock
+java -jar time-source-kafka-***.jar --spring.cloud.stream.bindings.output.destination=ticktock
 ```
 
 Step 5 - Run **Log Sink** and Bind to *ticktock* Topic
 ```
-java -jar apps/log-sink-kafka/target/log-sink-kafka-***.jar --spring.cloud.stream.bindings.input.destination=ticktock
+java -jar log-sink-kafka-***.jar --spring.cloud.stream.bindings.input.destination=ticktock
 ```
 
 Step 6 - Verify *ticktock* Logs in Console
