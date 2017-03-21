@@ -64,27 +64,30 @@ or even on your laptop.
 
 | __Source__ | __Processor__ | __Sink__ |
 | ------- | --------- | ---- | ---- |
-| file | bridge | aggregate-counter |
-| ftp | filter | cassandra |
-| gemfire | groovy-filter | counter |
-| gemfire-cq | groovy-transform | field-value-counter |
-| http | httpclient | file |
-| jdbc | pmml | ftp |
-| jms | scriptable-transform | gemfire |
-| load-generator | splitter | gpfdist |
-| loggregator  | tcp-client | hdfs |
-| mail | transform | hdfs-dataset |
-| mongodb | | jdbc |
-| rabbit | | log |
-| s3 | | rabbit |
-| sftp | | redis-pubsub |
-| syslog | | router |
-| tcp | | s3 |
-| tcp-client | | sftp |
-| time | | task-launcher-local |
-| trigger | | task-launcher-yarn |
-| triggertask | | tcp |
-| twitterstream | | throughput |
+| file | aggregator | aggregate-counter |
+| ftp | bridge | cassandra |
+| gemfire | filter | counter |
+| gemfire-cq | groovy-filter | field-value-counter |
+| http | groovy-transform | file |
+| jdbc | httpclient | ftp |
+| jms | pmml | gemfire |
+| load-generator | scriptable-transform | gpfdist |
+| loggregator  | splitter | hdfs |
+| mail | tasklaunchrequest-transform | hdfs-dataset |
+| mongodb | tcp-client | jdbc |
+| rabbit | transform | log |
+| s3 | | mongodb |
+| sftp | | pgcopy |
+| syslog | | rabbit |
+| tcp | | redis-pubsub |
+| tcp-client | | router  |
+| time | | s3 |
+| trigger | | sftp |
+| triggertask | | task-launcher-cloudfoundry |
+| twitterstream | | task-launcher-local |
+| | | task-launcher-yarn |
+| | | tcp |
+| | | throughput |
 | | | websocket |
 
 
@@ -114,12 +117,12 @@ Step 6 - Verify *ticktock* Logs in Console
 
 | __Artifact Type__ | __Stable Release__ | __Snapshot/Milestone Release__ |
 | ------------------ | ------------------ | ------------------ |
-| RabbitMQ + Maven | http://bit.ly/Avogadro-SR1-stream-applications-rabbit-maven | http://bit.ly/Bacon-M1-stream-applications-rabbit-maven |
-| RabbitMQ + Docker | http://bit.ly/Avogadro-SR1-stream-applications-rabbit-docker | http://bit.ly/Bacon-M1-stream-applications-rabbit-docker |
-| Apache Kafka 0.9 + Maven | http://bit.ly/Avogadro-SR1-stream-applications-kafka-09-maven | http://bit.ly/Bacon-M1-stream-applications-kafka-09-maven |
-| Apache Kafka 0.10 + Maven | http://bit.ly/Avogadro-SR1-stream-applications-kafka-10-maven | http://bit.ly/Bacon-M1-stream-applications-kafka-10-maven |
-| Apache Kafka 0.9 + Docker | http://bit.ly/Avogadro-SR1-stream-applications-kafka-09-docker | http://bit.ly/Bacon-M1-stream-applications-kafka-09-docker |
-| Apache Kafka 0.10 + Docker | http://bit.ly/Avogadro-SR1-stream-applications-kafka-10-docker | http://bit.ly/Bacon-M1-stream-applications-kafka-10-docker |
+| RabbitMQ + Maven | http://bit.ly/Avogadro-SR1-stream-applications-rabbit-maven | http://bit.ly/Bacon-RC1-stream-applications-rabbit-maven |
+| RabbitMQ + Docker | http://bit.ly/Avogadro-SR1-stream-applications-rabbit-docker | http://bit.ly/Bacon-RC1-stream-applications-rabbit-docker |
+| Apache Kafka 0.9 + Maven | http://bit.ly/Avogadro-SR1-stream-applications-kafka-09-maven | http://bit.ly/Bacon-RC1-stream-applications-kafka-09-maven |
+| Apache Kafka 0.10 + Maven | http://bit.ly/Avogadro-SR1-stream-applications-kafka-10-maven | http://bit.ly/Bacon-RC1-stream-applications-kafka-10-maven |
+| Apache Kafka 0.9 + Docker | http://bit.ly/Avogadro-SR1-stream-applications-kafka-09-docker | http://bit.ly/Bacon-RC1-stream-applications-kafka-09-docker |
+| Apache Kafka 0.10 + Docker | http://bit.ly/Avogadro-SR1-stream-applications-kafka-10-docker | http://bit.ly/Bacon-RC1-stream-applications-kafka-10-docker |
 
 _(**) find out how to use the app-starters in Spring Cloud Data Flow by reviewing the [app-registration](http://docs.spring.io/spring-cloud-dataflow/docs/current-SNAPSHOT/reference/htmlsingle/#spring-cloud-dataflow-register-apps) section in the reference guide_
 
