@@ -31,7 +31,7 @@ import org.springframework.messaging.MessageHandler;
 /**
  * Creates a dedicated RedisConnectionFactory different from the one spring-boot autoconfigure
  * section that the bindings use in spring-cloud-stream.
- * <p/>
+ * <p>
  * The configuration prefix is "spring.cloud.stream.module.redis" and contains the standard
  * properties to configure a redis connection, host, port, etc as well as the additional properties for
  * the sink, queue, key, etc.

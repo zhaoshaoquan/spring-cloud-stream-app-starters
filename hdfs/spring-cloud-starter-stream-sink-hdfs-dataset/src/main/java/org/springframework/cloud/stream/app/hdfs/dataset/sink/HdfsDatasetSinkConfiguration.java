@@ -68,7 +68,7 @@ import org.springframework.util.StringUtils;
 
 /**
  * Configuration class for the HDFS DatasetSink.
- * <p/>
+ * <p>
  * The configuration contains the property 'fsUri' to configure a connection to HDFS as well as the
  * additional properties for the sink like directory, fileName, codec etc. You can also use the
  * standard 'spring.hadoop.fsUri' property for specifying the HDFS connection.
